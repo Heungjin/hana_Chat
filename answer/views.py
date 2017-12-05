@@ -1,8 +1,8 @@
 # coding=utf-8
 from django.http import JsonResponse
-import json
 from django.views.decorators.csrf import csrf_exempt
-
+import json
+import jpype
 # conversation start
 def keyboard(request):
     return JsonResponse({
@@ -11,10 +11,13 @@ def keyboard(request):
     })
 @csrf_exempt
 def message(request):
-
+    jpype.attachThreadToJVM()
     message = ((request.body).decode('utf-8'))
+
     return_json_str = json.loads(message)
     return_str = return_json_str['content']
+    user_key = return_json_str['user_key']
+
     start = check_is_start(return_str)  # start
     ranking = check_is_ranking(return_str)  # ranking
     help = check_is_help(return_str)  # help
