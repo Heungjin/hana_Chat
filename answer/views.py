@@ -2,7 +2,7 @@
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 import json
-import jpype
+# import jpype
 # conversation start
 def keyboard(request):
     return JsonResponse({
@@ -11,7 +11,7 @@ def keyboard(request):
     })
 @csrf_exempt
 def message(request):
-    jpype.attachThreadToJVM()
+    # jpype.attachThreadToJVM()
     message = ((request.body).decode('utf-8'))
 
     return_json_str = json.loads(message)
