@@ -10,17 +10,7 @@ def keyboard(request):
     })
 @csrf_exempt
 def message(request):
-    message = ((request.body).decode('utf-8'))
-
-    return_json_str = json.loads(message)
-    return_str = return_json_str['content']
-
-
-
-    start = check_is_start(return_str)  # check is start state
-    help = check_is_help(return_str)  # model check
     # if start button check
-    if start:
         return JsonResponse({
             'message': {
                 'text': "1",
@@ -31,16 +21,7 @@ def message(request):
             },
         })
 
-    elif help:
-        return JsonResponse({
-            'message': {
-                'text': "1",
-            },
-            'keyboard': {
-                'type': 'buttons',
-                'buttons': ['1', '2']
-            },
-        })
+
 
 # user input is start button check
 def check_is_start(str):
