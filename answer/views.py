@@ -6,7 +6,7 @@ from django.views.decorators.csrf import csrf_exempt
 def keyboard(request):
     return JsonResponse({
         'type': 'buttons',
-        'buttons': ['1', '2'] # start button for user
+        'buttons': ['전세상품 찾기', '전세상품 랭킹', '도움말'] # start button for user
     })
 @csrf_exempt
 def message(request):
