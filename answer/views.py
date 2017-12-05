@@ -9,6 +9,8 @@ def keyboard(request):
         'type': 'buttons',
         'buttons': ['시작하기', '전세상품 랭킹', '도움말'] # start button for user
     })
+
+# response to user post type request
 @csrf_exempt
 def message(request):
     # jpype.attachThreadToJVM()
@@ -16,11 +18,12 @@ def message(request):
 
     return_json_str = json.loads(message)
     return_str = return_json_str['content']
-    user_key = return_json_str['user_key']
+    # user_key = return_json_str['user_key']
 
     start = check_is_start(return_str)  # start
     ranking = check_is_ranking(return_str)  # ranking
     help = check_is_help(return_str)  # help
+
     # if start button check
     if start:
         # result = list(Maker.objects.values_list('makerName', flat=True)) 상품
