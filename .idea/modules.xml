@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$USER_HOME$/chat/.idea/chat.iml" filepath="$USER_HOME$/chat/.idea/chat.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/djangogirls.iml" filepath="$PROJECT_DIR$/.idea/djangogirls.iml" />
+      <module fileurl="file://$USER_HOME$/hana_chat/.idea/hana_chat.iml" filepath="$USER_HOME$/hana_chat/.idea/hana_chat.iml" />
+    </modules>
+  </component>
+</project>
