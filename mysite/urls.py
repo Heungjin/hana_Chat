@@ -21,6 +21,6 @@ from answer.views import keyboard, message
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^keyboard/', keyboard),
+    url(r'^keyboard/', 'answer.views.keyboard'),
     url(r'^message', message),
 ]
