@@ -1,5 +1,4 @@
 from django.http import JsonResponse
-import jpype
 import json
 
 
@@ -11,18 +10,24 @@ def keyboard(request):
     })
 
 def message(request):
+    message = ((request.body).decode('utf-8'))
+
+    return_json_str = json.loads(message)
+    return_str = return_json_str['content']
+
+
+
     start = check_is_start(return_str)  # check is start state
 
     # if start button check
     if start:
-        result = list(Maker.objects.values_list('makerName', flat=True))
         return JsonResponse({
             'message': {
                 'text': "얼마고를 시작합니다. 핸드폰 기종을 선택하여 주세요!",
             },
             'keyboard': {
                 'type': 'buttons',
-                'buttons': result,
+                'buttons': ['시작하기', '도움말']
             },
         })
 
