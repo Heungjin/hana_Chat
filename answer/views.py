@@ -1,6 +1,6 @@
 from django.http import JsonResponse
 import json
-
+from django.views.decorators.csrf import csrf_exempt
 
 # conversation start
 def keyboard(request):
@@ -8,7 +8,7 @@ def keyboard(request):
         'type': 'buttons',
         'buttons': ['1', '2'] # start button for user
     })
-
+@csrf_exempt
 def message(request):
     message = ((request.body).decode('utf-8'))
 
@@ -18,7 +18,7 @@ def message(request):
 
 
     start = check_is_start(return_str)  # check is start state
-
+    help = check_is_help(return_str)  # model check
     # if start button check
     if start:
         return JsonResponse({
