@@ -73,8 +73,8 @@ def message(request):
 
 
 # user input is start button check
-def check_is_start(run_start):
-    if run_start == ("시작하기").decode('utf-8'):
+def check_is_start(str):
+    if str == ("시작하기").decode('utf-8'):
         return True
     else:
         return False
@@ -82,7 +82,7 @@ def check_is_start(run_start):
 
 # user input is start button check
 def check_is_ranking(str):
-    if str == "전세상품 랭킹":
+    if str == ("전세상품 랭킹").decode('utf-8'):
         return True
     else:
         return False
@@ -90,7 +90,7 @@ def check_is_ranking(str):
 
 # user input is help button check
 def check_is_help(str):
-    if str == "도움말":
+    if str == ("도움말").decode('utf-8'):
         return True
     else:
         return False
