@@ -1,14 +1,13 @@
-# coding=utf-8
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 import json
 
-
+button_list = ['시작하기', '전세상품 랭킹', '도움말', '임대주택정보', '뭐먹지?', '내기']
 # conversation start
 def keyboard(request):
     return JsonResponse({
         'type': 'buttons',
-        'buttons': ['시작하기', '전세상품 랭킹', '도움말'] # start button for user
+        'buttons': button_list # start button for user
     })
 
 # response to user post type request
@@ -23,7 +22,7 @@ def message(request):
     help = check_is_help(return_str)  # help
 
     # if start button check
-    if return_str == "시작하기":
+    if start:
         # result = list(Maker.objects.values_list('makerName', flat=True)) 상품
         return JsonResponse({
             'message': {
