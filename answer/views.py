@@ -17,8 +17,8 @@ def keyboard(request):
 # response to user post type request
 @csrf_exempt
 def message(request):
-    message = ((request.body).decode('utf-8'))
-    return_json_str = json.loads(message)
+    json_raw = ((request.body).decode('utf-8'))
+    return_json_str = json.loads(json_raw)
     return_str = return_json_str['content']
 
     start = check_is_start(return_str)  # start
@@ -73,8 +73,8 @@ def message(request):
 
 
 # user input is start button check
-def check_is_start(str):
-    if str == "시작하기":
+def check_is_start(run_start):
+    if run_start == "시작하기":
         return True
     else:
         return False
