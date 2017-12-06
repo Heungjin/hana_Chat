@@ -4,12 +4,15 @@ from django.views.decorators.csrf import csrf_exempt
 import json
 
 button_list = ['시작하기', '전세상품 랭킹', '도움말', '임대주택정보', '뭐먹지?', '내기']
+
+
 # conversation start
 def keyboard(request):
     return JsonResponse({
         'type': 'buttons',
         'buttons': button_list # start button for user
     })
+
 
 # response to user post type request
 @csrf_exempt
@@ -64,27 +67,30 @@ def message(request):
             },
             'keyboard': {
                 'type': 'buttons',
-                'buttons': ['시작하기', '전세상품 랭킹', '도움말'] # start button for user
+                'buttons': button_list # start button for user
             },
         })
 
+
 # user input is start button check
 def check_is_start(str):
-    if str == '시작하기':
+    if str == "시작하기":
         return True
     else:
         return False
+
 
 # user input is start button check
 def check_is_ranking(str):
-    if str == '전세상품 랭킹':
+    if str == "전세상품 랭킹":
         return True
     else:
         return False
 
+
 # user input is help button check
 def check_is_help(str):
-    if str == '도움말':
+    if str == "도움말":
         return True
     else:
         return False
