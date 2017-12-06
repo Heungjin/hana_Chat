@@ -70,21 +70,21 @@ def message(request):
 
 # user input is start button check
 def check_is_start(str):
-    if str == "시작하기":
+    if str == '시작하기':
         return True
     else:
         return False
 
 # user input is start button check
 def check_is_ranking(str):
-    if str == "전세상품 랭킹":
+    if str == '전세상품 랭킹':
         return True
     else:
         return False
 
 # user input is help button check
 def check_is_help(str):
-    if str == "도움말":
+    if str == '도움말':
         return True
     else:
         return False
