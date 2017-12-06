@@ -46,7 +46,7 @@ def message(request):
             },
             'keyboard': {
                 'type': 'buttons',
-                'buttons': ['우리은행#1', '신한은행#1', '우리은행#2','우리은행#3','농협#1','기업은행#1']
+                'buttons': ['우리은행#1', '신한은행#1', '우리은행#2','우리은행#3','농협#1','기업은행#1'] # DB에 넣어서 list로 출력
             },
         })
 
@@ -75,7 +75,7 @@ def message(request):
     elif gamble:
         return JsonResponse({
             'message': {
-                'text': "랜덤게임? 간단히 구현 예정",
+                'text': "헌기가 걸렸습니다.",
             },
             'keyboard': {
                 'type': 'buttons',
