@@ -23,7 +23,7 @@ def message(request):
     help = check_is_help(return_str)  # help
 
     # if start button check
-    if start:
+    if return_str == "시작하기":
         # result = list(Maker.objects.values_list('makerName', flat=True)) 상품
         return JsonResponse({
             'message': {
