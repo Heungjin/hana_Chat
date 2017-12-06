@@ -3,7 +3,7 @@ from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 import json
 
-button_list = ['시작하기', '전세상품 랭킹', '도움말', '임대주택정보', '뭐먹지?', '내기']
+button_list = ['시작하기', '전세상품 랭킹', '임대주택정보', '내기', '도움말']
 
 
 # conversation start
@@ -23,6 +23,8 @@ def message(request):
 
     start = check_is_start(return_str)  # start
     ranking = check_is_ranking(return_str)  # ranking
+    rental = check_is_rental(return_str)  # rental
+    gamble = check_is_gamble(return_str)  # gamble
     help = check_is_help(return_str)  # help
 
     # if start button check
@@ -56,7 +58,28 @@ def message(request):
             },
             'keyboard': {
                 'type': 'buttons',
-                'buttons': ['시작하기', '도움말']
+                'buttons': button_list
+            },
+        })
+
+    elif rental:
+        return JsonResponse({
+            'message': {
+                'text': "크롤링을 통해 가장 최신의 임대주택정보를 화면에 출력 예정",
+            },
+            'keyboard': {
+                'type': 'buttons',
+                'buttons': ['나가기']
+            },
+        })
+    elif gamble:
+        return JsonResponse({
+            'message': {
+                'text': "랜덤게임? 간단히 구현 예정",
+            },
+            'keyboard': {
+                'type': 'buttons',
+                'buttons': ['나가기']
             },
         })
 
@@ -91,6 +114,21 @@ def check_is_ranking(str):
 # user input is help button check
 def check_is_help(str):
     if str == ("도움말").decode('utf-8'):
+        return True
+    else:
+        return False
+
+
+# user input is help button check
+def check_is_rental(str):
+    if str == ("임대주택정보").decode('utf-8'):
+        return True
+    else:
+        return False
+
+# user input is gamble button check
+def check_is_gamble(str):
+    if str == ("내기").decode('utf-8'):
         return True
     else:
         return False
