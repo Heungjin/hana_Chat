@@ -4,7 +4,6 @@
     <content url="file://$MODULE_DIR$" />
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="module" module-name="hana_chat" />
     <orderEntry type="module" module-name="chat" />
   </component>
   <component name="TestRunnerService">

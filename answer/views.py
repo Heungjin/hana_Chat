@@ -27,6 +27,7 @@ def message(request):
 
     start = check_is_start(return_str)  # start
     ranking = check_is_ranking(return_str)  # ranking
+    rankAll = check_is_rankAll(return_str)  # ranking
     rental = check_is_rental(return_str)  # rental
     gamble = check_is_gamble(return_str)  # gamble
     help = check_is_help(return_str)  # help
@@ -44,6 +45,17 @@ def message(request):
         })
 
     elif ranking:
+        return JsonResponse({
+            'message': {
+                'text': "가장 인기있는 전세자금대출 상품 랭킹입니다.",
+            },
+            'keyboard': {
+                'type': 'buttons',
+                'buttons': LoanGoodslist # DB에 넣어서 list로 출력
+            },
+        })
+
+    elif rankAll:
         return JsonResponse({
             'message': {
                 'text': "가장 인기있는 전세자금대출 상품 랭킹입니다.",
@@ -110,6 +122,14 @@ def check_is_start(str):
 # user input is start button check
 def check_is_ranking(str):
     if str == ("전세상품 랭킹").decode('utf-8'):
+        return True
+    else:
+        return False
+
+
+# user input is start button check
+def check_is_rankAll(str):
+    if str == ("모든 전세상품").decode('utf-8'):
         return True
     else:
         return False
