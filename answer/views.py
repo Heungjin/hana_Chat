@@ -4,16 +4,16 @@ from django.views.decorators.csrf import csrf_exempt
 from answer.models import LoanGoods
 import json
 
-button_list = ['시작하기', '전세상품 랭킹', '임대주택정보', '내기', '도움말']
+button_list = ['시작하기', '전세상품 랭킹', '모든 전세상품', '임대주택정보', '내기', '도움말']
 
-
-LoanGoodslist = list(LoanGoods.objects.values_list('loan_good_name', flat=True))[0]
-
+LoanGoodsList = list(LoanGoods.objects.values_list('loan_good_name', flat=True))[2:5]
+LoanAllList = list(LoanGoods.objects.values_list('loan_good_name', flat=True))
 # conversation start
 def keyboard(request):
 
     return JsonResponse({
         'type': 'buttons',
+        'testtesttesttest' : LoanGoodsList,
         'buttons': button_list # start button for user
     })
 
@@ -51,7 +51,7 @@ def message(request):
             },
             'keyboard': {
                 'type': 'buttons',
-                'buttons': LoanGoodslist # DB에 넣어서 list로 출력
+                'buttons': LoanGoodsList # DB에 넣어서 list로 출력
             },
         })
 
@@ -62,7 +62,7 @@ def message(request):
             },
             'keyboard': {
                 'type': 'buttons',
-                'buttons': LoanGoodslist # DB에 넣어서 list로 출력
+                'buttons': LoanAllList # DB에 넣어서 list로 출력
             },
         })
 

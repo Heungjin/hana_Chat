@@ -12,7 +12,7 @@ class CustomerInfoAdmin(admin.ModelAdmin):
 
 
 class LoanGoodsAdmin(admin.ModelAdmin):
-  list_display = ('loan_good_num', 'loan_good_name', 'loan_bank', 'avg_int_rat','money_credit_line','rate_credit_line','salary_credit_line','month_loan_period_line','loan_repayment', 'loan_url', 'loan_img','num_recommend','chatbot_img','chat_recommend')
+  list_display = ('loan_good_num', 'loan_good_name', 'loan_bank', 'avg_int_rat','money_credit_line','rate_credit_line','salary_credit_line','month_loan_period_line','loan_repayment', 'loan_url', 'loan_img','num_recommend','chatbot_img','chatbot_description','chat_recommend')
 
 class BanksAdmin(admin.ModelAdmin):
   list_display = ('bank_id', 'bank_name', 'bank_image')
