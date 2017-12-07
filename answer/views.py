@@ -1,15 +1,19 @@
 # coding=utf-8
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
+from answer.models import LoanGoods
 import json
 
 button_list = ['시작하기', '전세상품 랭킹', '임대주택정보', '내기', '도움말']
+# LoanGoodslist = LoanGoods.objects.value
 
 
 # conversation start
 def keyboard(request):
+
     return JsonResponse({
         'type': 'buttons',
+        # 'test': LoanGoodslist,
         'buttons': button_list # start button for user
     })
 

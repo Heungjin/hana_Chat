@@ -78,11 +78,14 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'project', # DB명
+        'NAME': 'hanaproject', # DB명
         'USER': 'admin', # 데이터베이스 계정
         'PASSWORD': 'wjsgmdwls', # 계정 비밀번호
-        'HOST': 'hanaproject.c7qldhnfrqvy.ap-northeast-2.rds.amazonaws.com', # 데이테베이스 주소(IP)
+        'HOST': 'hana-finance.c7qldhnfrqvy.ap-northeast-2.rds.amazonaws.com', # 데이테베이스 주소(IP)
         'PORT': '3306', # 데이터베이스 포트(보통은 3306)
+        'OPTIONS': {
+            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
+        },
     }
 }
 

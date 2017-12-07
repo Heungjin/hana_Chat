@@ -10,6 +10,74 @@ from __future__ import unicode_literals
 from django.db import models
 
 
+class Banks(models.Model):
+    bank_id = models.IntegerField(primary_key=True)
+    bank_name = models.CharField(max_length=20, blank=True, null=True)
+    bank_image = models.CharField(max_length=30, blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'banks'
+
+
+class CustomerInfo(models.Model):
+    cus_num = models.AutoField(primary_key=True)
+    cus_age = models.IntegerField(blank=True, null=True)
+    cus_sex = models.IntegerField(blank=True, null=True)
+    repayment = models.IntegerField(blank=True, null=True)
+    repayment_money = models.FloatField(blank=True, null=True)
+    cus_salary = models.FloatField(blank=True, null=True)
+    cus_loan = models.FloatField(blank=True, null=True)
+    leasing_mortgage = models.FloatField(blank=True, null=True)
+    month_loan_period = models.IntegerField(blank=True, null=True)
+    bank_id = models.IntegerField(blank=True, null=True)
+    input_date = models.DateTimeField(blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'customer_info'
+
+
+class LoanGoods(models.Model):
+    loan_good_num = models.IntegerField(primary_key=True)
+    loan_good_name = models.CharField(max_length=50, blank=True, null=True)
+    loan_bank = models.ForeignKey(Banks, models.DO_NOTHING, blank=True, null=True)
+    avg_int_rat = models.FloatField(blank=True, null=True)
+    money_credit_line = models.FloatField(blank=True, null=True)
+    rate_credit_line = models.FloatField(blank=True, null=True)
+    salary_credit_line = models.FloatField(blank=True, null=True)
+    month_loan_period_line = models.IntegerField(blank=True, null=True)
+    loan_repayment = models.IntegerField(blank=True, null=True)
+    loan_url = models.CharField(max_length=200, blank=True, null=True)
+    loan_img = models.CharField(max_length=50, blank=True, null=True)
+    num_recommend = models.IntegerField(blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'loan_goods'
+
+
+class TbCalc(models.Model):
+    calc_num = models.AutoField(primary_key=True)
+    calc_cus_num = models.ForeignKey(CustomerInfo, models.DO_NOTHING, db_column='calc_cus_num', blank=True, null=True)
+    calc_loan_num = models.ForeignKey(LoanGoods, models.DO_NOTHING, db_column='calc_loan_num', blank=True, null=True)
+    like_loan = models.IntegerField(blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'tb_calc'
+
+
+class TbCalc2(models.Model):
+    calc2_cus_num = models.ForeignKey(CustomerInfo, models.DO_NOTHING, db_column='calc2_cus_num', blank=True, null=True)
+    calc2_loan_num = models.ForeignKey(LoanGoods, models.DO_NOTHING, db_column='calc2_loan_num', blank=True, null=True)
+    select_date = models.DateTimeField(blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'tb_calc2'
+
+
 class AuthGroup(models.Model):
     name = models.CharField(unique=True, max_length=80)
 
@@ -76,32 +144,6 @@ class AuthUserUserPermissions(models.Model):
         unique_together = (('user', 'permission'),)
 
 
-class Banks(models.Model):
-    bank_id = models.IntegerField(primary_key=True)
-    bank_name = models.CharField(max_length=20, blank=True, null=True)
-    bank_image = models.CharField(max_length=30, blank=True, null=True)
-
-    class Meta:
-        managed = False
-        db_table = 'banks'
-
-
-class CustomerInfo(models.Model):
-    cus_num = models.AutoField(primary_key=True)
-    cus_age = models.IntegerField(blank=True, null=True)
-    cus_sex = models.IntegerField(blank=True, null=True)
-    repayment = models.IntegerField(blank=True, null=True)
-    repayment_money = models.FloatField(blank=True, null=True)
-    cus_salary = models.FloatField(blank=True, null=True)
-    cus_loan = models.FloatField(blank=True, null=True)
-    leasing_mortgage = models.FloatField(blank=True, null=True)
-    month_loan_period = models.IntegerField(blank=True, null=True)
-    bank_id = models.IntegerField(blank=True, null=True)
-    input_date = models.DateTimeField(blank=True, null=True)
-
-    class Meta:
-        managed = False
-        db_table = 'customer_info'
 
 
 class DjangoAdminLog(models.Model):
@@ -147,42 +189,3 @@ class DjangoSession(models.Model):
         managed = False
         db_table = 'django_session'
 
-
-class LoanGoods(models.Model):
-    loan_num = models.IntegerField(primary_key=True)
-    loan_good_name = models.CharField(max_length=50, blank=True, null=True)
-    loan_bank = models.ForeignKey(Banks, models.DO_NOTHING, blank=True, null=True)
-    avg_int_rat = models.FloatField(blank=True, null=True)
-    money_credit_line = models.FloatField(blank=True, null=True)
-    rate_credit_line = models.FloatField(blank=True, null=True)
-    salary_credit_line = models.FloatField(blank=True, null=True)
-    month_loan_period_line = models.IntegerField(blank=True, null=True)
-    loan_repayment = models.IntegerField(blank=True, null=True)
-    loan_url = models.CharField(max_length=200, blank=True, null=True)
-    loan_img = models.CharField(max_length=50, blank=True, null=True)
-    num_recommend = models.IntegerField(blank=True, null=True)
-
-    class Meta:
-        managed = False
-        db_table = 'loan_goods'
-
-
-class TbCalc(models.Model):
-    calc_num = models.AutoField(primary_key=True)
-    calc_cus_num = models.ForeignKey(CustomerInfo, models.DO_NOTHING, db_column='calc_cus_num', blank=True, null=True)
-    calc_loan_num = models.ForeignKey(LoanGoods, models.DO_NOTHING, db_column='calc_loan_num', blank=True, null=True)
-    like_loan = models.IntegerField(blank=True, null=True)
-
-    class Meta:
-        managed = False
-        db_table = 'tb_calc'
-
-
-class TbCalc2(models.Model):
-    calc2_cus_num = models.ForeignKey(CustomerInfo, models.DO_NOTHING, db_column='calc2_cus_num', blank=True, null=True)
-    calc2_loan_num = models.ForeignKey(LoanGoods, models.DO_NOTHING, db_column='calc2_loan_num', blank=True, null=True)
-    select_date = models.DateTimeField(blank=True, null=True)
-
-    class Meta:
-        managed = False
-        db_table = 'tb_calc2'
