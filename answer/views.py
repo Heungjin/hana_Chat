@@ -5,15 +5,15 @@ from answer.models import LoanGoods
 import json
 
 button_list = ['시작하기', '전세상품 랭킹', '임대주택정보', '내기', '도움말']
-# LoanGoodslist = LoanGoods.objects.value
 
+
+LoanGoodslist = list(LoanGoods.objects.values_list('loan_good_name', flat=True))
 
 # conversation start
 def keyboard(request):
 
     return JsonResponse({
         'type': 'buttons',
-        # 'test': LoanGoodslist,
         'buttons': button_list # start button for user
     })
 
@@ -50,7 +50,7 @@ def message(request):
             },
             'keyboard': {
                 'type': 'buttons',
-                'buttons': ['우리은행#1', '신한은행#1', '우리은행#2','우리은행#3','농협#1','기업은행#1'] # DB에 넣어서 list로 출력
+                'buttons': LoanGoodslist # DB에 넣어서 list로 출력
             },
         })
 
