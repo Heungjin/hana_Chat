@@ -51,8 +51,8 @@ class LoanGoods(models.Model):
     loan_url = models.CharField(max_length=200, blank=True, null=True)
     loan_img = models.CharField(max_length=50, blank=True, null=True)
     num_recommend = models.IntegerField(blank=True, null=True)
-    loan_img = models.CharField(max_length=50, blank=True, null=True)
-    num_recommend = models.IntegerField(blank=True, null=True)
+    chatbot_img = models.CharField(max_length=50, blank=True, null=True)
+    chat_recommend = models.IntegerField(blank=True, null=True)
 
 
     class Meta:

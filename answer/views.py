@@ -7,7 +7,7 @@ import json
 button_list = ['시작하기', '전세상품 랭킹', '임대주택정보', '내기', '도움말']
 
 
-LoanGoodslist = list(LoanGoods.objects.values_list('loan_good_name', flat=True))
+LoanGoodslist = list(LoanGoods.objects.values_list('loan_good_name', flat=True))[0]
 
 # conversation start
 def keyboard(request):
