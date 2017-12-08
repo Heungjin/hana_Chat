@@ -31,8 +31,8 @@
             <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
               <entry file="file://$USER_HOME$/chat/Chat/chatbot/answer/views.py">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="527">
-                    <caret line="79" column="25" lean-forward="true" selection-start-line="79" selection-start-column="25" selection-end-line="79" selection-end-column="25" />
+                  <state relative-caret-position="561">
+                    <caret line="54" column="38" lean-forward="false" selection-start-line="54" selection-start-column="38" selection-end-line="54" selection-end-column="38" />
                     <folding>
                       <element signature="e#15#51#0" expanded="true" />
                     </folding>
@@ -62,8 +62,8 @@
       <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/answer/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2113">
-              <caret line="175" column="86" lean-forward="false" selection-start-line="175" selection-start-column="86" selection-end-line="175" selection-end-column="86" />
+            <state relative-caret-position="663">
+              <caret line="96" column="33" lean-forward="false" selection-start-line="96" selection-start-column="33" selection-end-line="96" selection-end-column="33" />
               <folding>
                 <element signature="e#15#51#0" expanded="true" />
               </folding>
@@ -106,7 +106,7 @@
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="-7" />
-    <option name="width" value="999" />
+    <option name="width" value="1033" />
     <option name="height" value="1047" />
   </component>
   <component name="ProjectView">
@@ -135,22 +135,6 @@
             </path>
             <path>
               <item name="djangogirls" type="b2602c69:ProjectViewProjectNode" />
-              <item name="djangogirls" type="462c0819:PsiDirectoryNode" />
-              <item name="answer" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="djangogirls" type="b2602c69:ProjectViewProjectNode" />
-              <item name="djangogirls" type="462c0819:PsiDirectoryNode" />
-              <item name="answer" type="462c0819:PsiDirectoryNode" />
-              <item name="migrations" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="djangogirls" type="b2602c69:ProjectViewProjectNode" />
-              <item name="djangogirls" type="462c0819:PsiDirectoryNode" />
-              <item name="mysite" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="djangogirls" type="b2602c69:ProjectViewProjectNode" />
               <item name="chat" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -163,13 +147,6 @@
               <item name="chat" type="462c0819:PsiDirectoryNode" />
               <item name="Chat" type="462c0819:PsiDirectoryNode" />
               <item name="chatbot" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="djangogirls" type="b2602c69:ProjectViewProjectNode" />
-              <item name="chat" type="462c0819:PsiDirectoryNode" />
-              <item name="Chat" type="462c0819:PsiDirectoryNode" />
-              <item name="chatbot" type="462c0819:PsiDirectoryNode" />
-              <item name="answer" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -317,10 +294,10 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="0" width="999" height="1047" extended-state="0" />
+    <frame x="-7" y="0" width="1033" height="1047" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23296033" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22517207" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -698,20 +675,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/chat/Chat/chatbot/answer/views.py">
+    <entry file="file://$PROJECT_DIR$/answer/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="79" column="25" lean-forward="true" selection-start-line="79" selection-start-column="25" selection-end-line="79" selection-end-column="25" />
+        <state relative-caret-position="663">
+          <caret line="96" column="33" lean-forward="false" selection-start-line="96" selection-start-column="33" selection-end-line="96" selection-end-column="33" />
           <folding>
             <element signature="e#15#51#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/answer/views.py">
+    <entry file="file://$USER_HOME$/chat/Chat/chatbot/answer/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2113">
-          <caret line="175" column="86" lean-forward="false" selection-start-line="175" selection-start-column="86" selection-end-line="175" selection-end-column="86" />
+        <state relative-caret-position="561">
+          <caret line="54" column="38" lean-forward="false" selection-start-line="54" selection-start-column="38" selection-end-line="54" selection-end-column="38" />
           <folding>
             <element signature="e#15#51#0" expanded="true" />
           </folding>
