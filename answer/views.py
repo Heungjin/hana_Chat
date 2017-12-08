@@ -94,7 +94,7 @@ def message(request):
         loanGoods = LoanGoods.objects.get(loan_good_name=return_str)
         return JsonResponse({
             'message': {
-                'text': loanGoods.encode('utf-8') + "을 선택하였습니다." + return_str,
+                'text': return_str + "을 선택하였습니다.",
             },
             'keyboard': {
                 'type': 'buttons',
