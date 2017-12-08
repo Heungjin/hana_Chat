@@ -91,10 +91,10 @@ def message(request):
         })
 
     elif goods:
-        return_str = LoanGoods.objects.get(loan_good_name=return_str)
+        loanGoods = LoanGoods.objects.get(loan_good_name=return_str.encode('utf8'))
         return JsonResponse({
             'message': {
-                'text': return_str + "을 선택하였습니다.",
+                'text': loanGoods + "을 선택하였습니다." + return_str,
             },
             'keyboard': {
                 'type': 'buttons',
