@@ -10,7 +10,7 @@ LoanGoodsList = list(LoanGoods.objects.values_list('loan_good_name', flat=True))
 LoanAllList = list(LoanGoods.objects.values_list('loan_good_name', flat=True))
 # test_LoanAllList = list(LoanGoods.objects.values_list('loan_good_name', flat=True).filter(loan_repayment=1)) # 필터링
 test_ranking = list(LoanGoods.objects.values_list('loan_good_name', flat=True).order_by('-chat_recommend'))
-test_ranking_Str = "\n".join(test_ranking)
+test_ranking_Str = "\n".join(test_ranking).decode('utf-8')
 # conversation start
 def keyboard(request):
 
