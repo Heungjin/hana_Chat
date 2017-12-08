@@ -8,12 +8,14 @@ button_list = ['시작하기', '전세상품 랭킹', '모든 전세상품', '�
 
 LoanGoodsList = list(LoanGoods.objects.values_list('loan_good_name', flat=True))[2:5]
 LoanAllList = list(LoanGoods.objects.values_list('loan_good_name', flat=True))
+# test_LoanAllList = list(LoanGoods.objects.values_list('loan_good_name', flat=True).filter(loan_repayment=1)) # 필터링
+test_ranking = list(LoanGoods.objects.values_list('loan_good_name', flat=True).order_by('chat_recommend'))
 # conversation start
 def keyboard(request):
 
     return JsonResponse({
         'type': 'buttons',
-        'testtesttesttest' : LoanGoodsList,
+        'test_LoanAllList' : test_ranking,
         'buttons': button_list # start button for user
     })
 
