@@ -4,13 +4,13 @@ from django.views.decorators.csrf import csrf_exempt
 from answer.models import LoanGoods
 import json
 
-button_list = ['시작하기', '전세상품 랭킹', '모든 전세상품', '임대주택정보', '내기', '도움말']
+button_list = ['시작하기', '모든 전세상품(랭킹순)', '임대주택정보', '내기', '도움말']
 
 LoanGoodsList = list(LoanGoods.objects.values_list('loan_good_name', flat=True))[2:5]
 LoanAllList = list(LoanGoods.objects.values_list('loan_good_name', flat=True))
 # test_LoanAllList = list(LoanGoods.objects.values_list('loan_good_name', flat=True).filter(loan_repayment=1)) # 필터링
 test_ranking = list(LoanGoods.objects.values_list('loan_good_name', flat=True).order_by('-chat_recommend'))
-test_ranking_Str = ",".join(test_ranking).encode('utf8')
+test_ranking_Str = "\n".join(test_ranking).encode('utf8')
 # conversation start
 def keyboard(request):
 
@@ -28,7 +28,6 @@ def message(request):
     return_str = return_json_str['content']
 
     start = check_is_start(return_str)  # start
-    ranking = check_is_ranking(return_str)  # ranking
     rankAll = check_is_rankAll(return_str)  # ranking
     rental = check_is_rental(return_str)  # rental
     gamble = check_is_gamble(return_str)  # gamble
@@ -46,7 +45,7 @@ def message(request):
             },
         })
 
-    elif ranking:
+    elif rankAll:
         return JsonResponse({
             'message': {
                 'text': "가장 인기있는 전세자금대출 상품 랭킹입니다. 현재 순위는 다음과 같습니다. " + test_ranking_Str,
@@ -54,17 +53,6 @@ def message(request):
             'keyboard': {
                 'type': 'buttons',
                 'buttons': test_ranking # DB에 넣어서 list로 출력
-            },
-        })
-
-    elif rankAll:
-        return JsonResponse({
-            'message': {
-                'text': "가장 인기있는 전세자금대출 상품 랭킹입니다.",
-            },
-            'keyboard': {
-                'type': 'buttons',
-                'buttons': LoanAllList # DB에 넣어서 list로 출력
             },
         })
 
@@ -120,18 +108,9 @@ def check_is_start(str):
     else:
         return False
 
-
-# user input is start button check
-def check_is_ranking(str):
-    if str == ("전세상품 랭킹").decode('utf-8'):
-        return True
-    else:
-        return False
-
-
 # user input is start button check
 def check_is_rankAll(str):
-    if str == ("모든 전세상품").decode('utf-8'):
+    if str == ("모든 전세상품(랭킹순)").decode('utf-8'):
         return True
     else:
         return False
