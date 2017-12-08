@@ -15,7 +15,6 @@ def keyboard(request):
 
     return JsonResponse({
         'type': 'buttons',
-        'test_LoanAllList' : test_ranking,
         'buttons': button_list # start button for user
     })
 
@@ -53,7 +52,7 @@ def message(request):
             },
             'keyboard': {
                 'type': 'buttons',
-                'buttons': LoanGoodsList # DB에 넣어서 list로 출력
+                'buttons': test_ranking # DB에 넣어서 list로 출력
             },
         })
 
