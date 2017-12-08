@@ -102,7 +102,7 @@ def message(request):
                 'text': (return_str).encode('utf-8') + "을 선택하였습니다. \n" +
                 (return_str).encode('utf-8') + "의 정보는 다음과 같습니다." + (loanGoods.chatbot_description).encode('utf-8'),
                 "photo": {
-                    "url": "hana-finance.c7qldhnfrqvy.ap-northeast-2.rds.amazonaws.com:3306" + (loanGoods.chatbot_img).encode('utf-8'),
+                    "url": "hana-finance.c7qldhnfrqvy.ap-northeast-2.rds.amazonaws.com:3306" + loanGoods.chatbot_img,
                     "width": 640,
                     "height": 480
                 }
@@ -112,26 +112,6 @@ def message(request):
                 'buttons': button_list
             },
         })
-
-
-
-    # elif model:
-    #     phoneModel = PhoneModel.objects.get(modelName=return_str)
-    #     User.setUserState(user_key, phoneModel)
-    #     return JsonResponse({
-    #         'message': {
-    #             'text': return_str + "을 구매하길 원하신다면 '가격 정보 보기'를, 판매하길 원하신다면 '모의 판매글 올리기'를 선택해주세요.",
-    #             "photo": {
-    #                 "url": "http://ec2-13-124-156-121.ap-northeast-2.compute.amazonaws.com:8000" + phoneModel.modelPhoto.url,
-    #                 "width": 640,
-    #                 "height": 480
-    #             },
-    #         },
-    #         'keyboard': {
-    #             'type': 'buttons',
-    #             'buttons': ['가격 정보 보기', '모의 판매글 올리기'],
-    #         },
-    #     })
 
     else:
         return JsonResponse({
