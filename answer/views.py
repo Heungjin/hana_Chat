@@ -35,7 +35,6 @@ def message(request):
     goods = check_is_goods(return_str)
     # if start button check
     print(return_str)
-    print(loanGoods)
     if start:
         # result = list(Maker.objects.values_list('makerName', flat=True)) 상품
         return JsonResponse({
