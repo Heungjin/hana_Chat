@@ -173,7 +173,7 @@ def check_is_gamble(str):
 
 # user input is maker button check
 def check_is_goods(str):
-    goods = LoanGoods.objects.values_list('loan_good_name', flat=True)
+    goods = LoanGoods.objects.values_list('loan_good_name', flat=True).decode('utf-8')
     if str in goods:
         return True
     else:
