@@ -94,13 +94,13 @@ def message(request):
 
     elif goods:
         loanGoods = LoanGoods.objects.get(loan_good_name=(return_str).encode('utf-8'))
-        loanGoodsDesc = LoanGoods.objects.filter(chatbot_description=loanGoods)
+        loanGoodsDesc = list(LoanGoods.objects.filter(chatbot_description=loanGoods))[0]
 
-        list(LoanGoods.objects.values_list('loan_good_name', flat=True).filter(loan_repayment=1))
+        # list(LoanGoods.objects.values_list('loan_good_name', flat=True).filter(loan_repayment=1))[0]
         return JsonResponse({
             'message': {
                 'text': (return_str).encode('utf-8') + "을 선택하였습니다. \n" +
-                (return_str).encode('utf-8') + "의 정보는 다음과 같습니다." + (str(loanGoodsDesc)).encode('utf-8'),
+                (return_str).encode('utf-8') + "의 정보는 다음과 같습니다." + (loanGoodsDesc).encode('utf-8'),
             },
             'keyboard': {
                 'type': 'buttons',
