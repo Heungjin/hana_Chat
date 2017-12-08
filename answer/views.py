@@ -102,10 +102,10 @@ def message(request):
                 'text': (return_str).encode('utf-8') + "을 선택하였습니다. \n" +
                 (return_str).encode('utf-8') + "의 정보는 다음과 같습니다." + (loanGoods.chatbot_description).encode('utf-8'),
                 "photo": {
-                    "url": "hana-finance.c7qldhnfrqvy.ap-northeast-2.rds.amazonaws.com:3306" + (loanGoods.chatbot_img).encode('utf-8'),
+                    "url": "hana-finance.c7qldhnfrqvy.ap-northeast-2.rds.amazonaws.com:3306" + loanGoods.chatbot_img.url,
                     "width": 640,
                     "height": 480
-                }
+                },
             },
             'keyboard': {
                 'type': 'buttons',
