@@ -32,7 +32,7 @@ def message(request):
     rental = check_is_rental(return_str)  # rental
     gamble = check_is_gamble(return_str)  # gamble
     help = check_is_help(return_str)  # help
-
+    goods = check_is_goods(return_str)
     # if start button check
     if start:
         # result = list(Maker.objects.values_list('makerName', flat=True)) 상품
@@ -48,7 +48,7 @@ def message(request):
     elif rankAll:
         return JsonResponse({
             'message': {
-                'text': "가장 인기있는 전세자금대출 상품 랭킹입니다. 현재 순위는 다음과 같습니다. " + test_ranking_Str,
+                'text': "가장 인기있는 전세자금대출 상품 랭킹입니다. 현재 순위는 다음과 같습니다. \n" + test_ranking_Str,
             },
             'keyboard': {
                 'type': 'buttons',
@@ -78,6 +78,7 @@ def message(request):
                 'buttons': ['나가기']
             },
         })
+
     elif gamble:
         return JsonResponse({
             'message': {
@@ -88,6 +89,38 @@ def message(request):
                 'buttons': ['나가기']
             },
         })
+
+    elif goods:
+        loanGoods = LoanGoods.objects.get(loan_good_name = return_str)
+        return JsonResponse({
+            'message': {
+                'text': return_str + "을 선택하였습니다.",
+            },
+            'keyboard': {
+                'type': 'buttons',
+                'buttons': button_list,
+            },
+        })
+
+
+
+    # elif model:
+    #     phoneModel = PhoneModel.objects.get(modelName=return_str)
+    #     User.setUserState(user_key, phoneModel)
+    #     return JsonResponse({
+    #         'message': {
+    #             'text': return_str + "을 구매하길 원하신다면 '가격 정보 보기'를, 판매하길 원하신다면 '모의 판매글 올리기'를 선택해주세요.",
+    #             "photo": {
+    #                 "url": "http://ec2-13-124-156-121.ap-northeast-2.compute.amazonaws.com:8000" + phoneModel.modelPhoto.url,
+    #                 "width": 640,
+    #                 "height": 480
+    #             },
+    #         },
+    #         'keyboard': {
+    #             'type': 'buttons',
+    #             'buttons': ['가격 정보 보기', '모의 판매글 올리기'],
+    #         },
+    #     })
 
     else:
         return JsonResponse({
@@ -134,6 +167,14 @@ def check_is_rental(str):
 # user input is gamble button check
 def check_is_gamble(str):
     if str == ("내기").decode('utf-8'):
+        return True
+    else:
+        return False
+
+# user input is maker button check
+def check_is_goods(str):
+    goods = LoanGoods.objects.values_list('loan_good_name', flat=True)
+    if str in goods:
         return True
     else:
         return False
