@@ -10,7 +10,7 @@ LoanGoodsList = list(LoanGoods.objects.values_list('loan_good_name', flat=True))
 LoanAllList = list(LoanGoods.objects.values_list('loan_good_name', flat=True))
 # test_LoanAllList = list(LoanGoods.objects.values_list('loan_good_name', flat=True).filter(loan_repayment=1)) # 필터링
 test_ranking = list(LoanGoods.objects.values_list('loan_good_name', flat=True).order_by('-chat_recommend'))
-test_ranking_str = LoanGoods.objects.values_list('loan_good_name', flat=True).order_by('-chat_recommend')
+test_ranking_Str = "\n".join(test_ranking)
 # conversation start
 def keyboard(request):
 
@@ -49,7 +49,7 @@ def message(request):
     elif ranking:
         return JsonResponse({
             'message': {
-                'text': "가장 인기있는 전세자금대출 상품 랭킹입니다. 현재 순위는 다음과 같습니다. " + test_ranking_str ,
+                'text': "가장 인기있는 전세자금대출 상품 랭킹입니다. 현재 순위는 다음과 같습니다. " + test_ranking_Str ,
             },
             'keyboard': {
                 'type': 'buttons',
