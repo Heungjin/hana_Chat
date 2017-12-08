@@ -93,7 +93,7 @@ def message(request):
         })
 
     elif goods:
-        loanGoods = LoanGoods.objects.get(loan_good_name=return_str)
+        loanGoods = LoanGoods.objects.get(loan_good_name=(return_str).encode('utf-8'))
         loanGoodsDesc = LoanGoods.objects.filter(chatbot_description=loanGoods)
 
         list(LoanGoods.objects.values_list('loan_good_name', flat=True).filter(loan_repayment=1))
