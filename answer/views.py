@@ -5,12 +5,14 @@ from answer.models import LoanGoods
 import json
 
 button_list = ['시작하기', '모든 전세상품(랭킹순)', '임대주택정보', '내기', '도움말']
-
 LoanGoodsList = list(LoanGoods.objects.values_list('loan_good_name', flat=True))[2:5]
 LoanAllList = list(LoanGoods.objects.values_list('loan_good_name', flat=True))
 # test_LoanAllList = list(LoanGoods.objects.values_list('loan_good_name', flat=True).filter(loan_repayment=1)) # 필터링
 test_ranking = list(LoanGoods.objects.values_list('loan_good_name', flat=True).order_by('-chat_recommend'))
 test_ranking_Str = "\n".join(test_ranking).encode('utf8')
+
+loanGoods = ""
+
 # conversation start
 def keyboard(request):
 
@@ -94,7 +96,7 @@ def message(request):
 
     elif goods:
         loanGoods = LoanGoods.objects.get(loan_good_name=(return_str).encode('utf-8'))
-        loanGoods.chat_recommend += loanGoods.chat_recommend + 1
+        loanGoods.chat_recommend = loanGoods.chat_recommend + 1
         # loanGoodsDesc = list(LoanGoods.objects.filter(chatbot_description=loanGoods))
 
         # list(LoanGoods.objects.values_list('loan_good_name', flat=True).filter(loan_repayment=1))[0]
@@ -106,7 +108,7 @@ def message(request):
                     "height": 480
                 },
                 'text': (return_str).encode('utf-8') + "의 정보는 다음과 같습니다.\n" + (loanGoods.chatbot_description).encode('utf-8') +
-                "\n 카톡 추천수 : (" + str(loanGoods.chat_recommend) + ")",
+                "\n 카톡 추천수 : " + str(loanGoods.chat_recommend) + "번",
             },
             'keyboard': {
                 'type': 'buttons',
