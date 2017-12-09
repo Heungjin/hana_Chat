@@ -109,7 +109,7 @@ def message(request):
             },
             'keyboard': {
                 'type': 'buttons',
-                'buttons': ["카톡 추천수 : " + str(loanGoods.chat_recommend), str(type(loanGoods.chat_recommend))]
+                'buttons': ["카톡 추천수 : " + str(loanGoods.chat_recommend)]
             },
         })
 
