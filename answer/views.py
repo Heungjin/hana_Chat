@@ -11,7 +11,6 @@ LoanAllList = list(LoanGoods.objects.values_list('loan_good_name', flat=True))
 test_ranking = list(LoanGoods.objects.values_list('loan_good_name', flat=True).order_by('-chat_recommend'))
 test_ranking_Str = "\n".join(test_ranking).encode('utf8')
 
-loanGoods = ""
 
 # conversation start
 def keyboard(request):
@@ -135,6 +134,7 @@ def check_is_start(str):
     else:
         return False
 
+
 # user input is start button check
 def check_is_rankAll(str):
     if str == ("모든 전세상품(랭킹순)").decode('utf-8'):
@@ -158,12 +158,14 @@ def check_is_rental(str):
     else:
         return False
 
+
 # user input is gamble button check
 def check_is_gamble(str):
     if str == ("내기").decode('utf-8'):
         return True
     else:
         return False
+
 
 # user input is maker button check
 def check_is_goods(str):
