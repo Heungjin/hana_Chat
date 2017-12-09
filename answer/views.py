@@ -8,8 +8,6 @@ button_list = ['시작하기', '모든 전세상품(랭킹순)', '임대주택�
 LoanGoodsList = list(LoanGoods.objects.values_list('loan_good_name', flat=True))[2:5]
 LoanAllList = list(LoanGoods.objects.values_list('loan_good_name', flat=True))
 # test_LoanAllList = list(LoanGoods.objects.values_list('loan_good_name', flat=True).filter(loan_repayment=1)) # 필터링
-test_ranking_Str = "\n".join(test_ranking).encode('utf8')
-
 
 # conversation start
 def keyboard(request):
