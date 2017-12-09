@@ -109,7 +109,7 @@ def message(request):
             },
             'keyboard': {
                 'type': 'buttons',
-                'buttons': button_list
+                'buttons': [loanGoods.chat_recommend]
             },
         })
 
