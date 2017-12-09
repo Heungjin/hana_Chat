@@ -32,7 +32,7 @@
               <entry file="file://$USER_HOME$/chat/Chat/chatbot/answer/views.py">
                 <provider selected="true" editor-type-id="text-editor">
                   <state relative-caret-position="850">
-                    <caret line="62" column="24" lean-forward="false" selection-start-line="62" selection-start-column="24" selection-end-line="62" selection-end-column="24" />
+                    <caret line="62" column="18" lean-forward="false" selection-start-line="62" selection-start-column="18" selection-end-line="62" selection-end-column="18" />
                     <folding>
                       <element signature="e#15#51#0" expanded="true" />
                     </folding>
@@ -94,8 +94,8 @@
       <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/answer/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="544">
-              <caret line="98" column="24" lean-forward="false" selection-start-line="98" selection-start-column="24" selection-end-line="98" selection-end-column="24" />
+            <state relative-caret-position="765">
+              <caret line="111" column="9" lean-forward="false" selection-start-line="111" selection-start-column="9" selection-end-line="111" selection-end-column="9" />
               <folding>
                 <element signature="e#15#51#0" expanded="true" />
               </folding>
@@ -809,7 +809,7 @@
     <entry file="file://$USER_HOME$/chat/Chat/chatbot/answer/views.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="850">
-          <caret line="62" column="24" lean-forward="false" selection-start-line="62" selection-start-column="24" selection-end-line="62" selection-end-column="24" />
+          <caret line="62" column="18" lean-forward="false" selection-start-line="62" selection-start-column="18" selection-end-line="62" selection-end-column="18" />
           <folding>
             <element signature="e#15#51#0" expanded="true" />
           </folding>
@@ -818,8 +818,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/answer/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="544">
-          <caret line="98" column="24" lean-forward="false" selection-start-line="98" selection-start-column="24" selection-end-line="98" selection-end-column="24" />
+        <state relative-caret-position="765">
+          <caret line="111" column="9" lean-forward="false" selection-start-line="111" selection-start-column="9" selection-end-line="111" selection-end-column="9" />
           <folding>
             <element signature="e#15#51#0" expanded="true" />
           </folding>
