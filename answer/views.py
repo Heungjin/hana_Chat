@@ -32,7 +32,8 @@ def message(request):
     help = check_is_help(return_str)  # help
     goods = check_is_goods(return_str)
     test_ranking = list(LoanGoods.objects.values_list('loan_good_name', flat=True).order_by('-chat_recommend'))
-    test_ranking_Str = "\n".join(test_ranking).encode('utf8')
+    test_ranking_Str = "\n * ".join(test_ranking).encode('utf8')
+
     # if start button check
     print(return_str)
     if start:
