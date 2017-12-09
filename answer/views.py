@@ -106,11 +106,11 @@ def message(request):
                     "height": 480
                 },
                 'text': (return_str).encode('utf-8') + "의 정보는 다음과 같습니다.\n" + (loanGoods.chatbot_description).encode('utf-8') +
-                "\n 카톡 추천수 : (" + loanGoods.chat_recommend + ")",
+                "\n 카톡 추천수 : (" + str(loanGoods.chat_recommend) + ")",
             },
             'keyboard': {
                 'type': 'buttons',
-                'buttons': ["카톡 추천수 : " + str(loanGoods.chat_recommend)]
+                'buttons': button_list
             },
         })
 
