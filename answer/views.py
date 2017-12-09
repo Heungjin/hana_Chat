@@ -96,6 +96,7 @@ def message(request):
     elif goods:
         loanGoods = LoanGoods.objects.get(loan_good_name=(return_str).encode('utf-8'))
         loanGoods.chat_recommend = loanGoods.chat_recommend + 1
+        LoanGoods.save()
         # loanGoodsDesc = list(LoanGoods.objects.filter(chatbot_description=loanGoods))
 
         # list(LoanGoods.objects.values_list('loan_good_name', flat=True).filter(loan_repayment=1))[0]
