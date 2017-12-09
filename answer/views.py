@@ -99,17 +99,17 @@ def message(request):
         # list(LoanGoods.objects.values_list('loan_good_name', flat=True).filter(loan_repayment=1))[0]
         return JsonResponse({
             'message': {
-                'text': (return_str).encode('utf-8') + "을 선택하였습니다. \n" +
-                (return_str).encode('utf-8') + "의 정보는 다음과 같습니다." + (loanGoods.chatbot_description).encode('utf-8'),
                 "photo": {
                     "url": "http://13.124.236.32:8000" + loanGoods.chatbot_img.url,
                     "width": 640,
                     "height": 480
                 },
+                'text': (return_str).encode('utf-8') + "을 선택하였습니다. \n" +
+                (return_str).encode('utf-8') + "의 정보는 다음과 같습니다." + (loanGoods.chatbot_description).encode('utf-8'),
             },
             'keyboard': {
                 'type': 'buttons',
-                'buttons': [loanGoods.chatbot_img.url]
+                'buttons': button_list
             },
         })
 
