@@ -8,7 +8,6 @@ button_list = ['시작하기', '모든 전세상품(랭킹순)', '임대주택�
 LoanGoodsList = list(LoanGoods.objects.values_list('loan_good_name', flat=True))[2:5]
 LoanAllList = list(LoanGoods.objects.values_list('loan_good_name', flat=True))
 # test_LoanAllList = list(LoanGoods.objects.values_list('loan_good_name', flat=True).filter(loan_repayment=1)) # 필터링
-test_ranking = list(LoanGoods.objects.values_list('loan_good_name', flat=True).order_by('-chat_recommend'))
 test_ranking_Str = "\n".join(test_ranking).encode('utf8')
 
 
@@ -34,6 +33,7 @@ def message(request):
     gamble = check_is_gamble(return_str)  # gamble
     help = check_is_help(return_str)  # help
     goods = check_is_goods(return_str)
+    test_ranking = list(LoanGoods.objects.values_list('loan_good_name', flat=True).order_by('-chat_recommend'))
     # if start button check
     print(return_str)
     if start:
