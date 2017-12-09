@@ -94,6 +94,7 @@ def message(request):
 
     elif goods:
         loanGoods = LoanGoods.objects.get(loan_good_name=(return_str).encode('utf-8'))
+        loanGoods.chat_recommend = loanGoods.chat_recommend + 1
         # loanGoodsDesc = list(LoanGoods.objects.filter(chatbot_description=loanGoods))
 
         # list(LoanGoods.objects.values_list('loan_good_name', flat=True).filter(loan_repayment=1))[0]
@@ -104,8 +105,7 @@ def message(request):
                     "width": 640,
                     "height": 480
                 },
-                'text': (return_str).encode('utf-8') + "을 선택하였습니다. \n" +
-                (return_str).encode('utf-8') + "의 정보는 다음과 같습니다." + (loanGoods.chatbot_description).encode('utf-8'),
+                'text': (return_str).encode('utf-8') + "의 정보는 다음과 같습니다.\n" + (loanGoods.chatbot_description).encode('utf-8'),
             },
             'keyboard': {
                 'type': 'buttons',
