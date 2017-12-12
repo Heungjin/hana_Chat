@@ -2,9 +2,11 @@
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from answer.models import LoanGoods
+from bs4 import BeautifulSoup
+from urllib.request import urlopen
 import json
 
-button_list = ['시작하기', '모든 전세상품(랭킹순)', '인천지역 주택분양정보', '내기', '도움말']
+button_list = ['시작하기', '모든 전세상품(랭킹순)', '인천지역 주택분양정보', '실시간 통계보기', '내기', '도움말']
 LoanGoodsList = list(LoanGoods.objects.values_list('loan_good_name', flat=True))[2:5]
 LoanAllList = list(LoanGoods.objects.values_list('loan_good_name', flat=True))
 # test_LoanAllList = list(LoanGoods.objects.values_list('loan_good_name', flat=True).filter(loan_repayment=1)) # 필터링
@@ -27,7 +29,7 @@ def message(request):
 
     start = check_is_start(return_str)  # start
     rankAll = check_is_rankAll(return_str)  # ranking
-    rental = check_is_rental(return_str)  # rental
+    rental = crawl(return_str)  # crawl
     gamble = check_is_gamble(return_str)  # gamble
     help = check_is_help(return_str)  # help
     goods = check_is_goods(return_str)
@@ -127,7 +129,58 @@ def message(request):
             },
         })
 
+######################################### 크롤링 ######################################
+def crawl(request):
+    # 메뉴 DB 테이블 비우기
+    flush_menu_db()
 
+    # 메뉴 테이블 추출
+    html = urlopen('http://dgucoop.dongguk.edu/store/store.php?w=4&l=1')
+    source = html.read().decode('cp949', 'ignore')
+    html.close()
+    soup = BeautifulSoup(source, "html.parser", from_encoding='utf-8')
+    table_div = soup.find(id="sdetail")
+    menu_tables = table_div.table.tr.td.p.find_all('table', {"bgcolor": "#CDD6B5"})
+
+    #식당별 테이블 지정
+    kyo_table = menu_tables[0]
+
+    # 교직원 식당
+    if kyo_table.find(text="휴무"):
+        create_menu_db_table('집밥', '중식', '휴무 \n')
+        create_menu_db_table('한그릇', '중식', '휴무 \n')
+        create_menu_db_table('집밥', '석식', '휴무 \n')
+        create_menu_db_table('한그릇', '석식', '휴무 \n')
+
+    else:
+        # 중식이 검색이 안되는 문제 발생... 일단 원래 방법으로 구현해놓음
+        kyo_trs = kyo_table.find_all('tr')
+        kyo_tables = kyo_trs[1].find_all('table')
+
+        kyo_jib_trs = kyo_tables[0].find_all('tr')
+        kyo_jib_menu = kyo_jib_trs[0].text
+        kyo_jib_price = kyo_jib_trs[1].text
+
+        kyo_han_trs = kyo_tables[1].find_all('tr')
+        kyo_han_menu = kyo_han_trs[0].text
+        kyo_han_price = kyo_han_trs[1].text
+
+        create_menu_db_table('집밥', '중식', kyo_jib_menu + kyo_jib_price)
+        create_menu_db_table('한그릇', '중식', kyo_han_menu + kyo_han_price)
+
+        for tr in kyo_trs:
+            if tr.find(text='석식'):
+                kyo_tables = tr.find_all('table')
+
+                kyo_jib_trs = kyo_tables[0].find_all('tr')
+                kyo_jib_menu = kyo_jib_trs[0].text
+                kyo_jib_price = kyo_jib_trs[1].text
+
+                create_menu_db_table('집밥', '석식', kyo_jib_menu + kyo_jib_price)
+
+     return JsonResponse({'status': 'crawled'})
+
+    ##################################################################################
 # user input is start button check
 def check_is_start(str):
     if str == ("시작하기").decode('utf-8'):
