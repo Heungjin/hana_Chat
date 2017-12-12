@@ -178,7 +178,15 @@ def crawl(request):
 
                 create_menu_db_table('집밥', '석식', kyo_jib_menu + kyo_jib_price)
 
-     return JsonResponse({'status': 'crawled'})
+     return JsonResponse({
+            'message': {
+                'text': "크롤링 실행",
+            },
+            'keyboard': {
+                'type': 'buttons',
+                'buttons': menu_tables # start button for user
+            },
+        })
 
     ##################################################################################
 # user input is start button check
