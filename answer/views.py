@@ -178,7 +178,7 @@ def crawl(request):
 
                 create_menu_db_table('집밥', '석식', kyo_jib_menu + kyo_jib_price)
 
-     return JsonResponse({
+        return JsonResponse({
             'message': {
                 'text': "크롤링 실행",
             },
