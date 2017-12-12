@@ -4,7 +4,7 @@ from django.views.decorators.csrf import csrf_exempt
 from answer.models import LoanGoods
 import json
 
-button_list = ['시작하기', '모든 전세상품(랭킹순)', '임대주택정보', '내기', '도움말']
+button_list = ['시작하기', '모든 전세상품(랭킹순)', '인천지역 주택분양정보', '내기', '도움말']
 LoanGoodsList = list(LoanGoods.objects.values_list('loan_good_name', flat=True))[2:5]
 LoanAllList = list(LoanGoods.objects.values_list('loan_good_name', flat=True))
 # test_LoanAllList = list(LoanGoods.objects.values_list('loan_good_name', flat=True).filter(loan_repayment=1)) # 필터링
@@ -74,7 +74,7 @@ def message(request):
     elif rental:
         return JsonResponse({
             'message': {
-                'text': "크롤링을 통해 가장 최신의 임대주택정보를 화면에 출력 예정",
+                'text': "인천지역의 공공임대주택을 포함한 인천지역의 주택분양정보를 크롤링하여 출력합니다.",
             },
             'keyboard': {
                 'type': 'buttons',
@@ -154,7 +154,7 @@ def check_is_help(str):
 
 # user input is help button check
 def check_is_rental(str):
-    if str == ("임대주택정보").decode('utf-8'):
+    if str == ("인천지역 주택분양정보").decode('utf-8'):
         return True
     else:
         return False
