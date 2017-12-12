@@ -29,7 +29,7 @@ def message(request):
 
     start = check_is_start(return_str)  # start
     rankAll = check_is_rankAll(return_str)  # ranking
-    rental = crawl(return_str)  # crawl
+    # rental = crawl(return_str)  # crawl
     gamble = check_is_gamble(return_str)  # gamble
     help = check_is_help(return_str)  # help
     goods = check_is_goods(return_str)
@@ -214,11 +214,12 @@ def check_is_help(str):
 
 
 # user input is help button check
-def check_is_rental(str):
-    if str == ("인천지역 주택분양정보").decode('utf-8'):
-        return True
-    else:
-        return False
+
+# def check_is_rental(str):
+#     if str == ("인천지역 주택분양정보").decode('utf-8'):
+#         return True
+#     else:
+#         return False
 
 
 # user input is gamble button check
