@@ -38,6 +38,36 @@ class StatisticList2(models.Model):
         db_table = 'statistic_list'
 
 
+class StatisticLoanAmount2(models.Model):
+    type = models.CharField(max_length=255, blank=True, primary_key=True, default='0')
+    m0_3 = models.IntegerField(blank=True, null=True)
+    m3_5 = models.IntegerField(blank=True, null=True)
+    m5_7 = models.IntegerField(blank=True, null=True)
+    m7_10 = models.IntegerField(blank=True, null=True)
+    m10_15 = models.IntegerField(blank=True, null=True)
+    m15_20 = models.IntegerField(blank=True, null=True)
+    m20_0 = models.IntegerField(blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'statistic_loan_amount'
+
+
+class StatisticSalary2(models.Model):
+    type = models.CharField(max_length=255, blank=True, primary_key=True, default='0')
+    m0_2 = models.IntegerField(blank=True, null=True)
+    m2_3 = models.IntegerField(blank=True, null=True)
+    m3_4 = models.IntegerField(blank=True, null=True)
+    m4_5 = models.IntegerField(blank=True, null=True)
+    m5_7 = models.IntegerField(blank=True, null=True)
+    m7_10 = models.IntegerField(blank=True, null=True)
+    m10_0 = models.IntegerField(blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'statistic_salary'
+
+
 class Banks(models.Model):
     bank_id = models.IntegerField(primary_key=True)
     bank_name = models.CharField(max_length=20, blank=True, null=True)
