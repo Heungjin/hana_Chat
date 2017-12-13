@@ -50,7 +50,7 @@ StatLoan20to0BankNum = list(StatisticLoanAmount2.objects.all())[0].m20_0
 
 # 대출액통계 은행이름
 StatLoan00to03Bank = Banks.objects.get(bank_id = StatLoan00to03BankNum)
-StatLoaStatLoan00to03Bankn03to05Bank = Banks.objects.get(bank_id = StatLoan03to05BankNum)
+StatLoan00to03Bank = Banks.objects.get(bank_id = StatLoan03to05BankNum)
 StatLoan05to07Bank = Banks.objects.get(bank_id = StatLoan05to07BankNum)
 StatLoan07to10Bank = Banks.objects.get(bank_id = StatLoan07to10BankNum)
 StatLoan10to15Bank = Banks.objects.get(bank_id = StatLoan10to15BankNum)
@@ -99,7 +99,6 @@ def message(request):
     print(StatLoan07to10Bank)
     print(StatLoan10to15Bank)
     print(StatLoan15to20Bank)
-    print(StatLoan20to0Bank)
 
 
     if start:
