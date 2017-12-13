@@ -93,7 +93,7 @@ def message(request):
             },
             'keyboard': {
                 'type': 'buttons',
-                'buttons': stat_list
+                'buttons': button_list
             },
         })
 
@@ -105,7 +105,7 @@ def message(request):
             },
             'keyboard': {
                 'type': 'buttons',
-                'buttons': stat_list
+                'buttons': button_list
             },
         })
 
@@ -117,7 +117,7 @@ def message(request):
             },
             'keyboard': {
                 'type': 'buttons',
-                'buttons': stat_list
+                'buttons': button_list
             },
         })
 
