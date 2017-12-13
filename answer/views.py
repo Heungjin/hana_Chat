@@ -39,7 +39,7 @@ StatLoan10to15 = str(list(StatisticLoanAmount2.objects.all())[0].m10_15)
 StatLoan15to20 = str(list(StatisticLoanAmount2.objects.all())[0].m15_20)
 StatLoan20to0 = str(list(StatisticLoanAmount2.objects.all())[0].m20_0)
 
-# # 대출액통계 은행번호
+# 대출액통계 은행번호
 StatLoan00to03BankNum = list(StatisticLoanAmount2.objects.all())[1].m0_3
 StatLoan03to05BankNum = list(StatisticLoanAmount2.objects.all())[1].m3_5
 StatLoan05to07BankNum = list(StatisticLoanAmount2.objects.all())[1].m5_7
@@ -47,8 +47,8 @@ StatLoan07to10BankNum = list(StatisticLoanAmount2.objects.all())[1].m7_10
 StatLoan10to15BankNum = list(StatisticLoanAmount2.objects.all())[1].m10_15
 StatLoan15to20BankNum = list(StatisticLoanAmount2.objects.all())[1].m15_20
 StatLoan20to0BankNum = list(StatisticLoanAmount2.objects.all())[1].m20_0
-#
-# # 대출액통계 은행이름
+
+# 대출액통계 은행이름
 StatLoan00to03Bank = Banks.objects.get(bank_id = StatLoan00to03BankNum)
 StatLoan03to05Bank = Banks.objects.get(bank_id = StatLoan03to05BankNum)
 StatLoan05to07Bank = Banks.objects.get(bank_id = StatLoan05to07BankNum)
@@ -57,7 +57,14 @@ StatLoan10to15Bank = Banks.objects.get(bank_id = StatLoan10to15BankNum)
 StatLoan15to20Bank = Banks.objects.get(bank_id = StatLoan15to20BankNum)
 StatLoan20to0Bank = Banks.objects.get(bank_id = StatLoan20to0BankNum)
 
-
+# 연봉통계 인원 수
+StatSalary0to2 = str(list(StatisticSalary2.objects.all())[0].m0_2)
+StatSalary2to3 = str(list(StatisticSalary2.objects.all())[0].m2_3)
+StatSalary3to4 = str(list(StatisticSalary2.objects.all())[0].m3_4)
+StatSalary4to5 = str(list(StatisticSalary2.objects.all())[0].m4_5)
+StatSalary5to7 = str(list(StatisticSalary2.objects.all())[0].m5_7)
+StatSalary7to10 = str(list(StatisticSalary2.objects.all())[0].m7_10)
+StatSalary10to = str(list(StatisticSalary2.objects.all())[0].m10_0)
 
 # test_LoanAllList = list(LoanGoods.objects.values_list('loan_good_name', flat=True).filter(loan_repayment=1)) # 필터링
 
@@ -181,14 +188,14 @@ def message(request):
     elif stat_loan:
         return JsonResponse({
             'message': {
-                'text': "* 현재 하월의 대출액별 분류는 \n3천만원 이하 : " + StatLoan00to03  + "명\n" +
-                        "3천만원 ~ 5천만원 : " + StatLoan03to05  + "명\n5천만원 ~ 7천만원 : " + StatLoan05to07  + "명\n" +
+                'text': "* 현재 하월의 대출액별 분류는 \n2천만원 이하 : " + StatLoan00to03  + "명\n" +
+                        "2천만원 ~ 3천만원 : " + StatLoan03to05  + "명\n5천만원 ~ 7천만원 : " + StatLoan05to07  + "명\n" +
                         "7천만원 ~ 1억원 : " + StatLoan07to10  + "명\n1억원 ~ 1억5천만원 : " + StatLoan10to15  + "명\n" +
                         "1억 5천만원 ~ 2억원 : " + StatLoan15to20  + "명\n2억원 이상 : " + StatLoan20to0  + "명 입니다." +
                         "\n\n* 대출액별 선호은행은 \n3천만원 이하 : " + (StatLoan00to03Bank .bank_name).encode('utf-8') +
                         "\n3천만원 ~ 5천만원 : " + (StatLoan03to05Bank.bank_name).encode('utf-8') +
                         "\n5천만원 ~ 7천만원 : " + (StatLoan05to07Bank.bank_name).encode('utf-8') +
-                        "\n7천만원 ~ 1억원" + (StatLoan07to10Bank.bank_name).encode('utf-8') +
+                        "\n7천만원 ~ 1억원 : " + (StatLoan07to10Bank.bank_name).encode('utf-8') +
                         "\n1억원 ~ 1억5천만원 : " + (StatLoan10to15Bank.bank_name).encode('utf-8') +
                         "\n1억원 5천만원 ~ 2억원 : " + (StatLoan15to20Bank.bank_name).encode('utf-8') +
                         "\n2억원 이상 : " + (StatLoan20to0Bank.bank_name).encode('utf-8') + " 입니다.",
@@ -203,15 +210,16 @@ def message(request):
     elif stat_salary:
         return JsonResponse({
             'message': {
-                'text': "stat_salary",
+                'text': "* 현재 하월고객의 연봉은 \n2천만원 이하 : " + StatSalary0to2 + "명\n" +
+                        "2천만원 ~ 3천만원 : " + StatSalary2to3 + "명\n3천만원 ~ 4천만원 : " + StatSalary3to4 + "명\n" +
+                        "4천만원 ~ 5천만원 : " + StatSalary4to5 + "명\n5천만원 ~ 7천만원 : " + StatSalary5to7 + "명\n" +
+                        "7천만원 ~ 1억원 : " + StatSalary7to10 + "명\n1억원 이상 : " + StatSalary10to + "명입니다.",
             },
             'keyboard': {
                 'type': 'buttons',
                 'buttons': stat_list
             },
         })
-
-
 
     elif goods:
         loanGoods = LoanGoods.objects.get(loan_good_name=(return_str).encode('utf-8'))
