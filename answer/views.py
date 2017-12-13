@@ -9,11 +9,11 @@ stat_list = ['웹에서 가장 많이 추천된 상품','고객 나이대별 통
 LoanGoodsList = list(LoanGoods.objects.values_list('loan_good_name', flat=True))[2:5]
 LoanAllList = list(LoanGoods.objects.values_list('loan_good_name', flat=True))
 
-StatAge20to30 = list(StatisticAge2.objects.all())[0].m20_30
-StatAge30to40 = list(StatisticAge2.objects.all())[0].m30_40
-StatAge40to50 = list(StatisticAge2.objects.all())[0].m40_50
-StatAge50to60 = list(StatisticAge2.objects.all())[0].m50_60
-StatAge60to = list(StatisticAge2.objects.all())[0].m60_0
+StatAge20to30 = str(list(StatisticAge2.objects.all())[0].m20_30)
+StatAge30to40 = str(list(StatisticAge2.objects.all())[0].m30_40)
+StatAge40to50 = str(list(StatisticAge2.objects.all())[0].m40_50)
+StatAge50to60 = str(list(StatisticAge2.objects.all())[0].m50_60)
+StatAge60to = str(list(StatisticAge2.objects.all())[0].m60_0)
 
 # test_LoanAllList = list(LoanGoods.objects.values_list('loan_good_name', flat=True).filter(loan_repayment=1)) # 필터링
 
