@@ -20,7 +20,7 @@ class LoanGoodsAdmin(admin.ModelAdmin):
 class BanksAdmin(admin.ModelAdmin):
   list_display = ('bank_id', 'bank_name', 'bank_image')
 
-나이대별 통계테이블
+# 나이대별 통계테이블
 class StatisticAgeAdmin2(admin.ModelAdmin):
   list_display = ('type', 'm0_20', 'm20_30', 'm30_40', 'm40_50', 'm50_60', 'm60_0')
 
