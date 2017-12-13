@@ -39,23 +39,23 @@ StatLoan10to15 = str(list(StatisticLoanAmount2.objects.all())[0].m10_15)
 StatLoan15to20 = str(list(StatisticLoanAmount2.objects.all())[0].m15_20)
 StatLoan20to0 = str(list(StatisticLoanAmount2.objects.all())[0].m20_0)
 
-# 대출액통계 은행번호
-StatLoan00to03BankNum = list(StatisticLoanAmount2.objects.all())[0].m0_3
-StatLoan03to05BankNum = list(StatisticLoanAmount2.objects.all())[0].m3_5
-StatLoan05to07BankNum = list(StatisticLoanAmount2.objects.all())[0].m5_7
-StatLoan07to10BankNum = list(StatisticLoanAmount2.objects.all())[0].m7_10
-StatLoan10to15BankNum = list(StatisticLoanAmount2.objects.all())[0].m10_15
-StatLoan15to20BankNum = list(StatisticLoanAmount2.objects.all())[0].m15_20
-StatLoan20to0BankNum = list(StatisticLoanAmount2.objects.all())[0].m20_0
-
-# 대출액통계 은행이름
-StatLoan00to03Bank = Banks.objects.get(bank_id = StatLoan00to03BankNum)
-StatLoan00to03Bank = Banks.objects.get(bank_id = StatLoan03to05BankNum)
-StatLoan05to07Bank = Banks.objects.get(bank_id = StatLoan05to07BankNum)
-StatLoan07to10Bank = Banks.objects.get(bank_id = StatLoan07to10BankNum)
-StatLoan10to15Bank = Banks.objects.get(bank_id = StatLoan10to15BankNum)
-StatLoan15to20Bank = Banks.objects.get(bank_id = StatLoan15to20BankNum)
-StatLoan20to0Bank = Banks.objects.get(bank_id = StatLoan20to0BankNum)
+# # 대출액통계 은행번호
+# StatLoan00to03BankNum = list(StatisticLoanAmount2.objects.all())[0].m0_3
+# StatLoan03to05BankNum = list(StatisticLoanAmount2.objects.all())[0].m3_5
+# StatLoan05to07BankNum = list(StatisticLoanAmount2.objects.all())[0].m5_7
+# StatLoan07to10BankNum = list(StatisticLoanAmount2.objects.all())[0].m7_10
+# StatLoan10to15BankNum = list(StatisticLoanAmount2.objects.all())[0].m10_15
+# StatLoan15to20BankNum = list(StatisticLoanAmount2.objects.all())[0].m15_20
+# StatLoan20to0BankNum = list(StatisticLoanAmount2.objects.all())[0].m20_0
+#
+# # 대출액통계 은행이름
+# StatLoan00to03Bank = Banks.objects.get(bank_id = StatLoan00to03BankNum)
+# StatLoan00to03Bank = Banks.objects.get(bank_id = StatLoan03to05BankNum)
+# StatLoan05to07Bank = Banks.objects.get(bank_id = StatLoan05to07BankNum)
+# StatLoan07to10Bank = Banks.objects.get(bank_id = StatLoan07to10BankNum)
+# StatLoan10to15Bank = Banks.objects.get(bank_id = StatLoan10to15BankNum)
+# StatLoan15to20Bank = Banks.objects.get(bank_id = StatLoan15to20BankNum)
+# StatLoan20to0Bank = Banks.objects.get(bank_id = StatLoan20to0BankNum)
 
 
 
@@ -94,11 +94,11 @@ def message(request):
 
     # if start button check
     print(return_str)
-    print(StatLoan03to05Bank)
-    print(StatLoan05to07Bank)
-    print(StatLoan07to10Bank)
-    print(StatLoan10to15Bank)
-    print(StatLoan15to20Bank)
+    print(StatLoan00to03)
+    print(StatLoan05to07)
+    print(StatLoan07to10)
+    print(StatLoan10to15)
+    print(StatLoan15to20)
 
 
     if start:
