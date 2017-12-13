@@ -9,25 +9,54 @@ stat_list = ['실시간 고객 나이대별 선호은행', '실시간 고객 대
 LoanGoodsList = list(LoanGoods.objects.values_list('loan_good_name', flat=True))[2:5]
 LoanAllList = list(LoanGoods.objects.values_list('loan_good_name', flat=True))
 
+# 나이통계 인원 수
 StatAge20to30 = str(list(StatisticAge2.objects.all())[0].m20_30)
 StatAge30to40 = str(list(StatisticAge2.objects.all())[0].m30_40)
 StatAge40to50 = str(list(StatisticAge2.objects.all())[0].m40_50)
 StatAge50to60 = str(list(StatisticAge2.objects.all())[0].m50_60)
 StatAge60to = str(list(StatisticAge2.objects.all())[0].m60_0)
 
-
-#StatAge30to40Bank = Banks.objects.get('bank_name', flat=True).filter(bank_id = list(StatisticAge2.objects.all())[1].m30_40)
+# 나이통계 은행번호
 StatAge20to30BankNum = list(StatisticAge2.objects.all())[1].m20_30
 StatAge30to40BankNum = list(StatisticAge2.objects.all())[1].m30_40
 StatAge40to50BankNum = list(StatisticAge2.objects.all())[1].m40_50
 StatAge50to60BankNum = list(StatisticAge2.objects.all())[1].m50_60
 StatAge60toBankNum = list(StatisticAge2.objects.all())[1].m60_0
 
+# 나이통계 은행이름
 StatAge20to30Bank = Banks.objects.get(bank_id = StatAge20to30BankNum)
 StatAge30to40Bank = Banks.objects.get(bank_id = StatAge30to40BankNum)
 StatAge40to50Bank = Banks.objects.get(bank_id = StatAge40to50BankNum)
 StatAge50to60Bank = Banks.objects.get(bank_id = StatAge50to60BankNum)
 StatAge60toBank = Banks.objects.get(bank_id = StatAge60toBankNum)
+
+# 대출액통계 인원 수
+StatLoan00to03 = str(list(StatisticLoanAmount2.objects.all())[0].m0_3)
+StatLoan03to05 = str(list(StatisticLoanAmount2.objects.all())[0].m3_5)
+StatLoan05to07 = str(list(StatisticLoanAmount2.objects.all())[0].m5_7)
+StatLoan07to10 = str(list(StatisticLoanAmount2.objects.all())[0].m7_10)
+StatLoan10to15 = str(list(StatisticLoanAmount2.objects.all())[0].m10_15)
+StatLoan15to20 = str(list(StatisticLoanAmount2.objects.all())[0].m15_20)
+StatLoan20to0 = str(list(StatisticLoanAmount2.objects.all())[0].m20_0)
+
+# 대출액통계 은행번호
+StatLoan00to03BankNum = list(StatisticLoanAmount2.objects.all())[0].m0_3
+StatLoan03to05BankNum = list(StatisticLoanAmount2.objects.all())[0].m3_5
+StatLoan05to07BankNum = list(StatisticLoanAmount2.objects.all())[0].m5_7
+StatLoan07to10BankNum = list(StatisticLoanAmount2.objects.all())[0].m7_10
+StatLoan10to15BankNum = list(StatisticLoanAmount2.objects.all())[0].m10_15
+StatLoan15to20BankNum = list(StatisticLoanAmount2.objects.all())[0].m15_20
+StatLoan20to0BankNum = list(StatisticLoanAmount2.objects.all())[0].m20_0
+
+# 대출액통계 은행이름
+StatLoan00to03Bank = Banks.objects.get(bank_id = StatLoan00to03BankNum)
+StatLoaStatLoan00to03Bankn03to05Bank = Banks.objects.get(bank_id = StatLoan03to05BankNum)
+StatLoan05to07Bank = Banks.objects.get(bank_id = StatLoan05to07BankNum)
+StatLoan07to10Bank = Banks.objects.get(bank_id = StatLoan07to10BankNum)
+StatLoan10to15Bank = Banks.objects.get(bank_id = StatLoan10to15BankNum)
+StatLoan15to20Bank = Banks.objects.get(bank_id = StatLoan15to20BankNum)
+StatLoan20to0Bank = Banks.objects.get(bank_id = StatLoan20to0BankNum)
+
 
 
 # test_LoanAllList = list(LoanGoods.objects.values_list('loan_good_name', flat=True).filter(loan_repayment=1)) # 필터링
@@ -65,7 +94,12 @@ def message(request):
 
     # if start button check
     print(return_str)
-
+    print(StatLoan03to05Bank)
+    print(StatLoan05to07Bank)
+    print(StatLoan07to10Bank)
+    print(StatLoan10to15Bank)
+    print(StatLoan15to20Bank)
+    print(StatLoan20to0Bank)
 
 
     if start:
