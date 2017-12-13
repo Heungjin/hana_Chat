@@ -49,9 +49,6 @@ def message(request):
 
     # if start button check
     print(return_str)
-    print(StatAgeList)
-    print(StatAgeList2)
-    print(StatAgeList3)
 
     if start:
         # result = list(Maker.objects.values_list('makerName', flat=True)) 상품
