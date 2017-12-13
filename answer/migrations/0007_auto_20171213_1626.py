@@ -24,13 +24,13 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='statisticage',
             name='id',
-            field=models.AutoField(auto_created=None, default="", primary_key=True, serialize=False, verbose_name='ID'),
+            field=models.AutoField(auto_created=True, default=django.utils.timezone.now, primary_key=True, serialize=False, verbose_name='ID'),
             preserve_default=False,
         ),
         migrations.AddField(
             model_name='statisticlist',
             name='id',
-            field=models.AutoField(auto_created=None, default=type, primary_key=True, serialize=False, verbose_name='ID'),
+            field=models.AutoField(auto_created=True, default=type, primary_key=True, serialize=False, verbose_name='ID'),
             preserve_default=False,
         ),
     ]
