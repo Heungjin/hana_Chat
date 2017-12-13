@@ -19,7 +19,6 @@ class StatisticAge(models.Model):
     m60_0 = models.IntegerField(blank=True, null=True)
 
     class Meta:
-        managed = True
         db_table = 'statistic_age'
 
 
@@ -34,7 +33,6 @@ class StatisticList(models.Model):
     total = models.IntegerField(blank=True, null=True)
 
     class Meta:
-        managed = True
         db_table = 'statistic_list'
 
 
