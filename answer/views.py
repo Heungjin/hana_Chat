@@ -89,7 +89,7 @@ def message(request):
 
 
     elif stat_age:
-        StatAgeList = list(stat_age.objects.values_list('*', flat=True).filter(type='total')) # 필터링
+        StatAgeList = list(stat_age.objects.all().filter(type='total'))[0] # 필터링
 
         return JsonResponse({
             'message': {
@@ -97,7 +97,7 @@ def message(request):
             },
             'keyboard': {
                 'type': 'buttons',
-                'buttons': StatAgeList
+                'buttons': [StatAgeList]
             },
         })
 
