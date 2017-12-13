@@ -8,9 +8,13 @@ button_list = ['시작하기', '모든 전세상품(랭킹순)', '실시간 통�
 stat_list = ['웹에서 가장 많이 추천된 상품','고객 나이대별 통계', '고객 연봉별 통계', '가장많이받은 대출액']
 LoanGoodsList = list(LoanGoods.objects.values_list('loan_good_name', flat=True))[2:5]
 LoanAllList = list(LoanGoods.objects.values_list('loan_good_name', flat=True))
-StatAgeList = list(StatisticAge2.objects.all())[0].m0_20
-StatAgeList2 = list(StatisticAge2.objects.all())[0].m20_30
-StatAgeList3 = list(StatisticAge2.objects.all())[0].m30_40
+
+StatAge20to30 = list(StatisticAge2.objects.all())[0].m20_30
+StatAge30to40 = list(StatisticAge2.objects.all())[0].m30_40
+StatAge40to50 = list(StatisticAge2.objects.all())[0].m40_50
+StatAge50to60 = list(StatisticAge2.objects.all())[0].m50_60
+StatAge60to = list(StatisticAge2.objects.all())[0].m60_0
+
 # test_LoanAllList = list(LoanGoods.objects.values_list('loan_good_name', flat=True).filter(loan_repayment=1)) # 필터링
 
 # conversation start
@@ -98,7 +102,9 @@ def message(request):
     elif stat_age:
         return JsonResponse({
             'message': {
-                'text': "현재 하월의 이용고객은 20~30",
+                'text': "현재 하월의 이용고객은 20대 ~ 30대 : " + StatAge20to30 + "명 \n" +
+                        "30대 ~ 40대 : " + StatAge30to40 + "명\n 40대 ~ 50대 : " + StatAge40to50 + "명 \n" +
+                        "50대 ~ 60대 : " + StatAge50to60 + "명\n 60대 이상 : " + StatAge60to + "명 입니다." ,
             },
             'keyboard': {
                 'type': 'buttons',
