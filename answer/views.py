@@ -107,7 +107,7 @@ def message(request):
             'message': {
                 'text': "사회초년생에게 맞는 전세자금대출 시작합니다. 대출받으실 금액을 알려주세요!",
             },
-            'keyboard': {1
+            'keyboard': {
                 'type': 'text',
             },
         })
