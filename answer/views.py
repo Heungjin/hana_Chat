@@ -50,7 +50,7 @@ StatLoan20to0BankNum = list(StatisticLoanAmount2.objects.all())[1].m20_0
 #
 # # 대출액통계 은행이름
 StatLoan00to03Bank = Banks.objects.get(bank_id = StatLoan00to03BankNum)
-StatLoan00to03Bank = Banks.objects.get(bank_id = StatLoan03to05BankNum)
+StatLoan03to05Bank = Banks.objects.get(bank_id = StatLoan03to05BankNum)
 StatLoan05to07Bank = Banks.objects.get(bank_id = StatLoan05to07BankNum)
 StatLoan07to10Bank = Banks.objects.get(bank_id = StatLoan07to10BankNum)
 StatLoan10to15Bank = Banks.objects.get(bank_id = StatLoan10to15BankNum)
@@ -169,8 +169,7 @@ def message(request):
                         "30대 ~ 40대 : " + (StatAge30to40Bank.bank_name).encode('utf-8') +
                         "\n40대 ~ 50대 : " + (StatAge40to50Bank.bank_name).encode('utf-8') +
                         "\n50대 ~ 60대 : " + (StatAge50to60Bank.bank_name).encode('utf-8') +
-                        "\n60대 이상 : " + (StatAge60toBank.bank_name).encode('utf-8') + " 입니다."
-                ,
+                        "\n60대 이상 : " + (StatAge60toBank.bank_name).encode('utf-8') + " 입니다.",
             },
             'keyboard': {
                 'type': 'buttons',
@@ -182,7 +181,17 @@ def message(request):
     elif stat_loan:
         return JsonResponse({
             'message': {
-                'text': "stat_loan",
+                'text': "* 현재 하월의 대출액별 분류는 \n3천만원 이하 : " + StatLoan00to03  + "명\n" +
+                        "3천만원 ~ 5천만원 : " + StatLoan03to05  + "명\n5천만원 ~ 7천만원 : " + StatLoan05to07  + "명\n" +
+                        "7천만원 ~ 1억원 : " + StatLoan07to10  + "명\n1억원 ~ 1억5천만원 : " + StatLoan10to15  + "명\n" +
+                        "1억 5천만원 ~ 2억원 : " + StatLoan15to20  + "명\n2억원 이상 : " + StatLoan20to0  + "명 입니다." +
+                        "\n\n* 대출액별 선호은행은 \n3천만원 이하 : " + (StatLoan00to03Bank .bank_name).encode('utf-8') +
+                        "\n3천만원 ~ 5천만원 : " + (StatLoan03to05Bank.bank_name).encode('utf-8') +
+                        "\n5천만원 ~ 7천만원 : " + (StatLoan05to07Bank.bank_name).encode('utf-8') +
+                        "\n7천만원 ~ 1억원" + (StatLoan07to10Bank.bank_name).encode('utf-8') +
+                        "\n1억원 ~ 1억5천만원 : " + (StatLoan10to15Bank.bank_name).encode('utf-8') +
+                        "\n1억원 5천만원 ~ 2억원 : " + (StatLoan15to20Bank.bank_name).encode('utf-8') +
+                        "\n2억원 이상 : " + (StatLoan20to0Bank.bank_name).encode('utf-8') + " 입니다.",
             },
             'keyboard': {
                 'type': 'buttons',
