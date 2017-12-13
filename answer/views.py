@@ -105,7 +105,7 @@ def message(request):
             },
             'keyboard': {
                 'type': 'buttons',
-                'buttons': StatAgeList
+                'buttons': stat_list
             },
         })
 
