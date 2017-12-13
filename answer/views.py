@@ -116,10 +116,10 @@ def message(request):
     elif stat_age:
         return JsonResponse({
             'message': {
-                'text': "현재 하월의 이용고객은 \n20대 ~ 30대 : " + StatAge20to30 + "명 \n" +
+                'text': "* 현재 하월의 이용고객은 \n20대 ~ 30대 : " + StatAge20to30 + "명 \n" +
                         "30대 ~ 40대 : " + StatAge30to40 + "명\n40대 ~ 50대 : " + StatAge40to50 + "명 \n" +
                         "50대 ~ 60대 : " + StatAge50to60 + "명\n60대 이상 : " + StatAge60to + "명 입니다." +
-                        "연령대별 선호은행은 \n20대 ~ 30대 : " + (StatAge20to30Bank.bank_name).encode('utf-8') + "\n" +
+                        "\n* 연령대별 선호은행은 \n20대 ~ 30대 : " + (StatAge20to30Bank.bank_name).encode('utf-8') + "\n" +
                         "30대 ~ 40대 : " + (StatAge30to40Bank.bank_name).encode('utf-8') +
                         "\n40대 ~ 50대 : " + (StatAge40to50Bank.bank_name).encode('utf-8') +
                         "\n50대 ~ 60대 : " + (StatAge50to60Bank.bank_name).encode('utf-8') +
