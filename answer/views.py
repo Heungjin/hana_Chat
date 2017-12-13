@@ -5,7 +5,7 @@ from answer.models import LoanGoods, StatisticAge2, StatisticList2, StatisticLoa
 import json
 
 button_list = ['시작하기', '모든 전세상품(랭킹순)', '실시간 통계보기', '우리는 하월이다', '도움말']
-stat_list = ['웹에서 가장 많이 추천된 상품 TOP3','고객 나이대별 통계', '고객 연봉별 통계', '가장많이받은 대출액']
+stat_list = ['웹에서 가장 많이 추천된 상품','고객 나이대별 통계', '고객 연봉별 통계', '가장많이받은 대출액']
 LoanGoodsList = list(LoanGoods.objects.values_list('loan_good_name', flat=True))[2:5]
 LoanAllList = list(LoanGoods.objects.values_list('loan_good_name', flat=True))
 # test_LoanAllList = list(LoanGoods.objects.values_list('loan_good_name', flat=True).filter(loan_repayment=1)) # 필터링
@@ -89,7 +89,7 @@ def message(request):
 
 
     elif stat_age:
-        StatAgeList = list(StatisticList2.objects.all().filter(type='total'))[0] # 필터링
+        StatAgeList = list(StatisticList2.objects.all().filter(type='total')) # 필터링
 
         return JsonResponse({
             'message': {
@@ -97,7 +97,7 @@ def message(request):
             },
             'keyboard': {
                 'type': 'buttons',
-                'buttons': [StatAgeList]
+                'buttons': StatAgeList
             },
         })
 
