@@ -83,7 +83,7 @@ class TbCalc2(models.Model):
 
 
 class StatisticAge(models.Model):
-    type = models.CharField(max_length=255, blank=True, null=True)
+    type1 = models.CharField(max_length=255, blank=True, null=True)
     m0_20 = models.IntegerField(blank=True, null=True)
     m20_30 = models.IntegerField(blank=True, null=True)
     m30_40 = models.IntegerField(blank=True, null=True)
@@ -97,7 +97,7 @@ class StatisticAge(models.Model):
 
 
 class StatisticList(models.Model):
-    type = models.CharField(max_length=255, blank=True, null=True)
+    type1 = models.CharField(max_length=255, blank=True, null=True)
     m1_loan_good_num = models.IntegerField(blank=True, null=True)
     m1_num = models.IntegerField(blank=True, null=True)
     m2_loan_good_num = models.IntegerField(blank=True, null=True)

@@ -22,12 +22,12 @@ class BanksAdmin(admin.ModelAdmin):
 
 # 나이대별 통계테이블
 class StatisticAgeAdmin(admin.ModelAdmin):
-  list_display = ('type', 'm0_20', 'm20_30', 'm30_40', 'm40_50', 'm50_60', 'm60_0')
+  list_display = ('type1', 'm0_20', 'm20_30', 'm30_40', 'm40_50', 'm50_60', 'm60_0')
 
 
 # 웹에서 가장 많이 추천된 상품
 class StatisticListAdmin(admin.ModelAdmin):
-  list_display = ('type', 'm1_loan_good_num', 'm1_num', 'm2_loan_good_num', 'm2_num', 'm3_loan_good_num', 'm3_num', 'total')
+  list_display = ('type1', 'm1_loan_good_num', 'm1_num', 'm2_loan_good_num', 'm2_num', 'm3_loan_good_num', 'm3_num', 'total')
 
 
 # 클래스를 어드민 사이트에 등록한다.
