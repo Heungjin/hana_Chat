@@ -15,6 +15,12 @@ StatAge40to50 = str(list(StatisticAge2.objects.all())[0].m40_50)
 StatAge50to60 = str(list(StatisticAge2.objects.all())[0].m50_60)
 StatAge60to = str(list(StatisticAge2.objects.all())[0].m60_0)
 
+StatAge20to30Bank = list(StatisticAge2.objects.all())[5].m20_30
+StatAge30to40Bank = list(StatisticAge2.objects.all())[5].m30_40
+StatAge40to50Bank = list(StatisticAge2.objects.all())[5].m40_50
+StatAge50to60Bank = list(StatisticAge2.objects.all())[5].m50_60
+StatAge60toBank = list(StatisticAge2.objects.all())[5].m60_0
+
 
 # test_LoanAllList = list(LoanGoods.objects.values_list('loan_good_name', flat=True).filter(loan_repayment=1)) # 필터링
 
@@ -50,6 +56,10 @@ def message(request):
 
     # if start button check
     print(return_str)
+    print(StatAge20to30Bank)
+    print(StatAge30to40Bank)
+    print(StatAge40to50Bank)
+    print(StatAge50to60Bank)
 
     if start:
         # result = list(Maker.objects.values_list('makerName', flat=True)) 상품
