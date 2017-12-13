@@ -8,9 +8,9 @@ button_list = ['시작하기', '모든 전세상품(랭킹순)', '실시간 통�
 stat_list = ['웹에서 가장 많이 추천된 상품','고객 나이대별 통계', '고객 연봉별 통계', '가장많이받은 대출액']
 LoanGoodsList = list(LoanGoods.objects.values_list('loan_good_name', flat=True))[2:5]
 LoanAllList = list(LoanGoods.objects.values_list('loan_good_name', flat=True))
-StatAgeList = list(StatisticAge2.objects.all().filter(type = 'total'))[0][0]
-StatAgeList2 = list(StatisticAge2.objects.all().filter(type = 'total'))[0][1]
-StatAgeList3 = list(StatisticAge2.objects.all().filter(type = 'total'))[0][2]
+StatAgeList = list(StatisticAge2.objects.all())[0]
+StatAgeList2 = list(StatisticAge2.objects.all())[1]
+StatAgeList3 = list(StatisticAge2.objects.all())[2]
 # test_LoanAllList = list(LoanGoods.objects.values_list('loan_good_name', flat=True).filter(loan_repayment=1)) # 필터링
 
 # conversation start
