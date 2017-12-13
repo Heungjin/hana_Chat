@@ -15,10 +15,10 @@ StatAge40to50 = str(list(StatisticAge2.objects.all())[0].m40_50)
 StatAge50to60 = str(list(StatisticAge2.objects.all())[0].m50_60)
 StatAge60to = str(list(StatisticAge2.objects.all())[0].m60_0)
 
-StatAge20to30Bank = list(StatisticAge2.objects.all())[5].m20_30
-StatAge30to40Bank = list(StatisticAge2.objects.all())[5].m30_40
-StatAge40to50Bank = list(StatisticAge2.objects.all())[5].m40_50
-StatAge50to60Bank = list(StatisticAge2.objects.all())[5].m50_60
+StatAge20to30Bank = list(StatisticAge2.objects.all())[1].m20_30
+StatAge30to40Bank = list(StatisticAge2.objects.all())[2].m30_40
+StatAge40to50Bank = list(StatisticAge2.objects.all())[3].m40_50
+StatAge50to60Bank = list(StatisticAge2.objects.all())[4].m50_60
 StatAge60toBank = list(StatisticAge2.objects.all())[5].m60_0
 
 
