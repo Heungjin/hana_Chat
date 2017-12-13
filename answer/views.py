@@ -28,8 +28,11 @@ def message(request):
 
     start = check_is_start(return_str)  # start
     rankAll = check_is_rankAll(return_str)  # ranking
-    # rental = crawl(return_str)  # crawl
-    stat = check_is_stat(return_str)  # gamble
+
+    stat = check_is_stat(return_str)  # stat
+    stat_age = check_is_stat_age
+    stat_recommend = check_is_stat_recommend
+    stat_salary = check_is_stat_salary
     help = check_is_help(return_str)  # help
     goods = check_is_goods(return_str)
     test_ranking = list(LoanGoods.objects.values_list('loan_good_name', flat=True).order_by('-chat_recommend'))
@@ -82,6 +85,43 @@ def message(request):
                 'buttons': stat_list
             },
         })
+
+    elif stat_age:
+        return JsonResponse({
+            'message': {
+                'text': "stat_age",
+            },
+            'keyboard': {
+                'type': 'buttons',
+                'buttons': stat_list
+            },
+        })
+
+
+    elif stat_recommend:
+        return JsonResponse({
+            'message': {
+                'text': "stat_recommend",
+            },
+            'keyboard': {
+                'type': 'buttons',
+                'buttons': stat_list
+            },
+        })
+
+
+    elif stat_salary:
+        return JsonResponse({
+            'message': {
+                'text': "stat_salary",
+            },
+            'keyboard': {
+                'type': 'buttons',
+                'buttons': stat_list
+            },
+        })
+
+
 
     elif goods:
         loanGoods = LoanGoods.objects.get(loan_good_name=(return_str).encode('utf-8'))
@@ -142,9 +182,6 @@ def check_is_help(str):
         return False
 
 
-# user input is help button check
-
-
 # user input is gamble button check
 def check_is_stat(str):
     if str == ("실시간 통계보기").decode('utf-8'):
@@ -152,6 +189,26 @@ def check_is_stat(str):
     else:
         return False
 
+
+def check_is_stat_age(str):
+    if str == ("고객 나이대별 통계").decode('utf-8'):
+        return True
+    else:
+        return False
+
+
+def check_is_stat_recommend(str):
+    if str == ("웹에서 가장 많이 추천된 상품").decode('utf-8'):
+        return True
+    else:
+        return False
+
+
+def check_is_stat_salary(str):
+    if str == ("고객 연봉별 통계").decode('utf-8'):
+        return True
+    else:
+        return False
 
 # user input is maker button check
 def check_is_goods(str):
