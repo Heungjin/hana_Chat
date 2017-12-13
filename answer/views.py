@@ -23,11 +23,11 @@ StatAge40to50BankNum = list(StatisticAge2.objects.all())[1].m40_50
 StatAge50to60BankNum = list(StatisticAge2.objects.all())[1].m50_60
 StatAge60toBankNum = list(StatisticAge2.objects.all())[1].m60_0
 
-StatAge20to30Bank = Banks.objects.get('bank_id = StatAge20to30BankNum', '1')
-StatAge30to40Bank = Banks.objects.get('bank_id = StatAge30to40BankNum', '없음')
-StatAge40to50Bank = Banks.objects.get('bank_id = StatAge40to50BankNum', '없음')
-StatAge50to60Bank = Banks.objects.get('bank_id = StatAge50to60BankNum', '없음')
-StatAge60toBank = Banks.objects.get('bank_id = StatAge60toBankNum,' '없음')
+StatAge20to30Bank = Banks.objects.get(bank_id = StatAge20to30BankNum, '없음')
+StatAge30to40Bank = Banks.objects.get(bank_id = StatAge30to40BankNum, '없음')
+StatAge40to50Bank = Banks.objects.get(bank_id = StatAge40to50BankNum, '없음')
+StatAge50to60Bank = Banks.objects.get(bank_id = StatAge50to60BankNum, '없음')
+StatAge60toBank = Banks.objects.get(bank_id = StatAge60toBankNum, '없음')
 
 
 # test_LoanAllList = list(LoanGoods.objects.values_list('loan_good_name', flat=True).filter(loan_repayment=1)) # 필터링
