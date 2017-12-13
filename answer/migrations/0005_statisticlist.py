@@ -15,7 +15,6 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='StatisticList',
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('type', models.CharField(blank=True, max_length=255, null=True)),
                 ('m1_loan_good_num', models.IntegerField(blank=True, null=True)),
                 ('m1_num', models.IntegerField(blank=True, null=True)),

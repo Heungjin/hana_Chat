@@ -15,7 +15,6 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='StatisticAge',
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('type', models.CharField(blank=True, max_length=255, null=True)),
                 ('m0_20', models.IntegerField(blank=True, null=True)),
                 ('m20_30', models.IntegerField(blank=True, null=True)),
