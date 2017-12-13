@@ -20,7 +20,7 @@
               <entry file="file://$PROJECT_DIR$/answer/views.py">
                 <provider selected="true" editor-type-id="text-editor">
                   <state relative-caret-position="741">
-                    <caret line="59" column="44" lean-forward="false" selection-start-line="59" selection-start-column="44" selection-end-line="59" selection-end-column="44" />
+                    <caret line="59" column="33" lean-forward="true" selection-start-line="59" selection-start-column="33" selection-end-line="59" selection-end-column="33" />
                     <folding>
                       <element signature="e#15#51#0" expanded="true" />
                     </folding>
@@ -817,7 +817,7 @@
     <entry file="file://$PROJECT_DIR$/answer/views.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="741">
-          <caret line="59" column="44" lean-forward="false" selection-start-line="59" selection-start-column="44" selection-end-line="59" selection-end-column="44" />
+          <caret line="59" column="33" lean-forward="true" selection-start-line="59" selection-start-column="33" selection-end-line="59" selection-end-column="33" />
           <folding>
             <element signature="e#15#51#0" expanded="true" />
           </folding>

@@ -56,8 +56,8 @@ def message(request):
 
     # if start button check
     print(return_str)
-    print((StatAge20to30Bank).encode('utf8'))
-    print((StatAge30to40Bank).encode('utf8'))
+    print((str(StatAge20to30Bank)).encode('utf8'))
+    print((str(StatAge30to40Bank)).encode('utf8'))
     print(StatAge40to50Bank)
     print(StatAge50to60Bank)
 
