@@ -30,9 +30,11 @@ def message(request):
     rankAll = check_is_rankAll(return_str)  # ranking
 
     stat = check_is_stat(return_str)  # stat
-    stat_age = check_is_stat_age
-    stat_recommend = check_is_stat_recommend
-    stat_salary = check_is_stat_salary
+    stat_age = check_is_stat_age(return_str)
+    stat_recommend = check_is_stat_recommend(return_str)
+    stat_salary = check_is_stat_salary(return_str)
+
+
     help = check_is_help(return_str)  # help
     goods = check_is_goods(return_str)
     test_ranking = list(LoanGoods.objects.values_list('loan_good_name', flat=True).order_by('-chat_recommend'))
@@ -85,6 +87,7 @@ def message(request):
                 'buttons': stat_list
             },
         })
+
 
     elif stat_age:
         return JsonResponse({
