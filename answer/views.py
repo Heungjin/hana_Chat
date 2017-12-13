@@ -5,6 +5,7 @@ from answer.models import LoanGoods
 import json
 
 button_list = ['시작하기', '모든 전세상품(랭킹순)', '실시간 통계보기', '우리는 하월이다', '도움말']
+stat_list = ['웹에서 가장 많이 추천된 상품','고객 나이대별 통계', '고객 연봉별 통계']
 LoanGoodsList = list(LoanGoods.objects.values_list('loan_good_name', flat=True))[2:5]
 LoanAllList = list(LoanGoods.objects.values_list('loan_good_name', flat=True))
 # test_LoanAllList = list(LoanGoods.objects.values_list('loan_good_name', flat=True).filter(loan_repayment=1)) # 필터링
@@ -28,7 +29,7 @@ def message(request):
     start = check_is_start(return_str)  # start
     rankAll = check_is_rankAll(return_str)  # ranking
     # rental = crawl(return_str)  # crawl
-    gamble = check_is_gamble(return_str)  # gamble
+    stat = check_is_stat(return_str)  # gamble
     help = check_is_help(return_str)  # help
     goods = check_is_goods(return_str)
     test_ranking = list(LoanGoods.objects.values_list('loan_good_name', flat=True).order_by('-chat_recommend'))
@@ -71,25 +72,14 @@ def message(request):
             },
         })
 
-    # elif rental:
-    #     return JsonResponse({
-    #         'message': {
-    #             'text': "인천지역의 공공임대주택을 포함한 인천지역의 주택분양정보를 크롤링하여 출력합니다.",
-    #         },
-    #         'keyboard': {
-    #             'type': 'buttons',
-    #             'buttons': ['나가기']
-    #         },
-    #     })
-
-    elif gamble:
+    elif stat:
         return JsonResponse({
             'message': {
-                'text': "헌기가 걸렸습니다.",
+                'text': "실시간 통계를 보여주는 통계페이지 입니다. 버튼을 눌러 결과를 확인하세요.",
             },
             'keyboard': {
                 'type': 'buttons',
-                'buttons': ['나가기']
+                'buttons': stat_list
             },
         })
 
@@ -156,8 +146,8 @@ def check_is_help(str):
 
 
 # user input is gamble button check
-def check_is_gamble(str):
-    if str == ("내기").decode('utf-8'):
+def check_is_stat(str):
+    if str == ("실시간 통계보기").decode('utf-8'):
         return True
     else:
         return False
