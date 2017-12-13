@@ -15,8 +15,8 @@ StatAge40to50 = str(list(StatisticAge2.objects.all())[0].m40_50)
 StatAge50to60 = str(list(StatisticAge2.objects.all())[0].m50_60)
 StatAge60to = str(list(StatisticAge2.objects.all())[0].m60_0)
 
-StatAge20to30Bank = list(Banks.objects.values_list('bank_name', flat=True).filter(bank_id = list(StatisticAge2.objects.all())[1].m20_30)).encode('utf-8')
-StatAge20to30Bank = list(Banks.objects.values_list('bank_name', flat=True).filter(bank_id = list(StatisticAge2.objects.all())[1].m30_40)).encode('utf-8')
+StatAge20to30Bank = str(list(Banks.objects.values_list('bank_name', flat=True).filter(bank_id = list(StatisticAge2.objects.all())[1].m20_30))).encode('utf-8')
+StatAge20to30Bank = str(list(Banks.objects.values_list('bank_name', flat=True).filter(bank_id = list(StatisticAge2.objects.all())[1].m30_40))).encode('utf-8')
 StatAge40to50Bank = list(StatisticAge2.objects.all())[1].m40_50
 StatAge50to60Bank = list(StatisticAge2.objects.all())[1].m50_60
 StatAge60toBank = list(StatisticAge2.objects.all())[1].m60_0
