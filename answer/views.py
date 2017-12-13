@@ -15,6 +15,7 @@ StatAge40to50 = str(list(StatisticAge2.objects.all())[0].m40_50)
 StatAge50to60 = str(list(StatisticAge2.objects.all())[0].m50_60)
 StatAge60to = str(list(StatisticAge2.objects.all())[0].m60_0)
 
+
 # test_LoanAllList = list(LoanGoods.objects.values_list('loan_good_name', flat=True).filter(loan_repayment=1)) # 필터링
 
 # conversation start
@@ -149,8 +150,11 @@ def message(request):
                     "width": 640,
                     "height": 480
                 },
-                'text': (return_str).encode('utf-8') + "의 정보는 다음과 같습니다.\n" + (loanGoods.chatbot_description).encode('utf-8') +
-                "\n 카톡 추천수 : " + str(loanGoods.chat_recommend) + "번",
+                'text': "상품명 : " + (return_str).encode('utf-8') + "\n" +
+                        "평균금리 : " + str(loanGoods.avg_int_rat) +"%\n" +
+                        "최고대출금액 : " + str(loanGoods.money_credit_line) + "원\n" +
+                        "상품설명 : " + (loanGoods.chatbot_description).encode('utf-8') +
+                        "\n 카톡 추천수 : " + str(loanGoods.chat_recommend) + "번",
             },
             'keyboard': {
                 'type': 'buttons',
