@@ -153,6 +153,7 @@ def message(request):
                 'text': "상품명 : " + (return_str).encode('utf-8') + "\n" +
                         "평균금리 : " + str(loanGoods.avg_int_rat) +"%\n" +
                         "최고대출금액 : " + str(loanGoods.money_credit_line) + "원\n" +
+                        "자세히 보기 : " + str((loanGoods.loan_url).encode('utf-8')) +
                         "상품설명 : " + (loanGoods.chatbot_description).encode('utf-8') +
                         "\n 카톡 추천수 : " + str(loanGoods.chat_recommend) + "번",
             },
