@@ -9,9 +9,6 @@ stat_list = ['웹에서 가장 많이 추천된 상품','고객 나이대별 통
 LoanGoodsList = list(LoanGoods.objects.values_list('loan_good_name', flat=True))[2:5]
 LoanAllList = list(LoanGoods.objects.values_list('loan_good_name', flat=True))
 StatAgeList = list(StatisticAge2.objects.all().filter(type = 'total'))[0]
-StatAgeList2 = list(StatisticAge2.objects.all().filter(type = 'total'))[1]
-StatAgeList3 = list(StatisticAge2.objects.all().filter(type = 'total'))[2]
-StatAgeList4 = list(StatisticAge2.objects.all().filter(type = 'total'))[3]# 필터링
 # test_LoanAllList = list(LoanGoods.objects.values_list('loan_good_name', flat=True).filter(loan_repayment=1)) # 필터링
 
 # conversation start
@@ -47,9 +44,7 @@ def message(request):
     # if start button check
     print(return_str)
     print(StatAgeList)
-    print(StatAgeList2)
-    print(StatAgeList3)
-    print(StatAgeList4)
+
     if start:
         # result = list(Maker.objects.values_list('makerName', flat=True)) 상품
         return JsonResponse({
