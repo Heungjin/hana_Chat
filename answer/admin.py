@@ -3,6 +3,7 @@ from django.contrib import admin
 from .models import LoanGoods # 모델에서 LoanGoods를 불러온다
 from .models import CustomerInfo # 모델에서 CustomerInfo를 불러온다
 from .models import Banks # 모델에서 CustomerInfo를 불러온다
+from .models import StatisticAge # 모델에서 CustomerInfo를 불러온다
 
 
 
