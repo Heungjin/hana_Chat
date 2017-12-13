@@ -99,9 +99,9 @@ def message(request):
     elif stat_age:
         return JsonResponse({
             'message': {
-                'text': "현재 하월의 이용고객은 20대 ~ 30대 : " + StatAge20to30 + "명 \n" +
-                        "30대 ~ 40대 : " + StatAge30to40 + "명\n 40대 ~ 50대 : " + StatAge40to50 + "명 \n" +
-                        "50대 ~ 60대 : " + StatAge50to60 + "명\n 60대 이상 : " + StatAge60to + "명 입니다." ,
+                'text': "현재 하월의 이용고객은 \n20대 ~ 30대 : " + StatAge20to30 + "명 \n" +
+                        "30대 ~ 40대 : " + StatAge30to40 + "명\n40대 ~ 50대 : " + StatAge40to50 + "명 \n" +
+                        "50대 ~ 60대 : " + StatAge50to60 + "명\n60대 이상 : " + StatAge60to + "명 입니다." ,
             },
             'keyboard': {
                 'type': 'buttons',
