@@ -64,11 +64,7 @@ def message(request):
 
     # if start button check
     print(return_str)
-    print(StatAge20to30Bank.bank_name)
-    print(StatAge30to40Bank.bank_name)
-    print(StatAge40to50Bank.bank_name)
-    print(StatAge50to60Bank.bank_name)
-    print(StatAge60toBank.bank_name)
+
 
 
     if start:
@@ -122,7 +118,11 @@ def message(request):
             'message': {
                 'text': "현재 하월의 이용고객은 \n20대 ~ 30대 : " + StatAge20to30 + "명 \n" +
                         "30대 ~ 40대 : " + StatAge30to40 + "명\n40대 ~ 50대 : " + StatAge40to50 + "명 \n" +
-                        "50대 ~ 60대 : " + StatAge50to60 + "명\n60대 이상 : " + StatAge60to + "명 입니다." ,
+                        "50대 ~ 60대 : " + StatAge50to60 + "명\n60대 이상 : " + StatAge60to + "명 입니다." +
+                        "연령대별 선호은행은 \n20대 ~ 30대 : " + StatAge20to30Bank.bank_name + "\n" +
+                        "30대 ~ 40대 : " + StatAge30to40Bank.bank_name + "\n40대 ~ 50대 : " + StatAge40to50Bank.bank_name + "\n" +
+                        "50대 ~ 60대 : " + StatAge50to60Bank.bank_name + "\n60대 이상 : " + StatAge60toBank.bank_name + " 입니다."
+                ,
             },
             'keyboard': {
                 'type': 'buttons',
