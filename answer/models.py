@@ -9,33 +9,33 @@ from __future__ import unicode_literals
 
 from django.db import models
 
-# class StatisticAge(models.Model):
-#     type = models.CharField(max_length=255, blank=True, null=True, primary_key=True)
-#     m0_20 = models.IntegerField(blank=True, null=True)
-#     m20_30 = models.IntegerField(blank=True, null=True)
-#     m30_40 = models.IntegerField(blank=True, null=True)
-#     m40_50 = models.IntegerField(blank=True, null=True)
-#     m50_60 = models.IntegerField(blank=True, null=True)
-#     m60_0 = models.IntegerField(blank=True, null=True)
-#
-#     class Meta:
-#         managed = False
-#         db_table = 'statistic_age'
-#
-#
-# class StatisticList(models.Model):
-#     type = models.CharField(max_length=255, blank=True, null=True, primary_key=True)
-#     m1_loan_good_num = models.IntegerField(blank=True, null=True)
-#     m1_num = models.IntegerField(blank=True, null=True)
-#     m2_loan_good_num = models.IntegerField(blank=True, null=True)
-#     m2_num = models.IntegerField(blank=True, null=True)
-#     m3_loan_good_num = models.IntegerField(blank=True, null=True)
-#     m3_num = models.IntegerField(blank=True, null=True)
-#     total = models.IntegerField(blank=True, null=True)
-#
-#     class Meta:
-#         managed = False
-#         db_table = 'statistic_list'
+class StatisticAge2(models.Model):
+    type = models.CharField(max_length=255, blank=True, null=True, primary_key=True)
+    m0_20 = models.IntegerField(blank=True, null=True)
+    m20_30 = models.IntegerField(blank=True, null=True)
+    m30_40 = models.IntegerField(blank=True, null=True)
+    m40_50 = models.IntegerField(blank=True, null=True)
+    m50_60 = models.IntegerField(blank=True, null=True)
+    m60_0 = models.IntegerField(blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'statistic_age'
+
+
+class StatisticList2(models.Model):
+    type = models.CharField(max_length=255, blank=True, null=True, primary_key=True)
+    m1_loan_good_num = models.IntegerField(blank=True, null=True)
+    m1_num = models.IntegerField(blank=True, null=True)
+    m2_loan_good_num = models.IntegerField(blank=True, null=True)
+    m2_num = models.IntegerField(blank=True, null=True)
+    m3_loan_good_num = models.IntegerField(blank=True, null=True)
+    m3_num = models.IntegerField(blank=True, null=True)
+    total = models.IntegerField(blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'statistic_list'
 
 
 class Banks(models.Model):
