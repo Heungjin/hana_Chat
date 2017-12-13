@@ -40,11 +40,11 @@ StatLoan15to20 = str(list(StatisticLoanAmount2.objects.all())[0].m15_20)
 StatLoan20to0 = str(list(StatisticLoanAmount2.objects.all())[0].m20_0)
 
 # # 대출액통계 은행번호
-# StatLoan00to03BankNum = list(StatisticLoanAmount2.objects.all())[0].m0_3
-# StatLoan03to05BankNum = list(StatisticLoanAmount2.objects.all())[0].m3_5
-# StatLoan05to07BankNum = list(StatisticLoanAmount2.objects.all())[0].m5_7
-# StatLoan07to10BankNum = list(StatisticLoanAmount2.objects.all())[0].m7_10
-# StatLoan10to15BankNum = list(StatisticLoanAmount2.objects.all())[0].m10_15
+StatLoan00to03BankNum = list(StatisticLoanAmount2.objects.all())[0].m0_3
+StatLoan03to05BankNum = list(StatisticLoanAmount2.objects.all())[0].m3_5
+StatLoan05to07BankNum = list(StatisticLoanAmount2.objects.all())[0].m5_7
+StatLoan07to10BankNum = list(StatisticLoanAmount2.objects.all())[0].m7_10
+StatLoan10to15BankNum = list(StatisticLoanAmount2.objects.all())[0].m10_15
 # StatLoan15to20BankNum = list(StatisticLoanAmount2.objects.all())[0].m15_20
 # StatLoan20to0BankNum = list(StatisticLoanAmount2.objects.all())[0].m20_0
 #
@@ -94,11 +94,11 @@ def message(request):
 
     # if start button check
     print(return_str)
-    print(StatLoan00to03)
-    print(StatLoan05to07)
-    print(StatLoan07to10)
-    print(StatLoan10to15)
-    print(StatLoan15to20)
+    print(StatLoan00to03BankNum)
+    print(StatLoan03to05BankNum)
+    print(StatLoan05to07BankNum)
+    print(StatLoan07to10BankNum)
+    print(StatLoan10to15BankNum)
 
 
     if start:
