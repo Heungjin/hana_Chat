@@ -15,8 +15,8 @@ StatAge40to50 = str(list(StatisticAge2.objects.all())[0].m40_50)
 StatAge50to60 = str(list(StatisticAge2.objects.all())[0].m50_60)
 StatAge60to = str(list(StatisticAge2.objects.all())[0].m60_0)
 
-StatAge20to30Bank = list(Banks.objects.values_list('bank_name', flat=True).filter(bank_id = list(StatisticAge2.objects.all())[1].m20_30))
-StatAge30to40Bank = list(Banks.objects.values_list('bank_name', flat=True).filter(bank_id = list(StatisticAge2.objects.all())[1].m30_40))
+StatAge20to30Bank = Banks.objects.get('bank_name', flat=True).filter(bank_id = list(StatisticAge2.objects.all())[1].m20_30)
+StatAge30to40Bank = Banks.objects.get('bank_name', flat=True).filter(bank_id = list(StatisticAge2.objects.all())[1].m30_40)
 StatAge40to50Bank = list(StatisticAge2.objects.all())[1].m40_50
 StatAge50to60Bank = list(StatisticAge2.objects.all())[1].m50_60
 StatAge60toBank = list(StatisticAge2.objects.all())[1].m60_0
@@ -56,8 +56,8 @@ def message(request):
 
     # if start button check
     print(return_str)
-    print((str(StatAge20to30Bank)).encode('utf8'))
-    print((str(StatAge30to40Bank)).encode('utf8'))
+    print(StatAge20to30Bank)
+    print(StatAge30to40Bank)
     print(StatAge40to50Bank)
     print(StatAge50to60Bank)
 
