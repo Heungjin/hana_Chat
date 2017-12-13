@@ -25,6 +25,9 @@ StatAge60toBankNum = list(StatisticAge2.objects.all())[1].m60_0
 
 StatAge20to30Bank = Banks.objects.get(bank_id = StatAge20to30BankNum)
 StatAge30to40Bank = Banks.objects.get(bank_id = StatAge30to40BankNum)
+StatAge40to50Bank = Banks.objects.get(bank_id = StatAge40to50BankNum)
+StatAge50to60Bank = Banks.objects.get(bank_id = StatAge50to60BankNum)
+StatAge60toBank = Banks.objects.get(bank_id = StatAge60toBankNum)
 
 
 # test_LoanAllList = list(LoanGoods.objects.values_list('loan_good_name', flat=True).filter(loan_repayment=1)) # 필터링
@@ -65,6 +68,9 @@ def message(request):
     print(StatAge30to40BankNum)
     print(StatAge20to30Bank.bank_name)
     print(StatAge30to40Bank.bank_name)
+    print(StatAge40to50Bank.bank_name)
+    print(StatAge50to60Bank.bank_name)
+    print(StatAge60toBank.bank_name)
 
 
     if start:
