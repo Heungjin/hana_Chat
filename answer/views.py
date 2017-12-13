@@ -43,6 +43,7 @@ def message(request):
 
     # if start button check
     print(return_str)
+    print(StatAgeList)
     if start:
         # result = list(Maker.objects.values_list('makerName', flat=True)) 상품
         return JsonResponse({
