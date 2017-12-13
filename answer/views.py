@@ -89,7 +89,7 @@ def message(request):
 
 
     elif stat_age:
-        StatAgeList = list(StatisticAge2.objects.all().filter(type='total')) # 필터링
+        StatAgeList = list(StatisticAge2.objects.all()) # 필터링
 
         return JsonResponse({
             'message': {
