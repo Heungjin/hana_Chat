@@ -61,8 +61,8 @@ def message(request):
 
     # if start button check
     print(return_str)
-    print(StatAge20to30Bank)
-    print(StatAge30to40Bank)
+    print(StatAge20to30Bank.bank_name)
+    print(StatAge30to40Bank.bank_name)
 
 
     if start:
