@@ -19,8 +19,8 @@
             <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
               <entry file="file://$PROJECT_DIR$/answer/views.py">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="302">
-                    <caret line="121" column="29" lean-forward="false" selection-start-line="121" selection-start-column="29" selection-end-line="121" selection-end-column="29" />
+                  <state relative-caret-position="282">
+                    <caret line="56" column="13" lean-forward="false" selection-start-line="56" selection-start-column="4" selection-end-line="56" selection-end-column="13" />
                     <folding>
                       <element signature="e#15#51#0" expanded="true" />
                     </folding>
@@ -108,6 +108,9 @@
       <find>stat_age</find>
       <find>StatAgeList</find>
       <find>filter</find>
+      <find>recomm</find>
+      <find>나가기</find>
+      <find>stat_loan</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -816,8 +819,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/answer/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="302">
-          <caret line="121" column="29" lean-forward="false" selection-start-line="121" selection-start-column="29" selection-end-line="121" selection-end-column="29" />
+        <state relative-caret-position="282">
+          <caret line="56" column="13" lean-forward="false" selection-start-line="56" selection-start-column="4" selection-end-line="56" selection-end-column="13" />
           <folding>
             <element signature="e#15#51#0" expanded="true" />
           </folding>

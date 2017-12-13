@@ -5,7 +5,7 @@ from answer.models import LoanGoods, StatisticAge2, StatisticList2, StatisticLoa
 import json
 
 button_list = ['시작하기', '모든 전세상품(랭킹순)', '실시간 통계보기', '우리는 하월이다', '도움말']
-stat_list = ['웹에서 가장 많이 추천된 상품','고객 나이대별 통계', '고객 연봉별 통계', '가장많이받은 대출액']
+stat_list = ['실시간 고객 나이대별 선호은행', '실시간 고객 대출액별 선호은행', '실시간 고객 연봉', '나가기']
 LoanGoodsList = list(LoanGoods.objects.values_list('loan_good_name', flat=True))[2:5]
 LoanAllList = list(LoanGoods.objects.values_list('loan_good_name', flat=True))
 
@@ -49,11 +49,12 @@ def message(request):
     return_str = return_json_str['content']
 
     start = check_is_start(return_str)  # start
+    exit = check_is_exit(return_str) # exit
     rankAll = check_is_rankAll(return_str)  # ranking
 
     stat = check_is_stat(return_str)  # stat
     stat_age = check_is_stat_age(return_str)
-    stat_recommend = check_is_stat_recommend(return_str)
+    stat_loan = check_is_stat_loan(return_str)
     stat_salary = check_is_stat_salary(return_str)
 
 
@@ -101,6 +102,18 @@ def message(request):
             },
         })
 
+    elif exit:
+        return JsonResponse({
+            'message': {
+                'text': "초기화면으로 돌아갑니다.",
+
+            },
+            'keyboard': {
+                'type': 'buttons',
+                'buttons': button_list
+            },
+        })
+
     elif stat:
         return JsonResponse({
             'message': {
@@ -119,7 +132,7 @@ def message(request):
                 'text': "* 현재 하월의 이용고객은 \n20대 ~ 30대 : " + StatAge20to30 + "명 \n" +
                         "30대 ~ 40대 : " + StatAge30to40 + "명\n40대 ~ 50대 : " + StatAge40to50 + "명 \n" +
                         "50대 ~ 60대 : " + StatAge50to60 + "명\n60대 이상 : " + StatAge60to + "명 입니다." +
-                        "\n* 연령대별 선호은행은 \n20대 ~ 30대 : " + (StatAge20to30Bank.bank_name).encode('utf-8') + "\n" +
+                        "\n\n* 연령대별 선호은행은 \n20대 ~ 30대 : " + (StatAge20to30Bank.bank_name).encode('utf-8') + "\n" +
                         "30대 ~ 40대 : " + (StatAge30to40Bank.bank_name).encode('utf-8') +
                         "\n40대 ~ 50대 : " + (StatAge40to50Bank.bank_name).encode('utf-8') +
                         "\n50대 ~ 60대 : " + (StatAge50to60Bank.bank_name).encode('utf-8') +
@@ -133,14 +146,14 @@ def message(request):
         })
 
 
-    elif stat_recommend:
+    elif stat_loan:
         return JsonResponse({
             'message': {
-                'text': "stat_recommend",
+                'text': "stat_loan",
             },
             'keyboard': {
                 'type': 'buttons',
-                'buttons': button_list
+                'buttons': stat_list
             },
         })
 
@@ -152,7 +165,7 @@ def message(request):
             },
             'keyboard': {
                 'type': 'buttons',
-                'buttons': button_list
+                'buttons': stat_list
             },
         })
 
@@ -220,6 +233,11 @@ def check_is_help(str):
     else:
         return False
 
+def check_is_exit(str):
+    if str == ("나가기").decode('utf-8'):
+        return True
+    else:
+        return False
 
 # user input is gamble button check
 def check_is_stat(str):
@@ -230,21 +248,21 @@ def check_is_stat(str):
 
 
 def check_is_stat_age(str):
-    if str == ("고객 나이대별 통계").decode('utf-8'):
+    if str == ("실시간 고객 나이대별 선호은행").decode('utf-8'):
         return True
     else:
         return False
 
 
-def check_is_stat_recommend(str):
-    if str == ("웹에서 가장 많이 추천된 상품").decode('utf-8'):
+def check_is_stat_loan(str):
+    if str == ("실시간 고객 대출액별 선호은행").decode('utf-8'):
         return True
     else:
         return False
 
 
 def check_is_stat_salary(str):
-    if str == ("고객 연봉별 통계").decode('utf-8'):
+    if str == ("실시간 고객 연봉").decode('utf-8'):
         return True
     else:
         return False
