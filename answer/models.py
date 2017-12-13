@@ -96,6 +96,20 @@ class StatisticAge(models.Model):
         db_table = 'statistic_age'
 
 
+class StatisticList(models.Model):
+    type = models.CharField(max_length=255, blank=True, null=True)
+    m1_loan_good_num = models.IntegerField(blank=True, null=True)
+    m1_num = models.IntegerField(blank=True, null=True)
+    m2_loan_good_num = models.IntegerField(blank=True, null=True)
+    m2_num = models.IntegerField(blank=True, null=True)
+    m3_loan_good_num = models.IntegerField(blank=True, null=True)
+    m3_num = models.IntegerField(blank=True, null=True)
+    total = models.IntegerField(blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'statistic_list'
+
 class AuthGroup(models.Model):
     name = models.CharField(unique=True, max_length=80)
 

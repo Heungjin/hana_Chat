@@ -4,7 +4,7 @@ from .models import LoanGoods # 모델에서 LoanGoods를 불러온다
 from .models import CustomerInfo # 모델에서 CustomerInfo를 불러온다
 from .models import Banks # 모델에서 Banks를 불러온다
 from .models import StatisticAge # 모델에서 StatisticAge를 불러온다
-
+from .models import StatisticList # 모델에서 StatisticAge를 불러온다
 
 
 # 출력할 테이블
@@ -26,6 +26,8 @@ class StatisticAgeAdmin(admin.ModelAdmin):
 
 
 # 웹에서 가장 많이 추천된 상품
+class StatisticListAdmin(admin.ModelAdmin):
+  list_display = ('type', 'm1_loan_good_num', 'm1_num', 'm2_loan_good_num', 'm2_num', 'm3_loan_good_num', 'm3_num', 'total')
 
 
 # 클래스를 어드민 사이트에 등록한다.
@@ -33,3 +35,4 @@ admin.site.register(CustomerInfo, CustomerInfoAdmin)
 admin.site.register(LoanGoods, LoanGoodsAdmin)
 admin.site.register(Banks, BanksAdmin)
 admin.site.register(StatisticAge, StatisticAgeAdmin)
+admin.site.register(StatisticList, StatisticListAdmin)
