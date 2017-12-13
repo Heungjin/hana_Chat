@@ -57,7 +57,6 @@ def message(request):
         return JsonResponse({
             'message': {
                 'text': "가장 인기있는 전세자금대출 상품 랭킹입니다. 현재 순위는 다음과 같습니다. \n * " + test_ranking_Str,
-
             },
             'keyboard': {
                 'type': 'buttons',

@@ -51,7 +51,6 @@ class LoanGoods(models.Model):
     loan_url = models.CharField(max_length=200, blank=True, null=True)
     loan_img = models.CharField(max_length=50, blank=True, null=True)
     num_recommend = models.IntegerField(blank=True, null=True)
-    # chatbot_img = models.CharField(max_length=50, blank=True, null=True)
     chatbot_img = models.ImageField(blank=True, null=True)
     chatbot_description = models.CharField(max_length=255, blank=True, null=True)
     chat_recommend = models.IntegerField(blank=True, null=True)
@@ -81,6 +80,21 @@ class TbCalc2(models.Model):
     class Meta:
         managed = False
         db_table = 'tb_calc2'
+
+
+class StatisticAge(models.Model):
+    type = models.CharField(max_length=255, blank=True, null=True)
+    m0_20 = models.IntegerField(blank=True, null=True)
+    m20_30 = models.IntegerField(blank=True, null=True)
+    m30_40 = models.IntegerField(blank=True, null=True)
+    m40_50 = models.IntegerField(blank=True, null=True)
+    m50_60 = models.IntegerField(blank=True, null=True)
+    m60_0 = models.IntegerField(blank=True, null=True)
+
+
+    class Meta:
+        managed = False
+        db_table = 'statistic_age'
 
 
 class AuthGroup(models.Model):
