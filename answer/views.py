@@ -1,7 +1,7 @@
 # coding=utf-8
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
-from answer.models import LoanGoods, StatisticAge2, StatisticList2, StatisticLoanAmount2, StatisticSalary2
+from answer.models import LoanGoods, StatisticAge2, StatisticList2, StatisticLoanAmount2, StatisticSalary2, Banks
 import json
 
 button_list = ['시작하기', '모든 전세상품(랭킹순)', '실시간 통계보기', '우리는 하월이다', '도움말']
@@ -15,7 +15,7 @@ StatAge40to50 = str(list(StatisticAge2.objects.all())[0].m40_50)
 StatAge50to60 = str(list(StatisticAge2.objects.all())[0].m50_60)
 StatAge60to = str(list(StatisticAge2.objects.all())[0].m60_0)
 
-StatAge20to30Bank = list(StatisticAge2.objects.all())[1].m20_30
+StatAge20to30Bank = list(Banks.objects.values_list('bank_name', flat=True).filter(bank_id = list(StatisticAge2.objects.all())[1].m20_30))
 StatAge30to40Bank = list(StatisticAge2.objects.all())[1].m30_40
 StatAge40to50Bank = list(StatisticAge2.objects.all())[1].m40_50
 StatAge50to60Bank = list(StatisticAge2.objects.all())[1].m50_60
