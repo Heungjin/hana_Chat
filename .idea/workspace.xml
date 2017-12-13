@@ -19,8 +19,8 @@
             <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
               <entry file="file://$PROJECT_DIR$/answer/views.py">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="272">
-                    <caret line="91" column="18" lean-forward="false" selection-start-line="91" selection-start-column="18" selection-end-line="91" selection-end-column="18" />
+                  <state relative-caret-position="289">
+                    <caret line="98" column="34" lean-forward="false" selection-start-line="98" selection-start-column="34" selection-end-line="98" selection-end-column="34" />
                     <folding>
                       <element signature="e#15#51#0" expanded="true" />
                     </folding>
@@ -101,8 +101,12 @@
       <find>StatisticAge</find>
       <find>.idStatisticAge</find>
       <find>check_is_stat_age</find>
-      <find>stat_age</find>
       <find>StatisticAge2</find>
+      <find>stat_salary</find>
+      <find>고객 나이대별 통계</find>
+      <find>age</find>
+      <find>stat_age</find>
+      <find>StatAgeList</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -811,8 +815,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/answer/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="91" column="18" lean-forward="false" selection-start-line="91" selection-start-column="18" selection-end-line="91" selection-end-column="18" />
+        <state relative-caret-position="289">
+          <caret line="98" column="34" lean-forward="false" selection-start-line="98" selection-start-column="34" selection-end-line="98" selection-end-column="34" />
           <folding>
             <element signature="e#15#51#0" expanded="true" />
           </folding>
