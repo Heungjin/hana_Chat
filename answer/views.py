@@ -1,7 +1,7 @@
 # coding=utf-8
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
-from answer.models import LoanGoods
+from answer.models import LoanGoods, StatisticAge
 import json
 
 button_list = ['시작하기', '모든 전세상품(랭킹순)', '실시간 통계보기', '우리는 하월이다', '도움말']

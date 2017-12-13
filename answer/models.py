@@ -91,7 +91,6 @@ class StatisticAge(models.Model):
     m50_60 = models.IntegerField(blank=True, null=True)
     m60_0 = models.IntegerField(blank=True, null=True)
 
-
     class Meta:
         managed = False
         db_table = 'statistic_age'
