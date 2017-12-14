@@ -286,7 +286,7 @@ def message(request):
             },
             'keyboard': {
                 'type': 'buttons',
-                'buttons': [result_bank1]
+                'buttons': result_bank1
             },
         })
 
