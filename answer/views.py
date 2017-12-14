@@ -256,7 +256,8 @@ def message(request):
 
     elif input_again:
         user = User.getUser(user_key)
-        user.stateClear()
+        user.delete()
+        user.save()
         return JsonResponse({
             'message': {
                 'text': "다시시작합니다.",
