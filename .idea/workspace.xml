@@ -19,8 +19,8 @@
             <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
               <entry file="file://$PROJECT_DIR$/answer/views.py">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="453">
-                    <caret line="314" column="33" lean-forward="true" selection-start-line="314" selection-start-column="33" selection-end-line="314" selection-end-column="33" />
+                  <state relative-caret-position="387">
+                    <caret line="327" column="0" lean-forward="true" selection-start-line="327" selection-start-column="0" selection-end-line="327" selection-end-column="0" />
                     <folding>
                       <element signature="e#15#51#0" expanded="true" />
                     </folding>
@@ -47,11 +47,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="models.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/answer/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="476">
-              <caret line="178" column="45" lean-forward="true" selection-start-line="178" selection-start-column="45" selection-end-line="178" selection-end-column="45" />
+            <state relative-caret-position="561">
+              <caret line="216" column="35" lean-forward="true" selection-start-line="216" selection-start-column="35" selection-end-line="216" selection-end-column="35" />
               <folding>
                 <element signature="e#468#507#0" expanded="true" />
               </folding>
@@ -59,11 +59,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
         <entry file="file://$USER_HOME$/Chat/chatbot/answer/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="603">
-              <caret line="128" column="28" lean-forward="true" selection-start-line="128" selection-start-column="28" selection-end-line="128" selection-end-column="28" />
+            <state relative-caret-position="391">
+              <caret line="122" column="43" lean-forward="false" selection-start-line="122" selection-start-column="43" selection-end-line="122" selection-end-column="43" />
               <folding>
                 <element signature="e#15#51#0" expanded="true" />
               </folding>
@@ -141,10 +141,10 @@
       <find>나가기</find>
       <find>stat_loan</find>
       <find>'type'</find>
-      <find>User</find>
       <find>setUserState</find>
       <find>user_key</find>
       <find>loangood</find>
+      <find>User</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -799,20 +799,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/Chat/chatbot/answer/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="603">
-          <caret line="128" column="28" lean-forward="true" selection-start-line="128" selection-start-column="28" selection-end-line="128" selection-end-column="28" />
-          <folding>
-            <element signature="e#15#51#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/answer/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="178" column="45" lean-forward="true" selection-start-line="178" selection-start-column="45" selection-end-line="178" selection-end-column="45" />
+        <state relative-caret-position="561">
+          <caret line="216" column="35" lean-forward="true" selection-start-line="216" selection-start-column="35" selection-end-line="216" selection-end-column="35" />
           <folding>
             <element signature="e#468#507#0" expanded="true" />
           </folding>
@@ -821,8 +811,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/answer/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="453">
-          <caret line="314" column="33" lean-forward="true" selection-start-line="314" selection-start-column="33" selection-end-line="314" selection-end-column="33" />
+        <state relative-caret-position="387">
+          <caret line="327" column="0" lean-forward="true" selection-start-line="327" selection-start-column="0" selection-end-line="327" selection-end-column="0" />
+          <folding>
+            <element signature="e#15#51#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Chat/chatbot/answer/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="122" column="43" lean-forward="false" selection-start-line="122" selection-start-column="43" selection-end-line="122" selection-end-column="43" />
           <folding>
             <element signature="e#15#51#0" expanded="true" />
           </folding>

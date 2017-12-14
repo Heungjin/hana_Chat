@@ -87,6 +87,7 @@ def message(request):
     return_str = return_json_str['content']
     user_key = return_json_str['user_key']
 
+    input_again = check_is_inputAgain(return_str)
     exit = check_is_exit(return_str) # exit
     rankAll = check_is_rankAll(return_str)  # ranking
 
@@ -250,6 +251,18 @@ def message(request):
                 'buttons': button_list
             },
         })
+
+    elif input_again:
+        user.stateClear()
+        return JsonResponse({
+            'message': {
+                'text': "다시시작합니다.",
+            },
+            'keyboard': {
+                'type': 'buttons',
+                'buttons': button_list
+            },
+        })
 ##########################
 
     elif input_lending:
@@ -310,8 +323,9 @@ def message(request):
     #     })
 
     else:
-        if User.user_key is False:
-            User.setUserState(user_key)
+        if user.user_key is False:
+            user.setUserState(user_key)
+
             return JsonResponse({
                 'message': {
                     'text': "사회초년생에게 맞는 전세자금대출 추천을 시작합니다. \n저희 서비스를 이용하기 위해서는\n" +
@@ -332,7 +346,7 @@ def message(request):
             print("input_lending 실행됨")
             return JsonResponse({
                 'message': {
-                    'text': "고객님이 들어가실 집의 전세금액으로" + return_str +"원을 입력받았습니다. 고객님의 연봉을 입력하여 주세요.\n" +
+                    'text': "고객님이 들어가실 집의 전세금액으로" + (return_str).encode('utf-8') +"원을 입력받았습니다. 고객님의 연봉을 입력하여 주세요.\n" +
                             "주의 - 만원은 생략됩니다.\nex) 4000",
                 },
                 'keyboard': {
@@ -348,6 +362,12 @@ def check_is_start(str):
     else:
         return False
 
+
+def check_is_inputAgain(str):
+    if str == ("다시").decode('utf-8'):
+        return True
+    else:
+        return False
 
 # user input is start button check
 def check_is_rankAll(str):
