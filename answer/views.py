@@ -250,8 +250,11 @@ def message(request):
                 'buttons': button_list
             },
         })
+##########################
 
     elif input_lending:
+        User.setUserInputLending(user_key, int(return_str))
+        print(user.input_lending)
         return JsonResponse({
             'message': {
                 'text': "고객님께서 들어가실 집의 전세금액을 입력하여 주세요.\n" +
@@ -264,6 +267,8 @@ def message(request):
         })
 
     elif input_salary:
+        User.setUserInputSalary(user_key, int(return_str))
+        print(user.input_salary)
         return JsonResponse({
             'message': {
                 'text': "고객님께서 들어가실 집의 전세금액을 입력하여 주세요.\n" +
@@ -276,6 +281,8 @@ def message(request):
         })
 
     elif input_loan:
+        User.setUserInputLoan(user_key, int(return_str))
+        print(user.input_loan)
         return JsonResponse({
             'message': {
                 'text': "고객님께서 들어가실 집의 전세금액을 입력하여 주세요.\n" +
@@ -287,7 +294,6 @@ def message(request):
             },
         })
 
-    
     else:
         loanGoods = LoanGoods.objects.get(loan_good_num=1)
         User.setUserState(user_key, loanGoods)

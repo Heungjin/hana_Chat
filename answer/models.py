@@ -151,7 +151,9 @@ class TimeStampedModel(models.Model):
 class User(TimeStampedModel):
     user_key = models.TextField(default="")
     bank_choice = models.BooleanField(default=False)
-
+    input_lending = models.IntegerField(default="no data")
+    input_salary = models.IntegerField(default="no data")
+    input_loan = models.IntegerField(default="no data")
     loanGoods = models.ForeignKey(LoanGoods, default=None)
 
     def __str__(self):
@@ -176,6 +178,35 @@ class User(TimeStampedModel):
         except:
             User.createUser(user_key, loanGoods)
 
+    @staticmethod
+    def setUserInputLending(user_key, input_lending):
+        try:
+            user = User.objects.get(user_key=user_key)
+            user.input_lending = input_lending
+            user.bank_choice = True
+            user.save()
+        except:
+            User.createUser(user_key, loanGoods)
+
+    @staticmethod
+    def setUserInputSalary(user_key, input_salary):
+        try:
+            user = User.objects.get(user_key=user_key)
+            user.input_salary = input_salary
+            user.bank_choice = True
+            user.save()
+        except:
+            User.createUser(user_key, loanGoods)
+
+    @staticmethod
+    def setUserInputLoan(user_key, input_loan):
+        try:
+            user = User.objects.get(user_key=user_key)
+            user.input_loan = input_loan
+            user.bank_choice = True
+            user.save()
+        except:
+            User.createUser(user_key, loanGoods)
     @staticmethod
     def getUser(user_key):
         return User.objects.get(user_key=user_key)
