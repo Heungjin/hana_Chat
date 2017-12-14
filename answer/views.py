@@ -310,7 +310,7 @@ def message(request):
     #     })
 
     else:
-        if User.user_key == null:
+        if User.user_key:
             User.setUserState(user_key)
             return JsonResponse({
                 'message': {
@@ -319,7 +319,8 @@ def message(request):
                     "우선 전세금액을 입력해 주세요. \nex) 4000",
                 },
                 'keyboard': {
-                    'type': 'text'
+                    'type': 'buttons',
+                    'buttons': [str(type(User.user_key))]
                 },
             })
 
