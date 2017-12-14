@@ -254,7 +254,7 @@ def message(request):
 
     elif input_lending:
         User.setUserInputLending(user_key, return_str)
-        print(user.input_lending)
+        print("input_lending 실행됨")
         return JsonResponse({
             'message': {
                 'text': "고객님께서 들어가실 집의 전세금액을 입력하여 주세요.\n" +
@@ -267,7 +267,7 @@ def message(request):
 
     elif input_salary:
         User.setUserInputSalary(user_key, return_str)
-        print(user.input_salary)
+        print("input_salary 실행됨")
         return JsonResponse({
             'message': {
                 'text': "고객님께서 들어가실 집의 전세금액을 입력하여 주세요.\n" +
@@ -280,7 +280,7 @@ def message(request):
 
     elif input_loan:
         User.setUserInputLoan(user_key, return_str)
-        print(user.input_loan)
+        print("input_loan 실행됨")
         return JsonResponse({
             'message': {
                 'text': "고객님께서 들어가실 집의 전세금액을 입력하여 주세요.\n" +
