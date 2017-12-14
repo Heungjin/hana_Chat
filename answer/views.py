@@ -343,7 +343,7 @@ def message(request):
 
         elif User.input_lending > 0 and User.input_salary == 0:
             # elif input_lending:
-            User.setUserInputSalary(user_key, (return_str).encode('utf-8'))
+            User.setUserInputLending(user_key, (return_str).encode('utf-8'))
 
             print("input_lending 실행됨")
             return JsonResponse({
