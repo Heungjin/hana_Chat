@@ -6,7 +6,7 @@ import json
 
 button_list = ['시작하기', '모든 전세상품(랭킹순)', '실시간 통계보기', '우리는 하월이다', '도움말']
 stat_list = ['실시간 고객 나이대별 선호은행', '실시간 고객 대출액별 선호은행', '실시간 고객 연봉', '나가기']
-start_list = ['전세금액입력', '연봉입력', '대출입력', '계산하기', '나가기']
+start_list = ['전세금액입력', '연봉입력', '대출받으실 금액입력', '계산하기', '나가기']
 LoanGoodsList = list(LoanGoods.objects.values_list('loan_good_name', flat=True))[2:5]
 LoanAllList = list(LoanGoods.objects.values_list('loan_good_name', flat=True))
 
@@ -105,22 +105,22 @@ def message(request):
     # if start button check
     print(return_str)
 
-    if start:
-        loanGoods = LoanGoods.objects.get(loan_good_num=1)
-        User.setUserState(user_key, loanGoods)
-        return JsonResponse({
-            'message': {
-                'text': "사회초년생에게 맞는 전세자금대출 추천을 시작합니다. \n저희 서비스를 이용하기 위해서는\n" +
-                "총 4가지 정보가 필요합니다. \n고객님께서 들어가실 집의 전세금액, 연봉, 대출금액, 그리고 주거래 은행 이 필요합니다\n." +
-                "전세금액입력, 연봉입력, 대출금액입력을 모두 입력하신 뒤 계산하기버튼을 눌러 결과를 확인하세요!\n주의 - 만원은 생략됩니다.\nex) 4000",
-            },
-            'keyboard': {
-                'type': 'buttons',
-                'buttons': start_list  # DB에 넣어서 list로 출력
-            },
-        })
+    # if start:
+    #     loanGoods = LoanGoods.objects.get(loan_good_num=1)
+    #     User.setUserState(user_key, loanGoods)
+    #     return JsonResponse({
+    #         'message': {
+    #             'text': "사회초년생에게 맞는 전세자금대출 추천을 시작합니다. \n저희 서비스를 이용하기 위해서는\n" +
+    #             "총 4가지 정보가 필요합니다. \n고객님께서 들어가실 집의 전세금액, 연봉, 대출금액, 그리고 주거래 은행 이 필요합니다.\n" +
+    #             "전세금액입력, 연봉입력, 대출금액입력을 모두 입력하신 뒤 계산하기버튼을 눌러 결과를 확인하세요!\n주의 - 만원은 생략됩니다.\nex) 4000",
+    #         },
+    #         'keyboard': {
+    #             'type': 'buttons',
+    #             'buttons': start_list  # DB에 넣어서 list로 출력
+    #         },
+    #     })
 
-    elif rankAll:
+    if rankAll:
         return JsonResponse({
             'message': {
                 'text': "가장 인기있는 전세자금대출 상품 랭킹입니다. 현재 순위는 다음과 같습니다. \n * " + test_ranking_Str,
@@ -250,13 +250,17 @@ def message(request):
         })
 
     else:
+        loanGoods = LoanGoods.objects.get(loan_good_num=1)
+        User.setUserState(user_key, loanGoods)
         return JsonResponse({
             'message': {
-                'text': "테스트버전이기 때문에 초기화면으로 돌아갑니다.",
+                'text': "사회초년생에게 맞는 전세자금대출 추천을 시작합니다. \n저희 서비스를 이용하기 위해서는\n" +
+                "총 4가지 정보가 필요합니다. \n고객님께서 들어가실 집의 전세금액, 연봉, 대출금액, 그리고 주거래 은행 이 필요합니다.\n" +
+                "전세금액입력, 연봉입력, 대출금액입력을 모두 입력하신 뒤 계산하기버튼을 눌러 결과를 확인하세요!\n주의 - 만원은 생략됩니다.\nex) 4000",
             },
             'keyboard': {
                 'type': 'buttons',
-                'buttons': button_list # start button for user
+                'buttons': start_list  # DB에 넣어서 list로 출력
             },
         })
 

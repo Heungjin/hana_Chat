@@ -151,6 +151,7 @@ class TimeStampedModel(models.Model):
 class User(TimeStampedModel):
     user_key = models.TextField(default="")
     bank_choice = models.BooleanField(default=False)
+
     loanGoods = models.ForeignKey(LoanGoods, default=None)
 
     def __str__(self):
