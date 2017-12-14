@@ -323,6 +323,7 @@ def message(request):
     #     })
 
     else:
+        user = ""
         if user.user_key is False:
             user.setUserState(user_key)
 
