@@ -325,9 +325,8 @@ def message(request):
 
     else:
         # loanGoods = LoanGoods.objects.get(loan_good_name=(return_str).encode('utf-8'))
-        if User.objects.get(user_key=user_key):
+        if User.objects.get(user_key=user_key) is None:
             User.setUserState(user_key)
-
             return JsonResponse({
                 'message': {
                     'text': "사회초년생에게 맞는 전세자금대출 추천을 시작합니다. \n저희 서비스를 이용하기 위해서는\n" +
