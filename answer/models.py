@@ -150,7 +150,7 @@ class TimeStampedModel(models.Model):
 
 class User(TimeStampedModel):
     user_key = models.TextField(default="")
-    bank_choice = models.BooleanField(default=False)
+    bank_choice = models.IntegerField(default=0)
     input_lending = models.IntegerField(default = 0)
     input_salary = models.IntegerField(default = 0)
     input_loan = models.IntegerField(default = 0)
@@ -177,14 +177,14 @@ class User(TimeStampedModel):
         newObj.save()
 
     def createUserLoan(user_key, input_loan):
-        newObj = User.objects.create(user_key=user_key, bank_choice=False, input_loan=input_loan)
+        newObj = User.objects.create(user_key=user_key, bank_choice=0, input_loan=input_loan)
         newObj.save()
 
     @staticmethod
     def setUserState(user_key):
         try:
             user = User.objects.get(user_key=user_key)
-            user.bank_choice = False
+            user.bank_choice = 0
             user.save()
         except:
             User.createUser(user_key)
@@ -194,7 +194,7 @@ class User(TimeStampedModel):
         try:
             user = User.objects.get(user_key=user_key)
             user.input_lending = input_lending
-            user.bank_choice = False
+            user.bank_choice = 0
             user.save()
         except:
             User.createUserLending(user_key, input_lending)
@@ -204,7 +204,7 @@ class User(TimeStampedModel):
         try:
             user = User.objects.get(user_key=user_key)
             user.input_salary = input_salary
-            user.bank_choice = False
+            user.bank_choice = 0
             user.save()
         except:
             User.createUser(user_key)
@@ -214,7 +214,16 @@ class User(TimeStampedModel):
         try:
             user = User.objects.get(user_key=user_key)
             user.input_loan = input_loan
-            user.bank_choice = False
+            user.bank_choice = 0
+            user.save()
+        except:
+            User.createUser(user_key)
+
+    @staticmethod
+    def setUserInputBank(user_key, bank_choice):
+        try:
+            user = User.objects.get(user_key=user_key)
+            user.bank_choice = bank_choice
             user.save()
         except:
             User.createUser(user_key)

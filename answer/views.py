@@ -96,10 +96,14 @@ def message(request):
     stat_loan = check_is_stat_loan(return_str)
     stat_salary = check_is_stat_salary(return_str)
 
-    input_loan = check_is_input_loan(return_str)
-    input_salary = check_is_input_salary(return_str)
-    input_lending = check_is_input_lending(return_str)
-
+    input_bank1 = check_is_input_bank1(return_str)
+    input_bank2 = check_is_input_bank2(return_str)
+    input_bank3 = check_is_input_bank3(return_str)
+    input_bank4 = check_is_input_bank4(return_str)
+    input_bank5 = check_is_input_bank5(return_str)
+    input_bank6 = check_is_input_bank6(return_str)
+    
+    
     help = check_is_help(return_str)  # help
     goods = check_is_goods(return_str)
     test_ranking = list(LoanGoods.objects.values_list('loan_good_name', flat=True).order_by('-chat_recommend'))
@@ -109,23 +113,10 @@ def message(request):
 
 
     # if start button check
-    print(return_str)
-    print(user_check)
-    # if start:
-    #     loanGoods = LoanGoods.objects.get(loan_good_num=1)
-    #     User.setUserState(user_key, loanGoods)
-    #     return JsonResponse({
-    #         'message': {
-    #             'text': "사회초년생에게 맞는 전세자금대출 추천을 시작합니다. \n저희 서비스를 이용하기 위해서는\n" +
-    #             "총 4가지 정보가 필요합니다. \n고객님께서 들어가실 집의 전세금액, 연봉, 대출금액, 그리고 주거래 은행 이 필요합니다.\n" +
-    #             "전세금액입력, 연봉입력, 대출금액입력을 모두 입력하신 뒤 계산하기버튼을 눌러 결과를 확인하세요!\n주의 - 만원은 생략됩니다.\nex) 4000",
-    #         },
-    #         'keyboard': {
-    #             'type': 'buttons',
-    #             'buttons': start_list  # DB에 넣어서 list로 출력
-    #         },
-    #     })
+    print(return_str) # 리턴문 확인용
+    print(user_check) # 세션확인용
 
+    # 전체랭킹보기 버튼
     if rankAll:
         return JsonResponse({
             'message': {
@@ -137,6 +128,7 @@ def message(request):
             },
         })
 
+    # 도움말 버튼
     elif help:
         return JsonResponse({
             'message': {
@@ -149,6 +141,7 @@ def message(request):
             },
         })
 
+    # 나가기 버튼
     elif exit:
         return JsonResponse({
             'message': {
@@ -161,6 +154,7 @@ def message(request):
             },
         })
 
+    # 메인화면 통계
     elif stat:
         return JsonResponse({
             'message': {
@@ -172,7 +166,7 @@ def message(request):
             },
         })
 
-
+    # 이용고객 나이통계 및 나이별 선호은행
     elif stat_age:
         return JsonResponse({
             'message': {
@@ -192,6 +186,7 @@ def message(request):
         })
 
 
+    # 이용고객 대출액 통계 및 대출액별 선호은행
     elif stat_loan:
         return JsonResponse({
             'message': {
@@ -214,6 +209,7 @@ def message(request):
         })
 
 
+    # 이용고객 연봉 통계
     elif stat_salary:
         return JsonResponse({
             'message': {
@@ -228,6 +224,7 @@ def message(request):
             },
         })
 
+    # 상품 상세보기 및 추천
     elif goods:
         loanGoods = LoanGoods.objects.get(loan_good_name=(return_str).encode('utf-8'))
         loanGoods.chat_recommend = loanGoods.chat_recommend + 1
@@ -255,6 +252,7 @@ def message(request):
             },
         })
 
+    # 다시시작
     elif input_again:
         user = User.getUser(user_key=user_key)
         user.delete()
@@ -268,13 +266,15 @@ def message(request):
                 'buttons': button_list
             },
         })
-##########################
 
-    elif input_lending:
+    # 하나은행
+    elif input_bank1:
         # User.setUserInputLending(user_key, return_str)
-        user = User.getUser(user_key)
+        User.setUserInputSalary(user_key, 1)
+        user.input_salary
 
-        print("input_lending 실행됨")
+
+        print("하나은행 실행됨")
         return JsonResponse({
             'message': {
                 'text': "고객님께서 들어가실 집의 전세금액을 입력하여 주세요.\n" +
@@ -284,48 +284,6 @@ def message(request):
                 'type': 'text'
             },
         })
-
-    elif input_salary:
-        # User.setUserInputSalary(user_key, return_str)
-        user = User.getUser(user_key)
-        print("input_salary 실행됨")
-        return JsonResponse({
-            'message': {
-                'text': "고객님께서 들어가실 집의 전세금액을 입력하여 주세요.\n" +
-                "주의 - 만원은 생략됩니다.\nex) 4000",
-            },
-            'keyboard': {
-                'type': 'text'
-            },
-        })
-
-    elif input_loan:
-        # User.setUserInputLoan(user_key, return_str)
-        user = User.getUser(user_key)
-        print("input_loan 실행됨")
-        return JsonResponse({
-            'message': {
-                'text': "고객님께서 들어가실 집의 전세금액을 입력하여 주세요.\n" +
-                "주의 - 만원은 생략됩니다.\nex) 4000",
-            },
-            'keyboard': {
-                'type': 'text'
-            },
-        })
-
-    # else:
-    #     User.setUserState(user_key)
-    #     return JsonResponse({
-    #         'message': {
-    #             'text': "사회초년생에게 맞는 전세자금대출 추천을 시작합니다. \n저희 서비스를 이용하기 위해서는\n" +
-    #             "총 4가지 정보가 필요합니다. \n고객님께서 들어가실 집의 전세금액, 연봉, 대출금액, 그리고 주거래 은행 이 필요합니다.\n" +
-    #             "전세금액입력, 연봉입력, 대출금액입력을 모두 입력하신 뒤 계산하기버튼을 눌러 결과를 확인하세요!\n주의 - 만원은 생략됩니다.\nex) 4000",
-    #         },
-    #         'keyboard': {
-    #             'type': 'buttons',
-    #             'buttons': start_list  # DB에 넣어서 list로 출력
-    #         },
-    #     })
 
     else:
         # loanGoods = LoanGoods.objects.get(loan_good_name=(return_str).encode('utf-8'))
@@ -377,28 +335,27 @@ def message(request):
             print("input_loan 실행됨")
             return JsonResponse({
                 'message': {
-                    'text': "고객님의 전세금으로" + (return_str).encode('utf-8') + "원을 입력받았습니다. 결과보기로 결과를 확인하세요!" +
-                            "주의 - 만원은 생략됩니다.\nex) 4000\n입력창에 다시 라고 입력하시면 다시입력하실 수 있습니다.",
+                    'text': "고객님의 전세금으로" + (return_str).encode('utf-8') + "원을 입력받았습니다. 마지막 입니다!" +
+                            "주 거래은행을 선택하여 주세요",
                 },
                 'keyboard': {
                     'type': 'buttons',
-                    'buttons': ['결과보기', '전/월세 가격비교', '나가기']
+                    'buttons': ['하나은행', '신한은행', '우리은행', '국민은행', '농협', '기업은행']
                 },
             })
 
         else:
             # elif input_lending:
-            User.setUserInputSalary(user_key, (return_str).encode('utf-8'))
-
-            print("input_loan 실행됨")
+            print("else문 실행 오류확인")
+            user = User.getUser(user_key=user_key)
+            user.delete()
             return JsonResponse({
                 'message': {
-                    'text': "고객님의 전세금으로" + (return_str).encode('utf-8') + "원을 입력받았습니다. 결과보기로 결과를 확인하세요!" +
-                            "주의 - 만원은 생략됩니다.\nex) 4000\n입력창에 다시 라고 입력하시면 다시입력하실 수 있습니다.",
+                    'text': "잘못입력하셨습니다"
                 },
                 'keyboard': {
                     'type': 'buttons',
-                    'buttons': ['결과보기', '전/월세 가격비교', '나가기']
+                    'buttons': button_list
                 },
             })
 
@@ -412,7 +369,7 @@ def check_is_start(str):
 
 
 def check_is_inputAgain(str):
-    if str == ("다시").decode('utf-8'):
+    if str == ("다시").decode('utf-8') | str == ("처음").decode('utf-8') | str == ("처음으로").decode('utf-8'):
         return True
     else:
         return False
@@ -488,6 +445,47 @@ def check_is_input_loan(str):
         return False
 
 
+def check_is_input_bank1(str):
+    if str == ("하나은행").decode('utf-8'):
+        return True
+    else:
+        return False
+
+
+def check_is_input_bank2(str):
+    if str == ("신한은행").decode('utf-8'):
+        return True
+    else:
+        return False
+    
+    
+def check_is_input_bank3(str):
+    if str == ("우리은행").decode('utf-8'):
+        return True
+    else:
+        return False
+
+
+def check_is_input_bank4(str):
+    if str == ("국민은행").decode('utf-8'):
+        return True
+    else:
+        return False
+    
+    
+def check_is_input_bank5(str):
+    if str == ("농협").decode('utf-8'):
+        return True
+    else:
+        return False
+
+
+def check_is_input_bank6(str):
+    if str == ("기업은행").decode('utf-8'):
+        return True
+    else:
+        return False
+    
 
 # user input is maker button check
 def check_is_goods(str):
