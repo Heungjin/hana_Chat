@@ -325,7 +325,7 @@ def message(request):
 
     else:
         # loanGoods = LoanGoods.objects.get(loan_good_name=(return_str).encode('utf-8'))
-        if User.objects.get(user_key=user_key.encode('utf-8')) is None:
+        if User.objects.get(user_key=user_key.encode('utf-8')):
             User.createUser(user_key)
             return JsonResponse({
                 'message': {
