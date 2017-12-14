@@ -310,7 +310,7 @@ def message(request):
     #     })
 
     else:
-        if User.user_key:
+        if User.id:
             User.setUserState(user_key)
             return JsonResponse({
                 'message': {
@@ -320,7 +320,7 @@ def message(request):
                 },
                 'keyboard': {
                     'type': 'buttons',
-                    'buttons': [str(type(User.user_key))]
+                    'buttons': [str(type(User.id)), str(User.id)]
                 },
             })
 
