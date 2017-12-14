@@ -360,6 +360,7 @@ def message(request):
 
         else:
             # elif input_lending:
+            print(User.input_lending)
             User.setUserInputSalary(user_key, (return_str).encode('utf-8'))
 
             print("input_salary 실행됨")
