@@ -4,16 +4,13 @@ from django.views.decorators.csrf import csrf_exempt
 from answer.models import LoanGoods, StatisticAge2, StatisticList2, StatisticLoanAmount2, StatisticSalary2, Banks, User
 import json
 
-json_raw = ((request.body).decode('utf-8'))
-return_json_str = json.loads(json_raw)
-return_str = return_json_str['content']
-user_key = return_json_str['user_key']
+
 button_list = ['시작하기', '모든 전세상품(랭킹순)', '실시간 통계보기', '우리는 하월이다', '도움말']
 stat_list = ['실시간 고객 나이대별 선호은행', '실시간 고객 대출액별 선호은행', '실시간 고객 연봉', '나가기']
 start_list = ['전세금액입력', '연봉입력', '대출받으실 금액입력', '계산하기', '입력정보 초기화','나가기']
 LoanGoodsList = list(LoanGoods.objects.values_list('loan_good_name', flat=True))[2:5]
 LoanAllList = list(LoanGoods.objects.values_list('loan_good_name', flat=True))
-user_check = list(User.objects.values_list('user_key', flat=True).filter(user_key=user_key))
+
 # 나이통계 인원 수
 StatAge20to30 = str(list(StatisticAge2.objects.all())[0].m20_30)
 StatAge30to40 = str(list(StatisticAge2.objects.all())[0].m30_40)
@@ -85,6 +82,11 @@ def keyboard(request):
 # response to user post type request
 @csrf_exempt
 def message(request):
+    json_raw = ((request.body).decode('utf-8'))
+    return_json_str = json.loads(json_raw)
+    return_str = return_json_str['content']
+    user_key = return_json_str['user_key']
+
     input_again = check_is_inputAgain(return_str)
     exit = check_is_exit(return_str) # exit
     rankAll = check_is_rankAll(return_str)  # ranking
@@ -102,7 +104,8 @@ def message(request):
     goods = check_is_goods(return_str)
     test_ranking = list(LoanGoods.objects.values_list('loan_good_name', flat=True).order_by('-chat_recommend'))
     test_ranking_Str = "\n * ".join(test_ranking).encode('utf8')
-
+    
+    user_check = list(User.objects.values_list('user_key', flat=True).filter(user_key=user_key))
 
     # if start button check
     print(return_str)
