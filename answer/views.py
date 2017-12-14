@@ -268,20 +268,23 @@ def message(request):
         })
 
     # 하나은행
-    elif input_bank1:
         # User.setUserInputLending(user_key, return_str)
-        User.setUserInputSalary(user_key, 1)
-        user.input_salary
+        User.setUserInputBank(user_key, 1)
+        user = User.getUser(user_key=user_key)
+        result_lending = user.input_lending
+        result_salary = user.input_salary
+        result_loan = user.input_loan
 
 
         print("하나은행 실행됨")
         return JsonResponse({
             'message': {
-                'text': "고객님께서 들어가실 집의 전세금액을 입력하여 주세요.\n" +
-                "주의 - 만원은 생략됩니다.\nex) 4000",
+                'text': "고객님께서 입력하신 값은 전세금 : " + result_lending + "\n연봉 : " + result_salary + "\n대출금 : " +
+                result_loan + "입니다.",
             },
             'keyboard': {
-                'type': 'text'
+                'type': 'buttons',
+                'buttons': ['다시']
             },
         })
 
