@@ -168,6 +168,18 @@ class User(TimeStampedModel):
         newObj = User.objects.create(user_key=user_key, bank_choice=True, loanGoods=loanGoods)
         newObj.save()
 
+    def createUserLending(user_key, input_lending):
+        newObj = User.objects.create(user_key=user_key, bank_choice=True, input_lending=input_lending)
+        newObj.save()
+
+    def createUserSalary(user_key, input_salary):
+        newObj = User.objects.create(user_key=user_key, bank_choice=True, input_salary=input_salary)
+        newObj.save()
+
+    def createUserLoan(user_key, input_loan):
+        newObj = User.objects.create(user_key=user_key, bank_choice=True, input_loan=input_loan)
+        newObj.save()
+
     @staticmethod
     def setUserState(user_key, loanGoods):
         try:
@@ -186,7 +198,7 @@ class User(TimeStampedModel):
             user.bank_choice = True
             user.save()
         except:
-            User.createUser(user_key, loanGoods)
+            User.createUser(user_key, input_lending)
 
     @staticmethod
     def setUserInputSalary(user_key, input_salary):
@@ -196,7 +208,7 @@ class User(TimeStampedModel):
             user.bank_choice = True
             user.save()
         except:
-            User.createUser(user_key, loanGoods)
+            User.createUser(user_key, input_salary)
 
     @staticmethod
     def setUserInputLoan(user_key, input_loan):
@@ -206,7 +218,7 @@ class User(TimeStampedModel):
             user.bank_choice = True
             user.save()
         except:
-            User.createUser(user_key, loanGoods)
+            User.createUser(user_key, input_loan)
     @staticmethod
     def getUser(user_key):
         return User.objects.get(user_key=user_key)

@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6b8113a2-97c0-4307-be2f-5a0207002dde" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/answer/views.py" afterPath="$PROJECT_DIR$/answer/views.py" />
+      <change beforePath="$PROJECT_DIR$/answer/models.py" afterPath="$PROJECT_DIR$/answer/models.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -19,8 +19,8 @@
             <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
               <entry file="file://$PROJECT_DIR$/answer/views.py">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="744">
-                    <caret line="284" column="10" lean-forward="false" selection-start-line="284" selection-start-column="10" selection-end-line="284" selection-end-column="10" />
+                  <state relative-caret-position="506">
+                    <caret line="270" column="34" lean-forward="true" selection-start-line="270" selection-start-column="34" selection-end-line="270" selection-end-column="34" />
                     <folding>
                       <element signature="e#15#51#0" expanded="true" />
                     </folding>
@@ -50,8 +50,8 @@
       <file leaf-file-name="models.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/answer/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="495">
-              <caret line="195" column="28" lean-forward="false" selection-start-line="195" selection-start-column="17" selection-end-line="195" selection-end-column="28" />
+            <state relative-caret-position="274">
+              <caret line="185" column="54" lean-forward="true" selection-start-line="185" selection-start-column="54" selection-end-line="185" selection-end-column="54" />
               <folding>
                 <element signature="e#468#507#0" expanded="true" />
               </folding>
@@ -124,8 +124,8 @@
         <option value="$PROJECT_DIR$/answer/migrations/0007_auto_20171213_1626.py" />
         <option value="$PROJECT_DIR$/answer/admin.py" />
         <option value="$USER_HOME$/Chat/chatbot/answer/models.py" />
-        <option value="$PROJECT_DIR$/answer/models.py" />
         <option value="$PROJECT_DIR$/answer/views.py" />
+        <option value="$PROJECT_DIR$/answer/models.py" />
       </list>
     </option>
   </component>
@@ -769,8 +769,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/answer/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="495">
-          <caret line="195" column="28" lean-forward="false" selection-start-line="195" selection-start-column="17" selection-end-line="195" selection-end-column="28" />
+        <state relative-caret-position="274">
+          <caret line="185" column="54" lean-forward="true" selection-start-line="185" selection-start-column="54" selection-end-line="185" selection-end-column="54" />
           <folding>
             <element signature="e#468#507#0" expanded="true" />
           </folding>
@@ -779,8 +779,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/answer/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="744">
-          <caret line="284" column="10" lean-forward="false" selection-start-line="284" selection-start-column="10" selection-end-line="284" selection-end-column="10" />
+        <state relative-caret-position="506">
+          <caret line="270" column="34" lean-forward="true" selection-start-line="270" selection-start-column="34" selection-end-line="270" selection-end-column="34" />
           <folding>
             <element signature="e#15#51#0" expanded="true" />
           </folding>
