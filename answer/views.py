@@ -104,8 +104,8 @@ def message(request):
     print(return_str)
 
     if start:
-        loanGoods = LoanGoods.objects.get(loanGoods=return_str)
-        User.setUserState(user_key, phoneModel)
+        loanGoods = LoanGoods.objects.get(loan_good_num=1)
+        User.setUserState(user_key, loanGoods)
         return JsonResponse({
             'message': {
                 'text': "사회초년생에게 맞는 전세자금대출 시작합니다. 대출받으실 금액을 알려주세요!",
