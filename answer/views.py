@@ -325,7 +325,7 @@ def message(request):
 
     else:
         # loanGoods = LoanGoods.objects.get(loan_good_name=(return_str).encode('utf-8'))
-        if User.objects.get(user_key=user_keyr):
+        if User.objects.get(user_key=user_key):
             User.setUserState(user_key)
 
             return JsonResponse({
