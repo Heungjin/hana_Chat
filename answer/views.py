@@ -9,7 +9,7 @@ stat_list = ['실시간 고객 나이대별 선호은행', '실시간 고객 대
 start_list = ['전세금액입력', '연봉입력', '대출받으실 금액입력', '계산하기', '입력정보 초기화','나가기']
 LoanGoodsList = list(LoanGoods.objects.values_list('loan_good_name', flat=True))[2:5]
 LoanAllList = list(LoanGoods.objects.values_list('loan_good_name', flat=True))
-
+user_check = list(User.objects.values_list('user_key', flat=True).filter(user_key=user_key))
 # 나이통계 인원 수
 StatAge20to30 = str(list(StatisticAge2.objects.all())[0].m20_30)
 StatAge30to40 = str(list(StatisticAge2.objects.all())[0].m30_40)
@@ -325,7 +325,7 @@ def message(request):
 
     else:
         # loanGoods = LoanGoods.objects.get(loan_good_name=(return_str).encode('utf-8'))
-        if User.objects.get(user_key=user_key.encode('utf-8')):
+        if user_check == 0:
             User.createUser(user_key)
             return JsonResponse({
                 'message': {
