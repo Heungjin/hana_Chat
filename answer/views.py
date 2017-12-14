@@ -312,7 +312,7 @@ def message(request):
     #     })
 
     else:
-        if user.user_key != False:
+        if user.user_key == null:
             User.setUserState(user_key)
             return JsonResponse({
                 'message': {
