@@ -104,8 +104,6 @@ def message(request):
     test_ranking = list(LoanGoods.objects.values_list('loan_good_name', flat=True).order_by('-chat_recommend'))
     test_ranking_Str = "\n * ".join(test_ranking).encode('utf8')
 
-    user = User.setUserState(user_key)
-
     # if start button check
     print(return_str)
 
@@ -312,7 +310,7 @@ def message(request):
     #     })
 
     else:
-        if User.user_key:
+        if User.user_key == null:
             User.setUserState(user_key)
             return JsonResponse({
                 'message': {
