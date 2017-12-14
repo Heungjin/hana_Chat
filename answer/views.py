@@ -9,7 +9,6 @@ stat_list = ['실시간 고객 나이대별 선호은행', '실시간 고객 대
 start_list = ['전세금액입력', '연봉입력', '대출받으실 금액입력', '계산하기', '입력정보 초기화','나가기']
 LoanGoodsList = list(LoanGoods.objects.values_list('loan_good_name', flat=True))[2:5]
 LoanAllList = list(LoanGoods.objects.values_list('loan_good_name', flat=True))
-user = '';
 
 # 나이통계 인원 수
 StatAge20to30 = str(list(StatisticAge2.objects.all())[0].m20_30)
@@ -325,7 +324,7 @@ def message(request):
     #     })
 
     else:
-        if user == '':
+        if user.user_key is None:
             user = User.setUserState(user_key)
 
             return JsonResponse({
