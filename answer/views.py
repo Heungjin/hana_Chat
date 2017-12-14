@@ -353,8 +353,7 @@ def message(request):
                             "주의 - 만원은 생략됩니다.\nex) 4000\n입력창에 다시 라고 입력하시면 다시입력하실 수 있습니다.",
                 },
                 'keyboard': {
-                    'type': 'buttons',
-                    'buttons': ['결과보기', '전/월세 가격비교', '나가기']
+                    'type': 'text'
                 },
             })
 
@@ -386,7 +385,8 @@ def message(request):
                             "주의 - 만원은 생략됩니다.\nex) 4000\n입력창에 다시 라고 입력하시면 다시입력하실 수 있습니다.",
                 },
                 'keyboard': {
-                    'type': 'text'
+                    'type': 'buttons',
+                    'buttons': ['결과보기', '전/월세 가격비교', '나가기']
                 },
             })
 # user input is start button check
