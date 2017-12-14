@@ -6,7 +6,7 @@ import json
 
 button_list = ['시작하기', '모든 전세상품(랭킹순)', '실시간 통계보기', '우리는 하월이다', '도움말']
 stat_list = ['실시간 고객 나이대별 선호은행', '실시간 고객 대출액별 선호은행', '실시간 고객 연봉', '나가기']
-start_list = ['전세금액입력', '연봉입력', '대출받으실 금액입력', '계산하기', '나가기']
+start_list = ['전세금액입력', '연봉입력', '대출받으실 금액입력', '계산하기', '입력정보 초기화','나가기']
 LoanGoodsList = list(LoanGoods.objects.values_list('loan_good_name', flat=True))[2:5]
 LoanAllList = list(LoanGoods.objects.values_list('loan_good_name', flat=True))
 
@@ -87,7 +87,6 @@ def message(request):
     return_str = return_json_str['content']
     user_key = return_json_str['user_key']
 
-    start = check_is_start(return_str)  # start
     exit = check_is_exit(return_str) # exit
     rankAll = check_is_rankAll(return_str)  # ranking
 
@@ -96,6 +95,9 @@ def message(request):
     stat_loan = check_is_stat_loan(return_str)
     stat_salary = check_is_stat_salary(return_str)
 
+    input_loan = check_is_input_loan(return_str)
+    input_salary = check_is_input_salary(return_str)
+    input_lending = check_is_input_lending(return_str)
 
     help = check_is_help(return_str)  # help
     goods = check_is_goods(return_str)
@@ -249,6 +251,43 @@ def message(request):
             },
         })
 
+    elif input_lending:
+        return JsonResponse({
+            'message': {
+                'text': "고객님께서 들어가실 집의 전세금액을 입력하여 주세요.\n" +
+                "주의 - 만원은 생략됩니다.\nex) 4000",
+            },
+            'keyboard': {
+                'type': 'buttons',
+                'buttons': start_list  # DB에 넣어서 list로 출력
+            },
+        })
+
+    elif input_salary:
+        return JsonResponse({
+            'message': {
+                'text': "고객님께서 들어가실 집의 전세금액을 입력하여 주세요.\n" +
+                "주의 - 만원은 생략됩니다.\nex) 4000",
+            },
+            'keyboard': {
+                'type': 'buttons',
+                'buttons': start_list  # DB에 넣어서 list로 출력
+            },
+        })
+
+    elif input_loan:
+        return JsonResponse({
+            'message': {
+                'text': "고객님께서 들어가실 집의 전세금액을 입력하여 주세요.\n" +
+                "주의 - 만원은 생략됩니다.\nex) 4000",
+            },
+            'keyboard': {
+                'type': 'buttons',
+                'buttons': start_list  # DB에 넣어서 list로 출력
+            },
+        })
+
+    
     else:
         loanGoods = LoanGoods.objects.get(loan_good_num=1)
         User.setUserState(user_key, loanGoods)
@@ -321,6 +360,29 @@ def check_is_stat_salary(str):
         return True
     else:
         return False
+
+
+def check_is_input_lending(str):
+    if str == ("전세금액입력").decode('utf-8'):
+        return True
+    else:
+        return False
+
+
+def check_is_input_salary(str):
+    if str == ("연봉입력").decode('utf-8'):
+        return True
+    else:
+        return False
+
+
+def check_is_input_loan(str):
+    if str == ("대출받으실 금액입력").decode('utf-8'):
+        return True
+    else:
+        return False
+
+
 
 # user input is maker button check
 def check_is_goods(str):
