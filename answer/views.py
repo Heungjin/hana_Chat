@@ -105,7 +105,7 @@ def message(request):
     test_ranking = list(LoanGoods.objects.values_list('loan_good_name', flat=True).order_by('-chat_recommend'))
     test_ranking_Str = "\n * ".join(test_ranking).encode('utf8')
 
-    user_check = str(list(User.objects.values_list('user_key', flat=True).filter(user_key=user_key)))
+    user_check = list(User.objects.values_list('user_key', flat=True).filter(user_key=user_key))[0]
 
     # if start button check
     print(return_str)
