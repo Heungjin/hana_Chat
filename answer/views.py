@@ -255,6 +255,7 @@ def message(request):
     elif input_lending:
         # User.setUserInputLending(user_key, return_str)
         user = User.getUser(user_key)
+
         print("input_lending 실행됨")
         return JsonResponse({
             'message': {
