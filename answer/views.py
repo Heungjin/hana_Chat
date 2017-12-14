@@ -280,8 +280,8 @@ def message(request):
         print("하나은행 실행됨")
         return JsonResponse({
             'message': {
-                'text': "고객님께서 입력하신 값은 전세금 : " + result_lending + "\n연봉 : " + result_salary + "\n대출금 : " +
-                result_loan + "입니다.",
+                'text': "고객님께서 입력하신 값은 전세금 : " + str(result_lending) + "\n연봉 : " + str(result_salary) + "\n대출금 : " +
+                        str(result_loan) + "입니다.",
             },
             'keyboard': {
                 'type': 'buttons',
