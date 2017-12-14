@@ -107,6 +107,7 @@ def message(request):
 
     user_check = len(list(User.objects.values_list('user_key', flat=True).filter(user_key=user_key)))
 
+
     # if start button check
     print(return_str)
     print(user_check)
@@ -330,6 +331,7 @@ def message(request):
         # loanGoods = LoanGoods.objects.get(loan_good_name=(return_str).encode('utf-8'))
         if user_check == 0:
             User.createUser(user_key)
+            temp = 0
             return JsonResponse({
                 'message': {
                     'text': "사회초년생에게 맞는 전세자금대출 추천을 시작합니다. \n저희 서비스를 이용하기 위해서는\n" +
@@ -341,7 +343,7 @@ def message(request):
                 },
             })
 
-        elif User.input_lending > 0 and User.input_salary == 0:
+        elif User.input_lending == 0:
             # elif input_lending:
             User.setUserInputLending(user_key, (return_str).encode('utf-8'))
 
@@ -360,7 +362,7 @@ def message(request):
             # elif input_lending:
             User.setUserInputSalary(user_key, (return_str).encode('utf-8'))
 
-            print("input_lending 실행됨")
+            print("input_salary 실행됨")
             return JsonResponse({
                 'message': {
                     'text': "고객님이 들어가실 집의 전세금액으로" + (return_str).encode('utf-8') +"원을 입력받았습니다. 고객님의 연봉을 입력하여 주세요.\n" +
