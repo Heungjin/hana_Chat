@@ -9,7 +9,7 @@ stat_list = ['실시간 고객 나이대별 선호은행', '실시간 고객 대
 start_list = ['전세금액입력', '연봉입력', '대출받으실 금액입력', '계산하기', '입력정보 초기화','나가기']
 LoanGoodsList = list(LoanGoods.objects.values_list('loan_good_name', flat=True))[2:5]
 LoanAllList = list(LoanGoods.objects.values_list('loan_good_name', flat=True))
-
+user = '';
 
 # 나이통계 인원 수
 StatAge20to30 = str(list(StatisticAge2.objects.all())[0].m20_30)
@@ -105,7 +105,6 @@ def message(request):
     test_ranking = list(LoanGoods.objects.values_list('loan_good_name', flat=True).order_by('-chat_recommend'))
     test_ranking_Str = "\n * ".join(test_ranking).encode('utf8')
 
-    user = '';
 
     # if start button check
     print(return_str)
@@ -326,8 +325,9 @@ def message(request):
     #     })
 
     else:
-        if user is '':
-            User.setUserState(user_key)
+        if user == '':
+            user = User.setUserState(user_key)
+
             return JsonResponse({
                 'message': {
                     'text': "사회초년생에게 맞는 전세자금대출 추천을 시작합니다. \n저희 서비스를 이용하기 위해서는\n" +
