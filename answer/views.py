@@ -340,7 +340,7 @@ def message(request):
 
         else:
             # elif input_lending:
-            User.setUserInputLending(user_key, return_str)
+            User.setUserInputLending(user_key, (return_str).encode('utf-8'))
 
 
             print("input_lending 실행됨")
