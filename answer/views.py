@@ -261,8 +261,7 @@ def message(request):
                 "주의 - 만원은 생략됩니다.\nex) 4000",
             },
             'keyboard': {
-                'type': 'buttons',
-                'buttons': start_list  # DB에 넣어서 list로 출력
+                'type': 'text'
             },
         })
 
@@ -275,8 +274,7 @@ def message(request):
                 "주의 - 만원은 생략됩니다.\nex) 4000",
             },
             'keyboard': {
-                'type': 'buttons',
-                'buttons': start_list  # DB에 넣어서 list로 출력
+                'type': 'text'
             },
         })
 
@@ -289,8 +287,7 @@ def message(request):
                 "주의 - 만원은 생략됩니다.\nex) 4000",
             },
             'keyboard': {
-                'type': 'buttons',
-                'buttons': start_list  # DB에 넣어서 list로 출력
+                'type': 'text'
             },
         })
 
