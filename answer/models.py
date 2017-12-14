@@ -194,7 +194,7 @@ class User(TimeStampedModel):
         try:
             user = User.objects.get(user_key=user_key)
             user.input_lending = input_lending
-            user.bank_choice = True
+            user.bank_choice = False
             user.save()
         except:
             User.createUserLending(user_key, input_lending)
@@ -204,7 +204,7 @@ class User(TimeStampedModel):
         try:
             user = User.objects.get(user_key=user_key)
             user.input_salary = input_salary
-            user.bank_choice = True
+            user.bank_choice = False
             user.save()
         except:
             User.createUser(user_key)
@@ -214,7 +214,7 @@ class User(TimeStampedModel):
         try:
             user = User.objects.get(user_key=user_key)
             user.input_loan = input_loan
-            user.bank_choice = True
+            user.bank_choice = False
             user.save()
         except:
             User.createUser(user_key)
