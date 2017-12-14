@@ -343,7 +343,6 @@ def message(request):
             })
 
         elif User.getUser(user_key=user_key).input_lending == 0:
-            # elif input_lending:
             User.setUserInputLending(user_key, (return_str).encode('utf-8'))
 
             print("input_lending 실행됨")
@@ -358,7 +357,6 @@ def message(request):
             })
 
         elif User.getUser(user_key=user_key).input_lending > 0 and User.getUser(user_key=user_key).input_salary == 0:
-            # elif input_lending:
             User.setUserInputSalary(user_key, (return_str).encode('utf-8'))
 
             print("input_salary 실행됨")
@@ -373,8 +371,22 @@ def message(request):
                 },
             })
 
+        elif User.getUser(user_key=user_key).input_salary > 0 and User.getUser(user_key=user_key).input_loan == 0:
+            User.setUserInputLoan(user_key, (return_str).encode('utf-8'))
 
-        elif User.getUser(user_key=user_key).input_salary > 0 and User.getUser(user_key=user_key).input_loan:
+            print("input_loan 실행됨")
+            return JsonResponse({
+                'message': {
+                    'text': "고객님의 전세금으로" + (return_str).encode('utf-8') + "원을 입력받았습니다. 결과보기로 결과를 확인하세요!" +
+                            "주의 - 만원은 생략됩니다.\nex) 4000\n입력창에 다시 라고 입력하시면 다시입력하실 수 있습니다.",
+                },
+                'keyboard': {
+                    'type': 'buttons',
+                    'buttons': ['결과보기', '전/월세 가격비교', '나가기']
+                },
+            })
+
+        else:
             # elif input_lending:
             User.setUserInputSalary(user_key, (return_str).encode('utf-8'))
 
@@ -389,6 +401,8 @@ def message(request):
                     'buttons': ['결과보기', '전/월세 가격비교', '나가기']
                 },
             })
+
+
 # user input is start button check
 def check_is_start(str):
     if str == ("시작하기").decode('utf-8'):
