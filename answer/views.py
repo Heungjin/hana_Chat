@@ -324,7 +324,7 @@ def message(request):
     #     })
 
     else:
-        if User.user_key is False:
+        if User.user_key is None:
             User.setUserState(user_key)
             return JsonResponse({
                 'message': {
@@ -340,7 +340,7 @@ def message(request):
 
         else:
             # elif input_lending:
-            User.setUserInputLending(User.user_key, (return_str).encode('utf-8'))
+            User.setUserInputLending(user_key, (return_str).encode('utf-8'))
 
 
             print("input_lending 실행됨")
