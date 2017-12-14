@@ -101,12 +101,6 @@ def message(request):
 
     # if start button check
     print(return_str)
-    print(StatLoan00to03Bank.bank_name)
-    print(StatLoan00to03Bank.bank_name)
-    print(StatLoan05to07Bank.bank_name)
-    print(StatLoan07to10Bank.bank_name)
-    print(StatLoan10to15Bank.bank_name)
-
 
     if start:
         # result = list(Maker.objects.values_list('makerName', flat=True)) 상품

@@ -139,8 +139,49 @@ class TbCalc2(models.Model):
         managed = False
         db_table = 'tb_calc2'
 
+########################################################################################################################
+class TimeStampedModel(models.Model):
+    created = models.DateTimeField(auto_now_add=True)
+    modified = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        abstract = True
 
 
+class User(TimeStampedModel):
+    user_key = models.TextField(primary_key=True)
+    bank_choice = models.BooleanField(default=False)
+    LoanGoods = models.ForeignKey(LoanGoods, default=None)
+
+    def __str__(self):
+        return self.user_key
+
+    def stateClear(self):
+        self.bank_choice = False
+        self.save()
+
+    @staticmethod
+    def createUser(user_key, LoanGoods):
+        newObj = User.objects.create(user_key=user_key, bank_choice=True, LoanGoods=LoanGoods)
+        newObj.save()
+
+    @staticmethod
+    def setUserState(user_key, LoanGoods):
+        try:
+            user = User.objects.get(user_key=user_key)
+            user.LoanGoods = LoanGoods
+            user.bank_choice = True
+            user.save()
+        except:
+            User.createUser(user_key, LoanGoods)
+
+    @staticmethod
+    def getUser(user_key):
+        return User.objects.get(user_key=user_key)
+
+    class Meta:
+        db_table = 'user'
+########################################################################################################################
 class AuthGroup(models.Model):
     name = models.CharField(unique=True, max_length=80)
 
