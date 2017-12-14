@@ -107,7 +107,7 @@ def message(request):
 
     # if start button check
     print(return_str)
-    print("user : " + user)
+
     # if start:
     #     loanGoods = LoanGoods.objects.get(loan_good_num=1)
     #     User.setUserState(user_key, loanGoods)
@@ -324,8 +324,9 @@ def message(request):
     #     })
 
     else:
-        if user.user_key is None:
-            user = User.setUserState(user_key)
+        # loanGoods = LoanGoods.objects.get(loan_good_name=(return_str).encode('utf-8'))
+        if User.objects.get(user_key=user_keyr):
+            User.setUserState(user_key)
 
             return JsonResponse({
                 'message': {
