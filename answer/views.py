@@ -10,7 +10,6 @@ start_list = ['전세금액입력', '연봉입력', '대출받으실 금액입�
 LoanGoodsList = list(LoanGoods.objects.values_list('loan_good_name', flat=True))[2:5]
 LoanAllList = list(LoanGoods.objects.values_list('loan_good_name', flat=True))
 
-user = User.setUserState(user_key)
 
 # 나이통계 인원 수
 StatAge20to30 = str(list(StatisticAge2.objects.all())[0].m20_30)
@@ -104,6 +103,8 @@ def message(request):
     goods = check_is_goods(return_str)
     test_ranking = list(LoanGoods.objects.values_list('loan_good_name', flat=True).order_by('-chat_recommend'))
     test_ranking_Str = "\n * ".join(test_ranking).encode('utf8')
+
+    user = User.setUserState(user_key)
 
     # if start button check
     print(return_str)
