@@ -254,7 +254,7 @@ def message(request):
 
     elif input_lending:
         User.setUserInputLending(user_key, return_str)
-        # print(user.input_lending)
+        print(user.input_lending)
         return JsonResponse({
             'message': {
                 'text': "고객님께서 들어가실 집의 전세금액을 입력하여 주세요.\n" +
@@ -268,7 +268,7 @@ def message(request):
 
     elif input_salary:
         User.setUserInputSalary(user_key, return_str)
-        # print(user.input_salary)
+        print(user.input_salary)
         return JsonResponse({
             'message': {
                 'text': "고객님께서 들어가실 집의 전세금액을 입력하여 주세요.\n" +
@@ -282,7 +282,7 @@ def message(request):
 
     elif input_loan:
         User.setUserInputLoan(user_key, return_str)
-        # print(user.input_loan)
+        print(user.input_loan)
         return JsonResponse({
             'message': {
                 'text': "고객님께서 들어가실 집의 전세금액을 입력하여 주세요.\n" +
@@ -295,8 +295,7 @@ def message(request):
         })
 
     else:
-        loanGoods = LoanGoods.objects.get(loan_good_num=1)
-        User.setUserState(user_key, loanGoods)
+        User.setUserState(user_key)
         return JsonResponse({
             'message': {
                 'text': "사회초년생에게 맞는 전세자금대출 추천을 시작합니다. \n저희 서비스를 이용하기 위해서는\n" +
