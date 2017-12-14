@@ -1,7 +1,7 @@
 # coding=utf-8
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
-from answer.models import LoanGoods, StatisticAge2, StatisticList2, StatisticLoanAmount2, StatisticSalary2, Banks
+from answer.models import LoanGoods, StatisticAge2, StatisticList2, StatisticLoanAmount2, StatisticSalary2, Banks, User
 import json
 
 button_list = ['시작하기', '모든 전세상품(랭킹순)', '실시간 통계보기', '우리는 하월이다', '도움말']
@@ -83,6 +83,7 @@ def message(request):
     json_raw = ((request.body).decode('utf-8'))
     return_json_str = json.loads(json_raw)
     return_str = return_json_str['content']
+    user_key = return_json_str['user_key']
 
     start = check_is_start(return_str)  # start
     exit = check_is_exit(return_str) # exit
@@ -103,7 +104,8 @@ def message(request):
     print(return_str)
 
     if start:
-        # result = list(Maker.objects.values_list('makerName', flat=True)) 상품
+        loanGoods = LoanGoods.objects.get(loanGoods=return_str)
+        User.setUserState(user_key, phoneModel)
         return JsonResponse({
             'message': {
                 'text': "사회초년생에게 맞는 전세자금대출 시작합니다. 대출받으실 금액을 알려주세요!",

@@ -151,7 +151,7 @@ class TimeStampedModel(models.Model):
 class User(TimeStampedModel):
     user_key = models.TextField(primary_key=True)
     bank_choice = models.BooleanField(default=False)
-    LoanGoods = models.ForeignKey(LoanGoods, default=None)
+    loanGoods = models.ForeignKey(LoanGoods, default=None)
 
     def __str__(self):
         return self.user_key
@@ -161,19 +161,19 @@ class User(TimeStampedModel):
         self.save()
 
     @staticmethod
-    def createUser(user_key, LoanGoods):
-        newObj = User.objects.create(user_key=user_key, bank_choice=True, LoanGoods=LoanGoods)
+    def createUser(user_key, loanGoods):
+        newObj = User.objects.create(user_key=user_key, bank_choice=True, loanGoods=loanGoods)
         newObj.save()
 
     @staticmethod
-    def setUserState(user_key, LoanGoods):
+    def setUserState(user_key, loanGoods):
         try:
             user = User.objects.get(user_key=user_key)
-            user.LoanGoods = LoanGoods
+            user.loanGoods = loanGoods
             user.bank_choice = True
             user.save()
         except:
-            User.createUser(user_key, LoanGoods)
+            User.createUser(user_key, loanGoods)
 
     @staticmethod
     def getUser(user_key):
