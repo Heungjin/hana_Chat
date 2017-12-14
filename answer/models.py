@@ -197,7 +197,7 @@ class User(TimeStampedModel):
             user.bank_choice = True
             user.save()
         except:
-            User.createUser(user_key)
+            User.createUserLending(user_key, input_lending)
 
     @staticmethod
     def setUserInputSalary(user_key, input_salary):

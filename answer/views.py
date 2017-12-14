@@ -326,7 +326,6 @@ def message(request):
     else:
         if User.user_key is False:
             User.setUserState(user_key)
-
             return JsonResponse({
                 'message': {
                     'text': "사회초년생에게 맞는 전세자금대출 추천을 시작합니다. \n저희 서비스를 이용하기 위해서는\n" +
