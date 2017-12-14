@@ -268,6 +268,7 @@ def message(request):
         })
 
     # 하나은행
+    elif input_bank1:
         # User.setUserInputLending(user_key, return_str)
         User.setUserInputBank(user_key, 1)
         user = User.getUser(user_key=user_key)
@@ -296,7 +297,7 @@ def message(request):
                 'message': {
                     'text': "사회초년생에게 맞는 전세자금대출 추천을 시작합니다. \n저희 서비스를 이용하기 위해서는\n" +
                     "총 4가지 정보가 필요합니다. \n고객님께서 들어가실 집의 전세금액, 연봉, 대출금액, 그리고 주거래 은행 이 필요합니다.\n" +
-                    "우선 전세금액을 입력해 주세요. \nex) 4000",
+                    "우선 고객님이 들어가실 집의 전세금액을 입력해 주세요. \nex) 9000",
                 },
                 'keyboard': {
                     'type': 'text'
@@ -310,7 +311,7 @@ def message(request):
             return JsonResponse({
                 'message': {
                     'text': "고객님이 들어가실 집의 전세금액으로" + (return_str).encode('utf-8') +"원을 입력받았습니다. 고객님의 연봉을 입력하여 주세요.\n" +
-                            "주의 - 만원은 생략됩니다.\nex) 4000\n입력창에 다시 라고 입력하시면 다시입력하실 수 있습니다.",
+                            "주의 - 만원은 생략됩니다.\nex) 2400\n\n입력창에 다시 라고 입력하시면 다시입력하실 수 있습니다.",
                 },
                 'keyboard': {
                     'type': 'text'
@@ -323,9 +324,9 @@ def message(request):
             print("input_salary 실행됨")
             return JsonResponse({
                 'message': {
-                    'text': "고객님의 연봉으로" + (return_str).encode('utf-8') + "원을 입력받았습니다. 고객님께서 들어가실 집의" +
-                            " 총 전세금액을 입력하여 주세요.\n" +
-                            "주의 - 만원은 생략됩니다.\nex) 4000\n입력창에 다시 라고 입력하시면 다시입력하실 수 있습니다.",
+                    'text': "고객님의 연봉으로" + (return_str).encode('utf-8') + "원을 입력받았습니다. 고객님께서 필요하신" +
+                            " 대출금액을 입력하여 주세요.\n" +
+                            "주의 - 만원은 생략됩니다.\nex) 7000\n\n입력창에 다시 라고 입력하시면 다시입력하실 수 있습니다.",
                 },
                 'keyboard': {
                     'type': 'text'
@@ -338,7 +339,7 @@ def message(request):
             print("input_loan 실행됨")
             return JsonResponse({
                 'message': {
-                    'text': "고객님의 전세금으로" + (return_str).encode('utf-8') + "원을 입력받았습니다. 마지막 입니다!" +
+                    'text': "고객님의 대출금으로" + (return_str).encode('utf-8') + "원을 입력받았습니다. 마지막 입니다!" +
                             "주 거래은행을 선택하여 주세요",
                 },
                 'keyboard': {
