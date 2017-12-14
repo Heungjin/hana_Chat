@@ -335,8 +335,7 @@ def message(request):
                     "우선 전세금액을 입력해 주세요. \nex) 4000",
                 },
                 'keyboard': {
-                    'type': 'buttons',
-                    'buttons': [str(type(User.id)), str(User.id)]
+                    'type': 'text'
                 },
             })
 
