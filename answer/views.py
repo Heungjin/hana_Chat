@@ -253,7 +253,7 @@ def message(request):
 ##########################
 
     elif input_lending:
-        User.setUserInputLending(user_key, int(return_str))
+        User.setUserInputLending(user_key, return_str)
         print(user.input_lending)
         return JsonResponse({
             'message': {
@@ -267,7 +267,7 @@ def message(request):
         })
 
     elif input_salary:
-        User.setUserInputSalary(user_key, int(return_str))
+        User.setUserInputSalary(user_key, return_str)
         print(user.input_salary)
         return JsonResponse({
             'message': {
@@ -281,7 +281,7 @@ def message(request):
         })
 
     elif input_loan:
-        User.setUserInputLoan(user_key, int(return_str))
+        User.setUserInputLoan(user_key, return_str)
         print(user.input_loan)
         return JsonResponse({
             'message': {
