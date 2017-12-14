@@ -165,15 +165,15 @@ class User(TimeStampedModel):
 
     @staticmethod
     def createUser(user_key):
-        newObj = User.objects.create(user_key=user_key, bank_choice=False)
+        newObj = User.objects.create(user_key=user_key)
         newObj.save()
 
     def createUserLending(user_key, input_lending):
-        newObj = User.objects.create(user_key=user_key, bank_choice=False, input_lending=input_lending)
+        newObj = User.objects.create(user_key=user_key, input_lending=input_lending)
         newObj.save()
 
     def createUserSalary(user_key, input_salary):
-        newObj = User.objects.create(user_key=user_key, bank_choice=False, input_salary=input_salary)
+        newObj = User.objects.create(user_key=user_key, input_salary=input_salary)
         newObj.save()
 
     def createUserLoan(user_key, input_loan):

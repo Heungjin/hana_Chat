@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6b8113a2-97c0-4307-be2f-5a0207002dde" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/answer/models.py" afterPath="$PROJECT_DIR$/answer/models.py" />
       <change beforePath="$PROJECT_DIR$/answer/views.py" afterPath="$PROJECT_DIR$/answer/views.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -19,8 +20,8 @@
             <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
               <entry file="file://$PROJECT_DIR$/answer/views.py">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="578">
-                    <caret line="322" column="63" lean-forward="false" selection-start-line="322" selection-start-column="63" selection-end-line="322" selection-end-column="63" />
+                  <state relative-caret-position="606">
+                    <caret line="323" column="18" lean-forward="true" selection-start-line="323" selection-start-column="18" selection-end-line="323" selection-end-column="18" />
                     <folding>
                       <element signature="e#15#51#0" expanded="true" />
                     </folding>
@@ -50,8 +51,8 @@
       <file leaf-file-name="models.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/answer/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1139">
-              <caret line="205" column="30" lean-forward="false" selection-start-line="205" selection-start-column="30" selection-end-line="205" selection-end-column="30" />
+            <state relative-caret-position="476">
+              <caret line="178" column="45" lean-forward="true" selection-start-line="178" selection-start-column="45" selection-end-line="178" selection-end-column="45" />
               <folding>
                 <element signature="e#468#507#0" expanded="true" />
               </folding>
@@ -170,7 +171,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="1">
+  <component name="ProjectFrameBounds">
     <option name="x" value="-7" />
     <option name="width" value="1133" />
     <option name="height" value="1047" />
@@ -389,7 +390,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="0" width="1133" height="1047" extended-state="1" />
+    <frame x="-7" y="0" width="1133" height="1047" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18442257" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -811,8 +812,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/answer/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1139">
-          <caret line="205" column="30" lean-forward="false" selection-start-line="205" selection-start-column="30" selection-end-line="205" selection-end-column="30" />
+        <state relative-caret-position="476">
+          <caret line="178" column="45" lean-forward="true" selection-start-line="178" selection-start-column="45" selection-end-line="178" selection-end-column="45" />
           <folding>
             <element signature="e#468#507#0" expanded="true" />
           </folding>
@@ -821,8 +822,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/answer/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="578">
-          <caret line="322" column="63" lean-forward="false" selection-start-line="322" selection-start-column="63" selection-end-line="322" selection-end-column="63" />
+        <state relative-caret-position="606">
+          <caret line="323" column="18" lean-forward="true" selection-start-line="323" selection-start-column="18" selection-end-line="323" selection-end-column="18" />
           <folding>
             <element signature="e#15#51#0" expanded="true" />
           </folding>
