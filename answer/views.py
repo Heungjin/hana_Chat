@@ -341,9 +341,24 @@ def message(request):
                 },
             })
 
+        elif User.input_lending > 0 and User.input_salary == 0:
+            # elif input_lending:
+            User.setUserInputSalary(user_key, (return_str).encode('utf-8'))
+
+            print("input_lending 실행됨")
+            return JsonResponse({
+                'message': {
+                    'text': "고객님이 들어가실 집의 전세금액으로" + (return_str).encode('utf-8') +"원을 입력받았습니다. 고객님의 연봉을 입력하여 주세요.\n" +
+                            "주의 - 만원은 생략됩니다.\nex) 4000",
+                },
+                'keyboard': {
+                    'type': 'text'
+                },
+            })
+
         else:
             # elif input_lending:
-            User.setUserInputLending(user_key, (return_str).encode('utf-8'))
+            User.setUserInputSalary(user_key, (return_str).encode('utf-8'))
 
             print("input_lending 실행됨")
             return JsonResponse({
