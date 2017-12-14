@@ -274,7 +274,7 @@ def message(request):
         result_lending = user.input_lending
         result_salary = user.input_salary
         result_loan = user.input_loan
-        result_bank1 = list(LoanGoods.objects.values_list('loan_good_name', flat=True).filter(loan_bank_id=1).filter(money_credit_line > max(result_lending * 0.8, result_salary * 3.5)).order_by('avg_int_rat'))[0]
+        result_bank1 = list(LoanGoods.objects.values_list('loan_good_name', flat=True).filter(loan_bank_id=1).filter(money_credit_line__gte = (max(result_lending * 0.8, result_salary * 3.5))).order_by('avg_int_rat'))[0]
 
         print("하나은행 실행됨")
         return JsonResponse({
@@ -286,7 +286,7 @@ def message(request):
             },
             'keyboard': {
                 'type': 'buttons',
-                'buttons': [result_bank1]
+                'buttons': [result_bank1, '나가기']
             },
         })
 
