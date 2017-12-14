@@ -331,7 +331,6 @@ def message(request):
         # loanGoods = LoanGoods.objects.get(loan_good_name=(return_str).encode('utf-8'))
         if user_check == 0:
             User.createUser(user_key)
-            temp = 0
             return JsonResponse({
                 'message': {
                     'text': "사회초년생에게 맞는 전세자금대출 추천을 시작합니다. \n저희 서비스를 이용하기 위해서는\n" +
@@ -343,7 +342,7 @@ def message(request):
                 },
             })
 
-        elif User.input_lending == 0:
+        elif User.getUser(user_key=user_key).input_lending == 0:
             # elif input_lending:
             User.setUserInputLending(user_key, (return_str).encode('utf-8'))
 
