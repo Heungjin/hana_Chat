@@ -255,7 +255,7 @@ def message(request):
         })
 
     elif input_again:
-        user = User.getUser(user_key)
+        user = User.getUser(user_key=user_key)
         user.delete()
         user.save()
         return JsonResponse({
