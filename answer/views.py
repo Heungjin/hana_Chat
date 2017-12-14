@@ -253,7 +253,8 @@ def message(request):
         })
 
     elif input_again:
-        User.stateClear()
+        user = User.getUser(user_key)
+        user.stateClear()
         return JsonResponse({
             'message': {
                 'text': "다시시작합니다.",
