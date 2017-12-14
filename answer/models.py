@@ -165,26 +165,26 @@ class User(TimeStampedModel):
 
     @staticmethod
     def createUser(user_key):
-        newObj = User.objects.create(user_key=user_key, bank_choice=True)
+        newObj = User.objects.create(user_key=user_key, bank_choice=False)
         newObj.save()
 
     def createUserLending(user_key, input_lending):
-        newObj = User.objects.create(user_key=user_key, bank_choice=True, input_lending=input_lending)
+        newObj = User.objects.create(user_key=user_key, bank_choice=False, input_lending=input_lending)
         newObj.save()
 
     def createUserSalary(user_key, input_salary):
-        newObj = User.objects.create(user_key=user_key, bank_choice=True, input_salary=input_salary)
+        newObj = User.objects.create(user_key=user_key, bank_choice=False, input_salary=input_salary)
         newObj.save()
 
     def createUserLoan(user_key, input_loan):
-        newObj = User.objects.create(user_key=user_key, bank_choice=True, input_loan=input_loan)
+        newObj = User.objects.create(user_key=user_key, bank_choice=False, input_loan=input_loan)
         newObj.save()
 
     @staticmethod
     def setUserState(user_key):
         try:
             user = User.objects.get(user_key=user_key)
-            user.bank_choice = True
+            user.bank_choice = False
             user.save()
         except:
             User.createUser(user_key)
@@ -197,7 +197,7 @@ class User(TimeStampedModel):
             user.bank_choice = True
             user.save()
         except:
-            User.createUser(user_key, input_lending)
+            User.createUser(user_key)
 
     @staticmethod
     def setUserInputSalary(user_key, input_salary):
@@ -207,7 +207,7 @@ class User(TimeStampedModel):
             user.bank_choice = True
             user.save()
         except:
-            User.createUser(user_key, input_salary)
+            User.createUser(user_key)
 
     @staticmethod
     def setUserInputLoan(user_key, input_loan):
@@ -217,7 +217,8 @@ class User(TimeStampedModel):
             user.bank_choice = True
             user.save()
         except:
-            User.createUser(user_key, input_loan)
+            User.createUser(user_key)
+
     @staticmethod
     def getUser(user_key):
         return User.objects.get(user_key=user_key)
