@@ -257,7 +257,7 @@ def message(request):
     elif input_again:
         user = User.getUser(user_key=user_key)
         user.delete()
-        user.save()
+
         return JsonResponse({
             'message': {
                 'text': "다시시작합니다.",
@@ -344,7 +344,6 @@ def message(request):
         else:
             # elif input_lending:
             User.setUserInputLending(user_key, (return_str).encode('utf-8'))
-
 
             print("input_lending 실행됨")
             return JsonResponse({
