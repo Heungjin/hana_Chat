@@ -109,7 +109,7 @@ def message(request):
 
     # if start button check
     print(return_str)
-
+    print("user : " + user)
     # if start:
     #     loanGoods = LoanGoods.objects.get(loan_good_num=1)
     #     User.setUserState(user_key, loanGoods)
