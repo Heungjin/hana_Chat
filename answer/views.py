@@ -274,7 +274,7 @@ def message(request):
         result_lending = user.input_lending
         result_salary = user.input_salary
         result_loan = user.input_loan
-        result_bank1 = list(LoanGoods.objects.values_list('loan_good_name', flat=True).filter(loan_bank_id=1).order_by('-avg_int_rate'))[0]
+        result_bank1 = list(LoanGoods.objects.values_list('loan_good_name', flat=True).filter(loan_bank_id=1).order_by('-avg_int_rat'))[0]
 
         print("하나은행 실행됨")
         return JsonResponse({
@@ -356,7 +356,7 @@ def message(request):
             user.delete()
             return JsonResponse({
                 'message': {
-                    'text': "잘못입력하셨습니다"
+                    'text': "세션의 정보가 남아있어 세션을 초기화 하였습니다. \n다시 시작하기 버튼을 눌러주세요"
                 },
                 'keyboard': {
                     'type': 'buttons',
