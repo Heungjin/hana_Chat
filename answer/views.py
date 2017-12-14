@@ -274,7 +274,8 @@ def message(request):
         result_lending = user.input_lending
         result_salary = user.input_salary
         result_loan = user.input_loan
-        result_bank1 = list(LoanGoods.objects.values_list('loan_good_name', flat=True).filter(loan_bank_id=1).filter(money_credit_line__gte = result_loan).order_by('avg_int_rat'))[0]
+        result_bank1 = list(LoanGoods.objects.values_list('loan_good_name', flat=True).filter(loan_bank_id=1)
+                            .filter(money_credit_line__lte=result_loan).order_by('avg_int_rat'))[0]
 
         print("하나은행 실행됨")
         return JsonResponse({
@@ -282,7 +283,7 @@ def message(request):
                 'text': "고객님께서 입력하신 값은 \n전세금 : " + str(result_lending) + "\n연봉 : " + str(result_salary) + "\n대출금 : " +
                         str(result_loan) + "\n은행 : 하나은행 입니다. \n\n고객님께서 대출 받으실 수 있는 최고 한도는 " +
                         str(max(result_lending * 0.8, result_salary * 3.5)) + "(연봉 * 3.5와 전세금의 80%중 높은값)입니다." +
-                "\n하월은 위와같은 조건에서 아래의 상품을 추천합니다. (같은 조건의 상품중 최저금리 상품)",
+                "\n하월은 위와같은 조건에서 아래의 상품을 추천합니다. (조건에 맞는 상품중 최저금리 상품)",
             },
             'keyboard': {
                 'type': 'buttons',
