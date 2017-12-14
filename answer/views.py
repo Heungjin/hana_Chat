@@ -324,7 +324,7 @@ def message(request):
     #     })
 
     else:
-        if User.user_key is None:
+        if user.user_key is None:
             User.setUserState(user_key)
             return JsonResponse({
                 'message': {
