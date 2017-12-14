@@ -369,7 +369,7 @@ def check_is_start(str):
 
 
 def check_is_inputAgain(str):
-    if str == ("다시").decode('utf-8') | str == ("처음").decode('utf-8') | str == ("처음으로").decode('utf-8'):
+    if str == ("다시").decode('utf-8') or str == ("처음").decode('utf-8') or str == ("처음으로").decode('utf-8'):
         return True
     else:
         return False
