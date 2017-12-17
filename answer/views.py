@@ -278,17 +278,15 @@ def message(request):
         #                     .filter(money_credit_line__gte=result_loan*10000).order_by('avg_int_rat'))[0]
 
         result_bank1 = list(LoanGoods.objects.values_list('loan_good_name', flat=True).filter(loan_bank_id=1)
-                            .filter(money_credit_line__gte=result_loan*10000).order_by('avg_int_rat'))
+                            .filter(money_credit_line__gte=result_loan*10000).order_by('avg_int_rat'))[0]
+        result_bank1.append('나가기')
+        print(result_bank1)
 
-        print(result_bank1.count())
-
-        if (result_bank1.count()):
-            result_bank1 = result_bank1[0]
-        else:
-            result_bank1 = "조건에 맞는 은행없음"
-
+        if (result_bank1=='나가기'):
+            result_bank1.append('조건에 맞는 은행없음')
 
         print("하나은행 실행됨")
+
         return JsonResponse({
             'message': {
                 'text': "고객님께서 입력하신 값은 \n전세금 : " + str(result_lending) + "만원\n연봉 : " + str(result_salary) + "만원\n대출금 : " +
@@ -298,7 +296,7 @@ def message(request):
             },
             'keyboard': {
                 'type': 'buttons',
-                'buttons': [result_bank1, '나가기']
+                'buttons': result_bank1
             },
         })
 
