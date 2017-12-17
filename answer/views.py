@@ -274,15 +274,13 @@ def message(request):
         result_lending = user.input_lending
         result_salary = user.input_salary
         result_loan = user.input_loan
-        result_bank1 = list(LoanGoods.objects.values_list('loan_good_name', flat=True).filter(loan_bank_id=1)
-                            .filter(money_credit_line__gte=result_loan*10000).order_by('avg_int_rat'))[0]
+        # result_bank1 = list(LoanGoods.objects.values_list('loan_good_name', flat=True).filter(loan_bank_id=1)
+        #                     .filter(money_credit_line__gte=result_loan*10000).order_by('avg_int_rat'))[0]
 
+        result_bank1 = list(LoanGoods.objects.values_list('loan_good_name', flat=True).filter(loan_bank_id=1)
+                            .filter(money_credit_line__gte=result_loan*10000).order_by('avg_int_rat'))
         print(result_bank1)
-        if(result_bank1 == 1):
-            return result_bank1
-        else:
-            return "조건에 맞는 상품 없음"
-            
+
         print("하나은행 실행됨")
         return JsonResponse({
             'message': {
