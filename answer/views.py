@@ -5,7 +5,7 @@ from answer.models import LoanGoods, StatisticAge2, StatisticList2, StatisticLoa
 import json
 
 
-button_list = ['시작하기', '모든 전세상품(랭킹순)', '실시간 통계보기', '우리는 하월이다', '도움말']
+button_list = ['시작하기', '모든 전세상품(랭킹순)', '실시간 통계보기', '도움말']
 stat_list = ['실시간 고객 나이대별 선호은행', '실시간 고객 대출액별 선호은행', '실시간 고객 연봉', '나가기']
 start_list = ['전세금액입력', '연봉입력', '대출받으실 금액입력', '계산하기', '입력정보 초기화','나가기']
 LoanGoodsList = list(LoanGoods.objects.values_list('loan_good_name', flat=True))[2:5]
@@ -274,9 +274,7 @@ def message(request):
         result_lending = user.input_lending
         result_salary = user.input_salary
         result_loan = user.input_loan
-        # result_bank1 = list(LoanGoods.objects.values_list('loan_good_name', flat=True).filter(loan_bank_id=1)
-        #                     .filter(money_credit_line__gte=result_loan*10000).order_by('avg_int_rat'))[0]
-
+        
         result_bank1 = list(LoanGoods.objects.values_list('loan_good_name', flat=True).filter(loan_bank_id=1)
                             .filter(money_credit_line__gte=result_loan*10000).order_by('avg_int_rat'))
         result_bank1.append('empty')
@@ -306,6 +304,85 @@ def message(request):
                 'buttons': result_bank1
             },
         })
+
+    # 신한은행
+    elif input_bank2:
+        User.setUserInputBank(user_key, 2)
+        user = User.getUser(user_key=user_key)
+        result_lending = user.input_lending
+        result_salary = user.input_salary
+        result_loan = user.input_loan
+
+        result_bank2 = list(LoanGoods.objects.values_list('loan_good_name', flat=True).filter(loan_bank_id=2)
+                            .filter(money_credit_line__gte=result_loan*10000).order_by('avg_int_rat'))
+        result_bank2.append('empty')
+        print(len(result_bank2))
+
+        if (len(result_bank2) == 1):
+            result_bank2 = []
+            result_bank2.append('조건에 맞는 은행없음')
+            result_bank2.append('나가기')
+        else:
+            result_bank2.insert(0, result_bank2[0])
+            for i in range((len(result_bank2)-1)):
+                result_bank2.pop()
+                print(i)
+            result_bank2.append('나가기')
+
+        print("신한은행 실행됨")
+        return JsonResponse({
+            'message': {
+                'text': "고객님께서 입력하신 값은 \n전세금 : " + str(result_lending) + "만원\n연봉 : " + str(result_salary) + "만원\n대출금 : " +
+                        str(result_loan) + "만원\n은행 : 하나은행 입니다. \n\n고객님께서 대출 받으실 수 있는 최고 한도는 " +
+                        str(min(result_lending * 0.8, result_salary * 3.5)) + "만원(연봉 * 3.5와 전세금의 80%중 낮은값)입니다." +
+                "\n\n하월은 위와같은 조건에서 아래의 상품을 추천합니다. (조건에 맞는 상품중 최저금리 상품)",
+            },
+            'keyboard': {
+                'type': 'buttons',
+                'buttons': result_bank2
+            },
+        })
+
+    # 우리은행
+    elif input_bank3:
+        User.setUserInputBank(user_key, 3)
+        user = User.getUser(user_key=user_key)
+        result_lending = user.input_lending
+        result_salary = user.input_salary
+        result_loan = user.input_loan
+
+        result_bank3 = list(LoanGoods.objects.values_list('loan_good_name', flat=True).filter(loan_bank_id=3)
+                            .filter(money_credit_line__gte=result_loan*10000).order_by('avg_int_rat'))
+        result_bank3.append('empty')
+        print(len(result_bank3))
+
+        if (len(result_bank3) == 1):
+            result_bank3 = []
+            result_bank3.append('조건에 맞는 은행없음')
+            result_bank3.append('나가기')
+        else:
+            result_bank3.insert(0, result_bank3[0])
+            for i in range((len(result_bank3)-1)):
+                result_bank3.pop()
+                print(i)
+            result_bank3.append('나가기')
+
+        print("신한은행 실행됨")
+        return JsonResponse({
+            'message': {
+                'text': "고객님께서 입력하신 값은 \n전세금 : " + str(result_lending) + "만원\n연봉 : " + str(result_salary) + "만원\n대출금 : " +
+                        str(result_loan) + "만원\n은행 : 하나은행 입니다. \n\n고객님께서 대출 받으실 수 있는 최고 한도는 " +
+                        str(min(result_lending * 0.8, result_salary * 3.5)) + "만원(연봉 * 3.5와 전세금의 80%중 낮은값)입니다." +
+                "\n\n하월은 위와같은 조건에서 아래의 상품을 추천합니다. (조건에 맞는 상품중 최저금리 상품)",
+            },
+            'keyboard': {
+                'type': 'buttons',
+                'buttons': result_bank3
+            },
+        })
+
+
+
 
     else:
         # loanGoods = LoanGoods.objects.get(loan_good_name=(return_str).encode('utf-8'))
