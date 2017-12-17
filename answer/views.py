@@ -276,7 +276,8 @@ def message(request):
         result_loan = user.input_loan
         result_bank1 = list(LoanGoods.objects.values_list('loan_good_name', flat=True).filter(loan_bank_id=1)
                             .filter(money_credit_line__gte=result_loan*10000).order_by('avg_int_rat'))[0]
-        if(result_bank1):
+        print(result_bank1)
+        if(result_bank1 == 1):
             return result_bank1
         else:
             return ("조건에 맞는 상품 없음").decode('utf-8')
