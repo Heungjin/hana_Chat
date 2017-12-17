@@ -113,8 +113,8 @@ def message(request):
 
 
     # if start button check
-    print(return_str) # 리턴문 확인용
-    print(user_check) # 세션확인용
+    print("리턴확인 : " + return_str) # 리턴문 확인용
+    print("세션확인 : " + user_check) # 세션확인용
 
     # 전체랭킹보기 버튼
     if rankAll:
@@ -281,16 +281,18 @@ def message(request):
                             .filter(money_credit_line__gte=result_loan*10000).order_by('avg_int_rat'))
         result_bank1.append('empty')
 
-        print(result_bank1)
+        print(len(result_bank1))
 
-        if (result_bank1[0] == 'empty'):
-            result_bank1 = []
-            result_bank1.append('조건에 맞는 은행없음')
-            result_bank1.append('나가기')
-        else:
-            result_bank1 = []
-            result_bank1.append(result_bank1[0])
-            result_bank1.append('나가기')
+        # if (result_bank1[0] == 'empty'):
+        #     result_bank1 = []
+        #     result_bank1.append('조건에 맞는 은행없음')
+        #     result_bank1.append('나가기')
+        # else:
+        #     result_bank1.insert(0, result_bank1[0])
+        #     for (i in len(result_bank1)):
+        #         result_bank1.pop()
+        #         result_bank1.append('나가기')
+        #         print(i)
 
 
         print("하나은행 실행됨")
