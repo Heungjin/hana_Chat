@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6b8113a2-97c0-4307-be2f-5a0207002dde" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/answer/views.py" afterPath="$PROJECT_DIR$/answer/views.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -12,13 +11,35 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="DockManager">
+    <window id="1">
+      <content type="file-editors">
+        <state>
+          <leaf>
+            <file leaf-file-name="models.py" pinned="false" current-in-tab="true">
+              <entry file="file://$PROJECT_DIR$/answer/models.py">
+                <provider selected="true" editor-type-id="text-editor">
+                  <state relative-caret-position="-757">
+                    <caret line="103" column="21" lean-forward="false" selection-start-line="103" selection-start-column="4" selection-end-line="103" selection-end-column="21" />
+                    <folding>
+                      <element signature="e#468#507#0" expanded="true" />
+                    </folding>
+                  </state>
+                </provider>
+              </entry>
+            </file>
+          </leaf>
+        </state>
+      </content>
+    </window>
+  </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/answer/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1106">
-              <caret line="344" column="31" lean-forward="false" selection-start-line="344" selection-start-column="31" selection-end-line="344" selection-end-column="31" />
+            <state relative-caret-position="647">
+              <caret line="281" column="51" lean-forward="true" selection-start-line="281" selection-start-column="51" selection-end-line="281" selection-end-column="51" />
               <folding>
                 <element signature="e#15#51#0" expanded="true" />
               </folding>
@@ -587,7 +608,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/answer/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
+        <state relative-caret-position="-757">
           <caret line="103" column="21" lean-forward="false" selection-start-line="103" selection-start-column="4" selection-end-line="103" selection-end-column="21" />
           <folding>
             <element signature="e#468#507#0" expanded="true" />
@@ -597,8 +618,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/answer/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1106">
-          <caret line="344" column="31" lean-forward="false" selection-start-line="344" selection-start-column="31" selection-end-line="344" selection-end-column="31" />
+        <state relative-caret-position="647">
+          <caret line="281" column="51" lean-forward="true" selection-start-line="281" selection-start-column="51" selection-end-line="281" selection-end-column="51" />
           <folding>
             <element signature="e#15#51#0" expanded="true" />
           </folding>

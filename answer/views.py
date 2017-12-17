@@ -276,7 +276,11 @@ def message(request):
         result_loan = user.input_loan
         result_bank1 = list(LoanGoods.objects.values_list('loan_good_name', flat=True).filter(loan_bank_id=1)
                             .filter(money_credit_line__gte=result_loan*10000).order_by('avg_int_rat'))[0]
-
+        if(result_bank1):
+            return result_bank1
+        else:
+            return ("조건에 맞는 상품 없음").decode('utf-8')
+            
         print("하나은행 실행됨")
         return JsonResponse({
             'message': {
@@ -299,7 +303,7 @@ def message(request):
                 'message': {
                     'text': "사회초년생에게 맞는 전세자금대출 추천을 시작합니다. \n\n저희 서비스를 이용하기 위해서는\n" +
                     "총 4가지 정보가 필요합니다. \n\n고객님께서 들어가실 집의 전세금액, 연봉, 대출금액, 그리고 주거래 은행 이 필요합니다.\n\n" +
-                    "우선 고객님이 들어가실 집의 전세금액을 입력해 주세요. \nex) 9000",
+                    "우선 고객님이 들어가실 집의 전세금액을 입력해 주세요.\n주의 - 만원은 생략됩니다 . \nex) 9000",
                 },
                 'keyboard': {
                     'type': 'text'
