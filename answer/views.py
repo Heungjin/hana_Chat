@@ -288,7 +288,7 @@ def message(request):
             result_bank1.append('나가기')
         else:
             result_bank1.insert(0, result_bank1[0])
-            for i in len(result_bank1)-1:
+            for i in (len(result_bank1)-1):
                 result_bank1.pop()
                 print(i)
             result_bank1.append('나가기')
