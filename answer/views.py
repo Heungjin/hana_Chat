@@ -280,20 +280,18 @@ def message(request):
         result_bank1 = list(LoanGoods.objects.values_list('loan_good_name', flat=True).filter(loan_bank_id=1)
                             .filter(money_credit_line__gte=result_loan*10000).order_by('avg_int_rat'))
         result_bank1.append('empty')
-
         print(len(result_bank1))
 
-        # if (result_bank1[0] == 'empty'):
-        #     result_bank1 = []
-        #     result_bank1.append('조건에 맞는 은행없음')
-        #     result_bank1.append('나가기')
-        # else:
-        #     result_bank1.insert(0, result_bank1[0])
-        #     for (i in len(result_bank1)):
-        #         result_bank1.pop()
-        #         result_bank1.append('나가기')
-        #         print(i)
-
+        if (len(result_bank1) == 1):
+            result_bank1 = []
+            result_bank1.append('조건에 맞는 은행없음')
+            result_bank1.append('나가기')
+        else:
+            result_bank1.insert(0, result_bank1[0])
+            for i in len(result_bank1)-1:
+                result_bank1.pop()
+                print(i)
+            result_bank1.append('나가기')
 
         print("하나은행 실행됨")
         return JsonResponse({
