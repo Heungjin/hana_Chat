@@ -282,7 +282,7 @@ def message(request):
             'message': {
                 'text': "고객님께서 입력하신 값은 \n전세금 : " + str(result_lending) + "만원\n연봉 : " + str(result_salary) + "만원\n대출금 : " +
                         str(result_loan) + "만원\n은행 : 하나은행 입니다. \n\n고객님께서 대출 받으실 수 있는 최고 한도는 " +
-                        str(max(result_lending * 0.8, result_salary * 3.5)) + "만원(연봉 * 3.5와 전세금의 80%중 높은값)입니다." +
+                        str(min(result_lending * 0.8, result_salary * 3.5)) + "만원(연봉 * 3.5와 전세금의 80%중 낮은값)입니다." +
                 "\n하월은 위와같은 조건에서 아래의 상품을 추천합니다. (조건에 맞는 상품중 최저금리 상품)",
             },
             'keyboard': {
@@ -297,8 +297,8 @@ def message(request):
             User.createUser(user_key)
             return JsonResponse({
                 'message': {
-                    'text': "사회초년생에게 맞는 전세자금대출 추천을 시작합니다. \n저희 서비스를 이용하기 위해서는\n" +
-                    "총 4가지 정보가 필요합니다. \n고객님께서 들어가실 집의 전세금액, 연봉, 대출금액, 그리고 주거래 은행 이 필요합니다.\n" +
+                    'text': "사회초년생에게 맞는 전세자금대출 추천을 시작합니다. \n\n저희 서비스를 이용하기 위해서는\n" +
+                    "총 4가지 정보가 필요합니다. \n\n고객님께서 들어가실 집의 전세금액, 연봉, 대출금액, 그리고 주거래 은행 이 필요합니다.\n\n" +
                     "우선 고객님이 들어가실 집의 전세금액을 입력해 주세요. \nex) 9000",
                 },
                 'keyboard': {
@@ -312,7 +312,7 @@ def message(request):
             print("input_lending 실행됨")
             return JsonResponse({
                 'message': {
-                    'text': "고객님이 들어가실 집의 전세금액으로" + (return_str).encode('utf-8') +"원을 입력받았습니다. 고객님의 연봉을 입력하여 주세요.\n" +
+                    'text': "고객님이 들어가실 집의 전세금액으로" + (return_str).encode('utf-8') +"만원을 입력받았습니다. \n\n고객님의 연봉을 입력하여 주세요.\n" +
                             "주의 - 만원은 생략됩니다.\nex) 2400\n\n입력창에 다시 라고 입력하시면 다시입력하실 수 있습니다.",
                 },
                 'keyboard': {
@@ -326,7 +326,7 @@ def message(request):
             print("input_salary 실행됨")
             return JsonResponse({
                 'message': {
-                    'text': "고객님의 연봉으로" + (return_str).encode('utf-8') + "원을 입력받았습니다. 고객님께서 필요하신" +
+                    'text': "고객님의 연봉으로" + (return_str).encode('utf-8') + "만원을 입력받았습니다. \n\n고객님께서 필요하신" +
                             " 대출금액을 입력하여 주세요.\n" +
                             "주의 - 만원은 생략됩니다.\nex) 7000\n\n입력창에 다시 라고 입력하시면 다시입력하실 수 있습니다.",
                 },
@@ -341,8 +341,8 @@ def message(request):
             print("input_loan 실행됨")
             return JsonResponse({
                 'message': {
-                    'text': "고객님의 대출금으로" + (return_str).encode('utf-8') + "원을 입력받았습니다. \n마지막 입니다!" +
-                            "주 거래은행을 선택하여 주세요",
+                    'text': "고객님의 대출금으로" + (return_str).encode('utf-8') + "만원을 입력받았습니다. \n\n마지막 입니다!" +
+                            "\n주 거래은행을 선택하여 주세요",
                 },
                 'keyboard': {
                     'type': 'buttons',
