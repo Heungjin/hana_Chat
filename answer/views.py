@@ -288,7 +288,7 @@ def message(request):
             result_bank1.append('나가기')
         else:
             result_bank1.insert(0, result_bank1[0])
-            for i in (len(result_bank1)-1):
+            for i in range((len(result_bank1)-1)):
                 result_bank1.pop()
                 print(i)
             result_bank1.append('나가기')
@@ -299,7 +299,7 @@ def message(request):
                 'text': "고객님께서 입력하신 값은 \n전세금 : " + str(result_lending) + "만원\n연봉 : " + str(result_salary) + "만원\n대출금 : " +
                         str(result_loan) + "만원\n은행 : 하나은행 입니다. \n\n고객님께서 대출 받으실 수 있는 최고 한도는 " +
                         str(min(result_lending * 0.8, result_salary * 3.5)) + "만원(연봉 * 3.5와 전세금의 80%중 낮은값)입니다." +
-                "\n하월은 위와같은 조건에서 아래의 상품을 추천합니다. (조건에 맞는 상품중 최저금리 상품)",
+                "\n\n하월은 위와같은 조건에서 아래의 상품을 추천합니다. (조건에 맞는 상품중 최저금리 상품)",
             },
             'keyboard': {
                 'type': 'buttons',
