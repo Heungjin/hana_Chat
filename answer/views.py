@@ -113,8 +113,8 @@ def message(request):
 
 
     # if start button check
-    print("리턴확인 : " + return_str).encode('utf-8') # 리턴문 확인용
-    print("세션확인 : " + user_check).encode('utf-8') # 세션확인용
+    print(("리턴확인 : ").decode('utf-8') + return_str) # 리턴문 확인용
+    print(("세션확인 : ").decode('utf-8') + user_check) # 세션확인용
 
     # 전체랭킹보기 버튼
     if rankAll:
